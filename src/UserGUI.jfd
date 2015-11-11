@@ -1,0 +1,110 @@
+JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_40" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {comp label1:::::x, seq {par l {comp Bio:::p:150:p, comp NewPost::l:p:150:p, comp PostedChirps::l:p:150:p}, space s:::p, comp Chirp1:::p:650:p, space :0:259:x}}, space :::p}, seq {par l {comp Newsfeed::l:p:150:p, comp ReceivedChirps::l:p:150:p, comp SearchProfiles::l:p:150:p, comp SentChirps::l:p:150:p, comp SearchTopics::l:p:150:p, comp Logout::l:p:150:p}, space s:::p, par l {comp Chirp2:::p:650:p, comp Chirp3::l:p:650:p, comp Chirp4::l:p:650:p, comp Chirp5::l:p:650:p}}}}}"
+			"$verticalGroup": "par l {seq l {space s:::p, comp label1:::p:128:p, space u:::p, par l {seq {comp Bio:::p::p, space u:::p, comp NewPost:::p::p, space u:::p, comp PostedChirps:::p::p}, comp Chirp1:::p:130:p}, space u:::p, par l {seq {comp Newsfeed:::p::p, space :p:12:p, comp ReceivedChirps:::p::p, space u:::p, comp SentChirps:::p::p}, comp Chirp2:::p:130:p}, space u:::p, par l {seq l {comp Chirp3:::p:130:p, space u:::p, comp Chirp4:::p:130:p, space u:::p, comp Chirp5:::p:130:p}, seq l {comp SearchProfiles:::p::p, space u:::p, comp SearchTopics:::p::p, space u:::p, comp Logout:::p::p}}, space ::35:x}}"
+		} ) {
+			name: "UserGUI"
+			"background": new java.awt.Color( 255, 255, 255, 255 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Chirpy"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 30, false )
+				"background": sfield java.awt.Color cyan
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Bio"
+				"text": "Bio"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "BioActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "NewPost"
+				"text": "New Post"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "NewPostActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "PostedChirps"
+				"text": "Posted Chirps"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "PostedChirpsActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Newsfeed"
+				"text": "Newsfeed"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "NewsfeedActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "ReceivedChirps"
+				"text": "Received Chirps"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ReceivedChirpsActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "SentChirps"
+				"text": "Sent Chirps"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "SentChirpsActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "SearchProfiles"
+				"text": "Search Profiles"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "SearchProfilesActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "SearchTopics"
+				"text": "Search Topics"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "SearchTopicsActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Logout"
+				"text": "Logout"
+				"background": sfield java.awt.Color cyan
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "LogoutActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JTextPane" ) {
+				name: "Chirp1"
+				"text": "TEST"
+				"editable": false
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				"background": sfield java.awt.Color cyan
+			} )
+			add( new FormComponent( "javax.swing.JTextPane" ) {
+				name: "Chirp2"
+				"text": "TEST"
+				"editable": false
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				"background": sfield java.awt.Color cyan
+			} )
+			add( new FormComponent( "javax.swing.JTextPane" ) {
+				name: "Chirp3"
+				"text": "TEST"
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				"background": sfield java.awt.Color cyan
+			} )
+			add( new FormComponent( "javax.swing.JTextPane" ) {
+				name: "Chirp4"
+				"text": "TEST"
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
+				"background": sfield java.awt.Color cyan
+			} )
+			add( new FormComponent( "javax.swing.JTextPane" ) {
+				name: "Chirp5"
+				"text": "TEST"
+				"background": sfield java.awt.Color cyan
+				"foreground": sfield java.awt.Color black
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 375, 0 )
+			"size": new java.awt.Dimension( 1105, 925 )
+		} )
+	}
+}
