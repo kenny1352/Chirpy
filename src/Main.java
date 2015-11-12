@@ -6,12 +6,12 @@ import java.lang.*;
 public class Main {
 
    public static void main(String[] args) {
-       UserGUI2 gui = new UserGUI2();
+       HomepageGUI gui = new HomepageGUI();
     }
 }
 
-class UserGUI2 extends JFrame {
-    public UserGUI2() {
+class HomepageGUI extends JFrame {
+    public HomepageGUI() {
         initComponents();
         setVisible(true);
     }
