@@ -6,8 +6,8 @@ import java.util.Date;
  */
 public class Message {
 
-    public Message (User a, User tempR, Date tempT, String tempC, int tempP) {
-        author = a;
+    public Message (User tempA, User tempR, Date tempT, String tempC, int tempP) {
+        author = tempA;
         recipient = tempR;
         timestamp = tempT;
         content = tempC;
