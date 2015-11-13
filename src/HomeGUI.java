@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * Created by Hannah on 11/12/2015.
@@ -9,6 +13,27 @@ public class HomeGUI extends JFrame {
     public HomeGUI() {
         initComponents();
         setVisible(false);
+    }
+
+    public void createConnection(String username, char[] password) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        }
+        catch (Exception ex) {
+            //handle exception
+        }
+
+        try {
+            Properties connection = new Properties();
+            connection.put("user", username);
+            connection.put("password", password);
+            conn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/", connection);
+        }
+        catch (SQLException sqlex) {
+            System.out.println("SQLException: " + sqlex.getMessage());
+            System.out.println("SQLState: " + sqlex.getSQLState());
+            System.out.println("VendorError: " + sqlex.getErrorCode());
+        }
     }
 
     private void BioActionPerformed(ActionEvent e) {
@@ -51,6 +76,7 @@ public class HomeGUI extends JFrame {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - James Campbell
         //UserGUI = new JFrame();
+        conn = null;
         label1 = new JLabel();
         Bio = new JButton();
         NewPost = new JButton();
@@ -232,6 +258,7 @@ public class HomeGUI extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - James Campbell
     //private JFrame UserGUI;
+    private Connection conn;
     private JLabel label1;
     private JButton Bio;
     private JButton NewPost;
