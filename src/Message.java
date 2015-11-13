@@ -46,17 +46,6 @@ public class Message {
         content = tempC;
     }
 
-    public String toString() {
-        String string = author.getUsername();
-        if (recipient.getUsername() != null) {
-            string = string + " @" + recipient.getUsername();
-        }
-        string = string + "\n" ;
-
-        // NOT FINISHED
-        return string;
-    }
-
     private String getTimeString() {
         String timeString = "";
 
