@@ -34,7 +34,11 @@ public class Message {
     }
 
     public String toString(){
-        String chirpstring = "";
+        String chirpstring = author.getUsername();
+        if (!recipient.getUsername().equals(null)) {
+            chirpstring = chirpstring + " @" + recipient.getUsername();
+        }
+        chirpstring = chirpstring + "\n" + content + "\n" + timestamp.toString() + "\n";
 
         return chirpstring;
     }
