@@ -35,7 +35,7 @@ public class Message {
     }
 
     public String toString(){
-        String chirpstring;
+        String chirpstring = "";
         
         return chirpstring;
     }
