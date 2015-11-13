@@ -40,6 +40,7 @@ new FormModel {
 							add( new FormComponent( "javax.swing.JButton" ) {
 								name: "button2"
 								"text": "Newsfeed"
+								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "right"
 							} )

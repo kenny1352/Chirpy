@@ -24,9 +24,14 @@ public class HomePageGUI extends JSplitPane {
         textField2.setVisible(true);
     }
 
+    private void button2ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void button3ActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -89,6 +94,7 @@ public class HomePageGUI extends JSplitPane {
 
                         //---- button2 ----
                         button2.setText("Newsfeed");
+                        button2.addActionListener(e -> button2ActionPerformed(e));
                         splitPane5.setBottomComponent(button2);
                     }
                     splitPane3.setTopComponent(splitPane5);

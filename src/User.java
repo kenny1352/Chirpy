@@ -18,6 +18,8 @@ public class User {
         return password;
     }
 
+    public String getBio() { return bio; }
+
     private String username;
     private String password;
     private String bio;
