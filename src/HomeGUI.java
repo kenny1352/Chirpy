@@ -44,7 +44,7 @@ public class HomeGUI extends JFrame {
     }
 
     private void LogoutActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        dispose();
     }
 
     private void initComponents() {

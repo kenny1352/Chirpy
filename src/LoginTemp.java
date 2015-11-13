@@ -12,7 +12,8 @@ public class LoginTemp extends JFrame {
     }
 
     private void LoginActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        homepage = new HomeGUI();
+        homepage.setVisible(true);
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
@@ -139,6 +140,7 @@ public class LoginTemp extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - James Campbell
+    private HomeGUI homepage;
     private JTextField Username;
     private JPasswordField Password;
     private JLabel Title;
