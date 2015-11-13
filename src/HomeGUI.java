@@ -20,7 +20,7 @@ public class HomeGUI extends JFrame {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         }
         catch (Exception ex) {
-            //handle exception
+            // TODO handle exception
         }
 
         try {

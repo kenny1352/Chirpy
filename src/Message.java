@@ -14,6 +14,33 @@ public class Message {
         publicSetting = tempP;
 
         //pull hashtags from content
+        findHashtags(); // see private method below (Hannah's code)
+
+        //also somehow give it IDcode based on database
+    }
+
+    /**
+     * Constructs a Message object with no recipient.
+     * @param tempA the User who wrote the Chirp
+     * @param tempC the String content of the Chirp
+     * @param tempP the publicity setting (true==public, false==subscribersOnly)
+     */
+    public Message (User tempA, String tempC, Boolean tempP) {
+        author = tempA;
+        timestamp = new Date();
+        content = tempC;
+        publicSetting = tempP;
+        findHashtags();
+    }
+
+    public String toString(){
+        String chirpstring = "";
+
+        return chirpstring;
+    }
+
+    private void findHashtags() {
+        //pull hashtags from content
         boolean reading=false;
         String topicstring="";
         for(int i=0; i<content.length(); i++) {
@@ -30,28 +57,6 @@ public class Message {
                 hashtag.add(topicstring);
             }
         }
-
-        //also somehow give it IDcode based on database
-    }
-
-    public String toString(){
-        String chirpstring = "";
-        
-        return chirpstring;
-    }
-
-    public Message (User tempA, String tempC, Boolean tempP) {
-        author = tempA;
-        timestamp = new Date();
-        content = tempC;
-    }
-
-    private String getTimeString() {
-        String timeString = "";
-
-        //
-
-        return timeString;
     }
 
     private User author;

@@ -25,5 +25,5 @@ public class User {
     private String bio;
     private ArrayList<String> messageList;
     private ArrayList<String> privateList;
-    private ArrayList<String> subscription;
+    private ArrayList<String> subscriptions;
 }
