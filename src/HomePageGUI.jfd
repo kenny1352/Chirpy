@@ -17,116 +17,85 @@ new FormModel {
 			} )
 			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
 				name: "splitPane1"
-				"resizeWeight": 0.2
-				add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-					name: "splitPane2"
-					"orientation": 0
-					"resizeWeight": 0.5
-					add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-						name: "splitPane3"
-						"orientation": 0
-						"resizeWeight": 0.55
-						add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-							name: "splitPane5"
-							"orientation": 0
-							"resizeWeight": 0.5
-							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "bioButton"
-								"text": "Bio"
-								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "left"
-							} )
-							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "newsfeedButton"
-								"text": "Newsfeed"
-								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "right"
-							} )
-						}, new FormLayoutConstraints( class java.lang.String ) {
-							"value": "left"
-						} )
-						add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-							name: "splitPane6"
-							"orientation": 0
-							"resizeWeight": 0.3
-							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "newChirpButton"
-								"text": "New Chirp"
-								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "left"
-							} )
-							add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-								name: "splitPane9"
-								"orientation": 0
-								"resizeWeight": 0.5
-								add( new FormComponent( "javax.swing.JButton" ) {
-									name: "postedChirpsButton"
-									"text": "Posted Chirps"
-								}, new FormLayoutConstraints( class java.lang.String ) {
-									"value": "left"
-								} )
-								add( new FormComponent( "javax.swing.JButton" ) {
-									name: "receivedChirpsButton"
-									"text": "Recieved Chirps"
-								}, new FormLayoutConstraints( class java.lang.String ) {
-									"value": "right"
-								} )
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "right"
-							} )
-						}, new FormLayoutConstraints( class java.lang.String ) {
-							"value": "right"
-						} )
-					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "left"
+				"dividerLocation": 180
+				"continuousLayout": true
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "0"
+					"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0"
+					"$hGap": 5
+					"$vGap": 5
+					"$alignLeft": true
+					"$alignTop": true
+				} ) {
+					name: "menuPanel"
+					"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+					"font": new java.awt.Font( "Segoe UI", 0, 14 )
+					"preferredSize": new java.awt.Dimension( 180, 390 )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "bioButton"
+						"text": "Bio"
+						"preferredSize": new java.awt.Dimension( 50, 40 )
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "newsfeedButton"
+						"text": "Newsfeed"
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 1
 					} )
-					add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-						name: "splitPane4"
-						"orientation": 0
-						"resizeWeight": 0.5
-						add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-							name: "splitPane7"
-							"orientation": 0
-							"resizeWeight": 0.5
-							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "sentChirpsButton"
-								"text": "Sent Chirps"
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "left"
-							} )
-							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "searchProfilesButton"
-								"text": "Search Profiles"
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "right"
-							} )
-						}, new FormLayoutConstraints( class java.lang.String ) {
-							"value": "left"
-						} )
-						add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
-							name: "splitPane8"
-							"orientation": 0
-							"resizeWeight": 0.5
-							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "searchTopicsButton"
-								"text": "Search Topics"
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "left"
-							} )
-							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "logoutButton"
-								"text": "Logout"
-							}, new FormLayoutConstraints( class java.lang.String ) {
-								"value": "right"
-							} )
-						}, new FormLayoutConstraints( class java.lang.String ) {
-							"value": "right"
-						} )
-					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "right"
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "newChirpButton"
+						"text": "New Chirp"
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 2
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "postedChirpsButton"
+						"text": "View Posted Chirps"
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"maximumSize": new java.awt.Dimension( 164, 38 )
+						"preferredSize": new java.awt.Dimension( 170, 38 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 3
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "receivedChirpsButton"
+						"text": "View Recieved Chirps"
+						"preferredSize": new java.awt.Dimension( 180, 32 )
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 4
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "setChirpsButton"
+						"text": "View Sent Chirps"
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 5
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "searchProfilesButton"
+						"text": "Search Profiles"
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 6
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "searchTopicsButton"
+						"text": "Search Topics"
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 7
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "logoutButton"
+						"text": "Logout"
+						"preferredSize": new java.awt.Dimension( 75, 32 )
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 8
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "left"
@@ -137,6 +106,7 @@ new FormModel {
 						name: "displayField"
 						"editable": false
 						"text": "hjgfkgf"
+						"margin": new java.awt.Insets( 15, 15, 15, 5 )
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "right"

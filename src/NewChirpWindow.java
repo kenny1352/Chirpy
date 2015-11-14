@@ -20,6 +20,8 @@ public class NewChirpWindow extends JFrame {
         // Generated using JFormDesigner Evaluation license - Catherine Merz
         dialogPane = new JPanel();
         contentPanel = new JPanel();
+        scrollPane1 = new JScrollPane();
+        textPane1 = new JTextPane();
         buttonBar = new JPanel();
         okButton = new JButton();
         cancelButton = new JButton();
@@ -27,6 +29,7 @@ public class NewChirpWindow extends JFrame {
         //======== this ========
         setAlwaysOnTop(true);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(null);
         Container contentPane = getContentPane();
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.X_AXIS));
 
@@ -46,6 +49,12 @@ public class NewChirpWindow extends JFrame {
             //======== contentPanel ========
             {
                 contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.X_AXIS));
+
+                //======== scrollPane1 ========
+                {
+                    scrollPane1.setViewportView(textPane1);
+                }
+                contentPanel.add(scrollPane1);
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);
 
@@ -57,7 +66,7 @@ public class NewChirpWindow extends JFrame {
                 ((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0};
 
                 //---- okButton ----
-                okButton.setText("OK");
+                okButton.setText("Post New Chirp");
                 buttonBar.add(okButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 5), 0, 0));
@@ -80,6 +89,8 @@ public class NewChirpWindow extends JFrame {
     // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JPanel dialogPane;
     private JPanel contentPanel;
+    private JScrollPane scrollPane1;
+    private JTextPane textPane1;
     private JPanel buttonBar;
     private JButton okButton;
     private JButton cancelButton;
