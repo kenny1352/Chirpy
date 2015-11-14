@@ -8,7 +8,7 @@ new FormModel {
 			"resizeWeight": 0.1
 			"orientation": 0
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField1"
+				name: "headerText"
 				"text": "Chirpy"
 				"font": new java.awt.Font( "Segoe UI", 0, 22 )
 				"horizontalAlignment": 0
@@ -31,14 +31,14 @@ new FormModel {
 							"orientation": 0
 							"resizeWeight": 0.5
 							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "button1"
+								name: "bioButton"
 								"text": "Bio"
 								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "left"
 							} )
 							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "button2"
+								name: "newsfeedButton"
 								"text": "Newsfeed"
 								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 							}, new FormLayoutConstraints( class java.lang.String ) {
@@ -52,7 +52,7 @@ new FormModel {
 							"orientation": 0
 							"resizeWeight": 0.3
 							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "button3"
+								name: "newChirpButton"
 								"text": "New Chirp"
 								addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 							}, new FormLayoutConstraints( class java.lang.String ) {
@@ -63,13 +63,13 @@ new FormModel {
 								"orientation": 0
 								"resizeWeight": 0.5
 								add( new FormComponent( "javax.swing.JButton" ) {
-									name: "button4"
+									name: "postedChirpsButton"
 									"text": "Posted Chirps"
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "left"
 								} )
 								add( new FormComponent( "javax.swing.JButton" ) {
-									name: "button5"
+									name: "receivedChirpsButton"
 									"text": "Recieved Chirps"
 								}, new FormLayoutConstraints( class java.lang.String ) {
 									"value": "right"
@@ -92,13 +92,13 @@ new FormModel {
 							"orientation": 0
 							"resizeWeight": 0.5
 							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "button6"
+								name: "sentChirpsButton"
 								"text": "Sent Chirps"
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "left"
 							} )
 							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "button7"
+								name: "searchProfilesButton"
 								"text": "Search Profiles"
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "right"
@@ -111,13 +111,13 @@ new FormModel {
 							"orientation": 0
 							"resizeWeight": 0.5
 							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "button8"
+								name: "searchTopicsButton"
 								"text": "Search Topics"
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "left"
 							} )
 							add( new FormComponent( "javax.swing.JButton" ) {
-								name: "button9"
+								name: "logoutButton"
 								"text": "Logout"
 							}, new FormLayoutConstraints( class java.lang.String ) {
 								"value": "right"
@@ -134,7 +134,9 @@ new FormModel {
 				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 					name: "scrollPane1"
 					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "textField2"
+						name: "displayField"
+						"editable": false
+						"text": "hjgfkgf"
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "right"

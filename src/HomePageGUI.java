@@ -14,21 +14,21 @@ import javax.swing.*;
  * @author Catherine Merz
  */
 public class HomePageGUI extends JSplitPane {
-    public HomePageGUI() {
+    public HomePageGUI(User user) {
+        this.user = user;
         initComponents();
     }
 
-    private void button1ActionPerformed(ActionEvent e) {
+    private void bioButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
-        //scrollPane1;
-        textField2.setVisible(true);
+        displayField.setVisible(true);
     }
 
-    private void button2ActionPerformed(ActionEvent e) {
+    private void newsfeedButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
 
-    private void button3ActionPerformed(ActionEvent e) {
+    private void newChirpButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
 
@@ -36,37 +36,37 @@ public class HomePageGUI extends JSplitPane {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
-        textField1 = new JTextField();
+        headerText = new JTextField();
         splitPane1 = new JSplitPane();
         splitPane2 = new JSplitPane();
         splitPane3 = new JSplitPane();
         splitPane5 = new JSplitPane();
-        button1 = new JButton();
-        button2 = new JButton();
+        bioButton = new JButton();
+        newsfeedButton = new JButton();
         splitPane6 = new JSplitPane();
-        button3 = new JButton();
+        newChirpButton = new JButton();
         splitPane9 = new JSplitPane();
-        button4 = new JButton();
-        button5 = new JButton();
+        postedChirpsButton = new JButton();
+        receivedChirpsButton = new JButton();
         splitPane4 = new JSplitPane();
         splitPane7 = new JSplitPane();
-        button6 = new JButton();
-        button7 = new JButton();
+        sentChirpsButton = new JButton();
+        searchProfilesButton = new JButton();
         splitPane8 = new JSplitPane();
-        button8 = new JButton();
-        button9 = new JButton();
+        searchTopicsButton = new JButton();
+        logoutButton = new JButton();
         scrollPane1 = new JScrollPane();
-        textField2 = new JTextField();
+        displayField = new JTextField();
 
         //======== this ========
         setResizeWeight(0.1);
         setOrientation(JSplitPane.VERTICAL_SPLIT);
 
-        //---- textField1 ----
-        textField1.setText("Chirpy");
-        textField1.setFont(new Font("Segoe UI", Font.PLAIN, 22));
-        textField1.setHorizontalAlignment(SwingConstants.CENTER);
-        setTopComponent(textField1);
+        //---- headerText ----
+        headerText.setText("Chirpy");
+        headerText.setFont(new Font("Segoe UI", Font.PLAIN, 22));
+        headerText.setHorizontalAlignment(SwingConstants.CENTER);
+        setTopComponent(headerText);
 
         //======== splitPane1 ========
         {
@@ -87,15 +87,15 @@ public class HomePageGUI extends JSplitPane {
                         splitPane5.setOrientation(JSplitPane.VERTICAL_SPLIT);
                         splitPane5.setResizeWeight(0.5);
 
-                        //---- button1 ----
-                        button1.setText("Bio");
-                        button1.addActionListener(e -> button1ActionPerformed(e));
-                        splitPane5.setTopComponent(button1);
+                        //---- bioButton ----
+                        bioButton.setText("Bio");
+                        bioButton.addActionListener(e -> bioButtonActionPerformed(e));
+                        splitPane5.setTopComponent(bioButton);
 
-                        //---- button2 ----
-                        button2.setText("Newsfeed");
-                        button2.addActionListener(e -> button2ActionPerformed(e));
-                        splitPane5.setBottomComponent(button2);
+                        //---- newsfeedButton ----
+                        newsfeedButton.setText("Newsfeed");
+                        newsfeedButton.addActionListener(e -> newsfeedButtonActionPerformed(e));
+                        splitPane5.setBottomComponent(newsfeedButton);
                     }
                     splitPane3.setTopComponent(splitPane5);
 
@@ -104,23 +104,23 @@ public class HomePageGUI extends JSplitPane {
                         splitPane6.setOrientation(JSplitPane.VERTICAL_SPLIT);
                         splitPane6.setResizeWeight(0.3);
 
-                        //---- button3 ----
-                        button3.setText("New Chirp");
-                        button3.addActionListener(e -> button3ActionPerformed(e));
-                        splitPane6.setTopComponent(button3);
+                        //---- newChirpButton ----
+                        newChirpButton.setText("New Chirp");
+                        newChirpButton.addActionListener(e -> newChirpButtonActionPerformed(e));
+                        splitPane6.setTopComponent(newChirpButton);
 
                         //======== splitPane9 ========
                         {
                             splitPane9.setOrientation(JSplitPane.VERTICAL_SPLIT);
                             splitPane9.setResizeWeight(0.5);
 
-                            //---- button4 ----
-                            button4.setText("Posted Chirps");
-                            splitPane9.setTopComponent(button4);
+                            //---- postedChirpsButton ----
+                            postedChirpsButton.setText("Posted Chirps");
+                            splitPane9.setTopComponent(postedChirpsButton);
 
-                            //---- button5 ----
-                            button5.setText("Recieved Chirps");
-                            splitPane9.setBottomComponent(button5);
+                            //---- receivedChirpsButton ----
+                            receivedChirpsButton.setText("Recieved Chirps");
+                            splitPane9.setBottomComponent(receivedChirpsButton);
                         }
                         splitPane6.setBottomComponent(splitPane9);
                     }
@@ -138,13 +138,13 @@ public class HomePageGUI extends JSplitPane {
                         splitPane7.setOrientation(JSplitPane.VERTICAL_SPLIT);
                         splitPane7.setResizeWeight(0.5);
 
-                        //---- button6 ----
-                        button6.setText("Sent Chirps");
-                        splitPane7.setTopComponent(button6);
+                        //---- sentChirpsButton ----
+                        sentChirpsButton.setText("Sent Chirps");
+                        splitPane7.setTopComponent(sentChirpsButton);
 
-                        //---- button7 ----
-                        button7.setText("Search Profiles");
-                        splitPane7.setBottomComponent(button7);
+                        //---- searchProfilesButton ----
+                        searchProfilesButton.setText("Search Profiles");
+                        splitPane7.setBottomComponent(searchProfilesButton);
                     }
                     splitPane4.setTopComponent(splitPane7);
 
@@ -153,13 +153,13 @@ public class HomePageGUI extends JSplitPane {
                         splitPane8.setOrientation(JSplitPane.VERTICAL_SPLIT);
                         splitPane8.setResizeWeight(0.5);
 
-                        //---- button8 ----
-                        button8.setText("Search Topics");
-                        splitPane8.setTopComponent(button8);
+                        //---- searchTopicsButton ----
+                        searchTopicsButton.setText("Search Topics");
+                        splitPane8.setTopComponent(searchTopicsButton);
 
-                        //---- button9 ----
-                        button9.setText("Logout");
-                        splitPane8.setBottomComponent(button9);
+                        //---- logoutButton ----
+                        logoutButton.setText("Logout");
+                        splitPane8.setBottomComponent(logoutButton);
                     }
                     splitPane4.setBottomComponent(splitPane8);
                 }
@@ -169,7 +169,11 @@ public class HomePageGUI extends JSplitPane {
 
             //======== scrollPane1 ========
             {
-                scrollPane1.setViewportView(textField2);
+
+                //---- displayField ----
+                displayField.setEditable(false);
+                displayField.setText("hjgfkgf");
+                scrollPane1.setViewportView(displayField);
             }
             splitPane1.setRightComponent(scrollPane1);
         }
@@ -179,26 +183,28 @@ public class HomePageGUI extends JSplitPane {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Catherine Merz
-    private JTextField textField1;
+    private JTextField headerText;
     private JSplitPane splitPane1;
     private JSplitPane splitPane2;
     private JSplitPane splitPane3;
     private JSplitPane splitPane5;
-    private JButton button1;
-    private JButton button2;
+    private JButton bioButton;
+    private JButton newsfeedButton;
     private JSplitPane splitPane6;
-    private JButton button3;
+    private JButton newChirpButton;
     private JSplitPane splitPane9;
-    private JButton button4;
-    private JButton button5;
+    private JButton postedChirpsButton;
+    private JButton receivedChirpsButton;
     private JSplitPane splitPane4;
     private JSplitPane splitPane7;
-    private JButton button6;
-    private JButton button7;
+    private JButton sentChirpsButton;
+    private JButton searchProfilesButton;
     private JSplitPane splitPane8;
-    private JButton button8;
-    private JButton button9;
+    private JButton searchTopicsButton;
+    private JButton logoutButton;
     private JScrollPane scrollPane1;
-    private JTextField textField2;
+    private JTextField displayField;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    private User user;
 }
