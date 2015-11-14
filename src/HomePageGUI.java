@@ -32,6 +32,18 @@ public class HomePageGUI extends JSplitPane {
         // TODO add your code here
     }
 
+    private void button1ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void button2ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void button3ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -56,7 +68,7 @@ public class HomePageGUI extends JSplitPane {
         searchTopicsButton = new JButton();
         logoutButton = new JButton();
         scrollPane1 = new JScrollPane();
-        displayField = new JTextField();
+        displayField = new JTextArea();
 
         //======== this ========
         setResizeWeight(0.1);
@@ -89,12 +101,12 @@ public class HomePageGUI extends JSplitPane {
 
                         //---- bioButton ----
                         bioButton.setText("Bio");
-                        bioButton.addActionListener(e -> bioButtonActionPerformed(e));
+                        bioButton.addActionListener(e -> button1ActionPerformed(e));
                         splitPane5.setTopComponent(bioButton);
 
                         //---- newsfeedButton ----
                         newsfeedButton.setText("Newsfeed");
-                        newsfeedButton.addActionListener(e -> newsfeedButtonActionPerformed(e));
+                        newsfeedButton.addActionListener(e -> button2ActionPerformed(e));
                         splitPane5.setBottomComponent(newsfeedButton);
                     }
                     splitPane3.setTopComponent(splitPane5);
@@ -106,7 +118,7 @@ public class HomePageGUI extends JSplitPane {
 
                         //---- newChirpButton ----
                         newChirpButton.setText("New Chirp");
-                        newChirpButton.addActionListener(e -> newChirpButtonActionPerformed(e));
+                        newChirpButton.addActionListener(e -> button3ActionPerformed(e));
                         splitPane6.setTopComponent(newChirpButton);
 
                         //======== splitPane9 ========
@@ -203,7 +215,7 @@ public class HomePageGUI extends JSplitPane {
     private JButton searchTopicsButton;
     private JButton logoutButton;
     private JScrollPane scrollPane1;
-    private JTextField displayField;
+    private JTextArea displayField;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
     private User user;
