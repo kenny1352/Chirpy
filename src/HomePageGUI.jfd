@@ -5,13 +5,18 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
 			name: "this"
-			"resizeWeight": 0.1
+			"border": new javax.swing.border.BevelBorder( 1, null, null, null, null )
+			"background": sfield java.awt.Color darkGray
+			"foreground": sfield java.awt.Color darkGray
+			"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
 			"orientation": 0
+			"continuousLayout": true
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "headerText"
 				"text": "Chirpy"
 				"font": new java.awt.Font( "Segoe UI", 0, 22 )
 				"horizontalAlignment": 0
+				"background": new java.awt.Color( 204, 255, 255, 255 )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "left"
 			} )
@@ -19,6 +24,7 @@ new FormModel {
 				name: "splitPane1"
 				"dividerLocation": 180
 				"continuousLayout": true
+				"dividerSize": 1
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 					"$columnSpecs": "0"
 					"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0"
@@ -31,16 +37,21 @@ new FormModel {
 					"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
 					"font": new java.awt.Font( "Segoe UI", 0, 14 )
 					"preferredSize": new java.awt.Dimension( 180, 390 )
+					"background": new java.awt.Color( 153, 204, 255, 255 )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "bioButton"
 						"text": "Bio"
 						"preferredSize": new java.awt.Dimension( 50, 40 )
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bioButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "newsfeedButton"
 						"text": "Newsfeed"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newsfeedButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 1
 					} )
@@ -48,6 +59,8 @@ new FormModel {
 						name: "newChirpButton"
 						"text": "New Chirp"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newChirpButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 2
 					} )
@@ -57,6 +70,8 @@ new FormModel {
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
 						"maximumSize": new java.awt.Dimension( 164, 38 )
 						"preferredSize": new java.awt.Dimension( 170, 38 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "postedChirpsButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 3
 					} )
@@ -65,13 +80,17 @@ new FormModel {
 						"text": "View Recieved Chirps"
 						"preferredSize": new java.awt.Dimension( 180, 32 )
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "receivedChirpsButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 4
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "setChirpsButton"
+						name: "sentChirpsButton"
 						"text": "View Sent Chirps"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "sentChirpsButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 5
 					} )
@@ -79,6 +98,8 @@ new FormModel {
 						name: "searchProfilesButton"
 						"text": "Search Profiles"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchProfilesButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 6
 					} )
@@ -86,6 +107,8 @@ new FormModel {
 						name: "searchTopicsButton"
 						"text": "Search Topics"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchTopicsButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 7
 					} )
@@ -94,6 +117,8 @@ new FormModel {
 						"text": "Logout"
 						"preferredSize": new java.awt.Dimension( 75, 32 )
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 						"gridy": 8
 					} )
@@ -107,6 +132,7 @@ new FormModel {
 						"editable": false
 						"text": "hjgfkgf"
 						"margin": new java.awt.Insets( 15, 15, 15, 5 )
+						"font": new java.awt.Font( "Monospaced", 0, 14 )
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "right"
@@ -116,7 +142,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 650, 530 )
+			"size": new java.awt.Dimension( 655, 535 )
 		} )
 	}
 }

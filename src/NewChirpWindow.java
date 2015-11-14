@@ -1,6 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
+import org.jdesktop.swingx.*;
 /*
  * Created by JFormDesigner on Sat Nov 14 15:13:42 EST 2015
  */
@@ -11,7 +12,7 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class NewChirpWindow extends JFrame {
-    public NewChirpWindow() {
+    public NewChirpWindow(User author) {
         initComponents();
     }
 
@@ -22,6 +23,9 @@ public class NewChirpWindow extends JFrame {
         contentPanel = new JPanel();
         scrollPane1 = new JScrollPane();
         textPane1 = new JTextPane();
+        menu1 = new JMenu();
+        radioButtonMenuItem1 = new JRadioButtonMenuItem();
+        radioButtonMenuItem2 = new JRadioButtonMenuItem();
         buttonBar = new JPanel();
         okButton = new JButton();
         cancelButton = new JButton();
@@ -36,6 +40,7 @@ public class NewChirpWindow extends JFrame {
         //======== dialogPane ========
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
+            dialogPane.setBackground(new Color(204, 255, 255));
 
             // JFormDesigner evaluation mark
             dialogPane.setBorder(new javax.swing.border.CompoundBorder(
@@ -48,34 +53,65 @@ public class NewChirpWindow extends JFrame {
 
             //======== contentPanel ========
             {
-                contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.X_AXIS));
+                contentPanel.setBackground(new Color(204, 255, 255));
+                contentPanel.setLayout(new BorderLayout(5, 5));
 
                 //======== scrollPane1 ========
                 {
+                    scrollPane1.setFont(new Font("Monospaced", Font.PLAIN, 14));
+                    scrollPane1.setPreferredSize(new Dimension(50, 25));
+
+                    //---- textPane1 ----
+                    textPane1.setFont(new Font("Serif", Font.PLAIN, 16));
+                    textPane1.setText("Write Chirp message here...");
+                    textPane1.setPreferredSize(new Dimension(175, 50));
+                    textPane1.setMinimumSize(new Dimension(57, 50));
+                    textPane1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
                     scrollPane1.setViewportView(textPane1);
                 }
-                contentPanel.add(scrollPane1);
+                contentPanel.add(scrollPane1, BorderLayout.CENTER);
+
+                //======== menu1 ========
+                {
+                    menu1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    menu1.setPreferredSize(new Dimension(306, 35));
+                    menu1.setText("Select Chirp publicity setting");
+                    menu1.setBackground(new Color(204, 204, 204));
+
+                    //---- radioButtonMenuItem1 ----
+                    radioButtonMenuItem1.setText("Post Publicly");
+                    radioButtonMenuItem1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    radioButtonMenuItem1.setFocusable(true);
+                    radioButtonMenuItem1.setSelected(true);
+                    menu1.add(radioButtonMenuItem1);
+
+                    //---- radioButtonMenuItem2 ----
+                    radioButtonMenuItem2.setText("Subscribers Only");
+                    radioButtonMenuItem2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    radioButtonMenuItem2.setFocusable(true);
+                    menu1.add(radioButtonMenuItem2);
+                }
+                contentPanel.add(menu1, BorderLayout.SOUTH);
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);
 
             //======== buttonBar ========
             {
                 buttonBar.setBorder(new EmptyBorder(12, 0, 0, 0));
-                buttonBar.setLayout(new GridBagLayout());
-                ((GridBagLayout)buttonBar.getLayout()).columnWidths = new int[] {0, 85, 80};
-                ((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0};
+                buttonBar.setBackground(new Color(204, 255, 255));
+                buttonBar.setLayout(new GridLayout());
 
                 //---- okButton ----
                 okButton.setText("Post New Chirp");
-                buttonBar.add(okButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 5), 0, 0));
+                okButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                okButton.setBackground(new Color(204, 255, 255));
+                buttonBar.add(okButton);
 
                 //---- cancelButton ----
                 cancelButton.setText("Cancel");
-                buttonBar.add(cancelButton, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 0), 0, 0));
+                cancelButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                cancelButton.setBackground(new Color(204, 255, 255));
+                buttonBar.add(cancelButton);
             }
             dialogPane.add(buttonBar, BorderLayout.SOUTH);
         }
@@ -91,6 +127,9 @@ public class NewChirpWindow extends JFrame {
     private JPanel contentPanel;
     private JScrollPane scrollPane1;
     private JTextPane textPane1;
+    private JMenu menu1;
+    private JRadioButtonMenuItem radioButtonMenuItem1;
+    private JRadioButtonMenuItem radioButtonMenuItem2;
     private JPanel buttonBar;
     private JButton okButton;
     private JButton cancelButton;
