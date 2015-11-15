@@ -10,6 +10,8 @@ public class User {
         password = tempP;
     }
 
+    public void setBio(String bioString){ bio = bioString; }
+
     public String getUsername() {
         return username;
     }
@@ -20,10 +22,10 @@ public class User {
 
     public String getBio() { return bio; }
 
-    private String username;
-    private String password;
-    private String bio;
-    private ArrayList<String> messageList;
-    private ArrayList<String> privateList;
-    private ArrayList<String> subscriptions;
+    private String username;    //stored in database
+    private String password;    //stored in database
+    private String bio;         //stored in database
+    private ArrayList<String> messageList;      //reconstructed locally for each login
+    private ArrayList<String> privateList;      //reconstructed locally for each login
+    private ArrayList<String> subscriptions;    //reconstructed locally for each login
 }
