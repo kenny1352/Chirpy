@@ -11,9 +11,10 @@ import javax.swing.GroupLayout;
 /**
  * @author James Campbell
  */
-public class LoginGUI {
-    public LoginGUI() {
+public class LoginGUI extends JFrame {
+    public LoginGUI(){
         initComponents();
+        setVisible(true);
     }
 
     private void LoginActionPerformed(ActionEvent e) {
