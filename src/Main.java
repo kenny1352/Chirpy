@@ -8,8 +8,8 @@ public class Main {
    public static void main(String[] args) {
        //LoginTemp GUI = new LoginTemp();
        User user = new User("Bob", "ljhfllkfadf");
-       //NewChirpWindow chirpWindow = new NewChirpWindow(user);chirpWindow.setVisible(true);
-       HomePageGUI homePageGUI = new HomePageGUI(user);
+       NewChirpWindow chirpWindow = new NewChirpWindow(user);chirpWindow.setVisible(true);
+       //HomePageGUI homePageGUI = new HomePageGUI(user);
        //homePageGUI.setVisible(true);
        //HomeGUI homeGUI = new HomeGUI();homeGUI.setVisible(true);
     }

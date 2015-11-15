@@ -26,6 +26,14 @@ public class NewChirpWindow extends JFrame {
         // TODO add your code here
     }
 
+    private void cancelButtonActionPerformed(ActionEvent e) {
+        dispose();
+    }
+
+    private void okButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
@@ -127,6 +135,7 @@ public class NewChirpWindow extends JFrame {
                 okButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 okButton.setBackground(new Color(238, 238, 238));
                 okButton.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
+                okButton.addActionListener(e -> okButtonActionPerformed(e));
                 buttonBar.add(okButton);
 
                 //---- cancelButton ----
@@ -134,6 +143,7 @@ public class NewChirpWindow extends JFrame {
                 cancelButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 cancelButton.setBackground(new Color(238, 238, 238));
                 cancelButton.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
+                cancelButton.addActionListener(e -> cancelButtonActionPerformed(e));
                 buttonBar.add(cancelButton);
             }
             dialogPane.add(buttonBar, BorderLayout.SOUTH);

@@ -10,6 +10,7 @@ new FormModel {
 			"title": "Chirpy"
 			"$sizePolicy": 0
 			"minimumSize": new java.awt.Dimension( 300, 300 )
+			"defaultCloseOperation": 3
 			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
 				name: "splitPane"
 				"border": new javax.swing.border.BevelBorder( 1, null, null, null, null )

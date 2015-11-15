@@ -62,7 +62,7 @@ public class HomePageGUI extends JFrame {
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        dispose();
     }
 
 
@@ -88,6 +88,7 @@ public class HomePageGUI extends JFrame {
         //======== this ========
         setTitle("Chirpy");
         setMinimumSize(new Dimension(300, 300));
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container contentPane = getContentPane();
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.X_AXIS));
 
