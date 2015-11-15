@@ -1,11 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
 import javax.swing.*;
 import javax.swing.border.*;
-//import com.intellij.ide.ui.laf.darcula.ui.*;
-//import com.intellij.uiDesigner.core.*;
-//import info.clearthought.layout.*;
-//import org.jdesktop.swingx.*;
 /*
  * Created by JFormDesigner on Thu Nov 12 19:37:36 EST 2015
  */
