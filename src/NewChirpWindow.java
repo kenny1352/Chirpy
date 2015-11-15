@@ -2,8 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import javax.swing.plaf.*;
-//import org.jdesktop.swingx.*;
 /*
  * Created by JFormDesigner on Sat Nov 14 15:13:42 EST 2015
  */
@@ -27,10 +25,10 @@ public class NewChirpWindow extends JFrame {
     }
 
     private void okButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         Message chirp = new Message(authorUser, textPane1.getText(), radioButtonMenuItem1.isSelected());
-        System.out.println(chirp.toString());
-        //dispose();
+        //System.out.println(chirp.toString());
+        // TODO add new Chirp to database
+        dispose();
     }
 
     private void initComponents() {
