@@ -37,6 +37,34 @@ public class HomeGUI extends JFrame {
 
     }
 
+    public void createUser(String username, String password) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection tempconn = null;
+            tempconn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", "addUser", "admin123");
+            System.out.println("Database Connected");
+
+            Statement statement = tempconn.createStatement();
+            statement.executeUpdate("CREATE USER '" + username + "'@'%' IDENTIFIED BY '" + password + "'");
+            Statement statement1 = tempconn.createStatement();
+            statement1.executeUpdate("GRANT CREATE, INSERT, SELECT ON chirpy.* TO '" + username + "'@'%'");
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
+        catch (ClassNotFoundException ex1) {
+            System.out.println("ClassNotFoundException: " + ex1.getMessage());
+        }
+        catch (InstantiationException ex2) {
+            System.out.println("InstantiationException: " + ex2.getMessage());
+        }
+        catch (IllegalAccessException ex3) {
+            System.out.println("IllegalAccessException: " + ex3.getMessage());
+        }
+    }
+
     private void BioActionPerformed(ActionEvent e) {
         // TODO add your code here
     }

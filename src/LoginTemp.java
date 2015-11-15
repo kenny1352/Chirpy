@@ -12,22 +12,22 @@ public class LoginTemp extends JFrame {
     }
 
     private void LoginActionPerformed(ActionEvent e) {
-        try {
-            homepage = new HomeGUI();
-            homepage.createConnection(Username.getText(), new String(Password.getPassword()));
-            homepage.setVisible(true);
-        }
-        catch (Exception ex) {
-
-        }
+        homepage = new HomeGUI();
+        homepage.createConnection(Username.getText(), new String(Password.getPassword()));
+        homepage.setVisible(true);
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        homepage = new HomeGUI();
+        homepage.createUser(Username.getText(), new String(Password.getPassword()));
+        homepage.createConnection(Username.getText(), new String(Password.getPassword()));
+        homepage.setVisible(true);
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        homepage = new HomeGUI();
+        homepage.createConnection("Guest", "Guest");
+        homepage.setVisible(true);
     }
 
     private void initComponents() {
