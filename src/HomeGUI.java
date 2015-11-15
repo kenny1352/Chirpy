@@ -13,12 +13,13 @@ public class HomeGUI extends JFrame {
         setVisible(false);
     }
 
-    public void createConnection(String username, String password) {
+    public boolean createConnection(String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = null;
             conn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", username, password);
             System.out.println("Database Connected");
+            return true;
         }
         catch (SQLException SQLex) {
             System.out.println("SQLException: " + SQLex.getMessage());
@@ -34,10 +35,10 @@ public class HomeGUI extends JFrame {
         catch (IllegalAccessException ex3) {
             System.out.println("IllegalAccessException: " + ex3.getMessage());
         }
-
+        return false;
     }
 
-    public void createUser(String username, String password) {
+    public boolean createUser(String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection tempconn = null;
@@ -48,6 +49,7 @@ public class HomeGUI extends JFrame {
             statement.executeUpdate("CREATE USER '" + username + "'@'%' IDENTIFIED BY '" + password + "'");
             Statement statement1 = tempconn.createStatement();
             statement1.executeUpdate("GRANT CREATE, INSERT, SELECT ON chirpy.* TO '" + username + "'@'%'");
+            return true;
         }
         catch (SQLException SQLex) {
             System.out.println("SQLException: " + SQLex.getMessage());
@@ -63,6 +65,7 @@ public class HomeGUI extends JFrame {
         catch (IllegalAccessException ex3) {
             System.out.println("IllegalAccessException: " + ex3.getMessage());
         }
+        return false;
     }
 
     private void BioActionPerformed(ActionEvent e) {
