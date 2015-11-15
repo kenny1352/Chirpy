@@ -1,67 +1,76 @@
-JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_40" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_25" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp Title::::347:x}, seq l {space :p:50:p, par l {par l:::p {seq t {comp Login:::p:115:p, space :::x, comp Register:::p:115:p}, comp Password::t:p:260:p, comp Username::t:p:260:p}, comp UsernameTitle:::p:75:p, comp PasswordTitle::l:p:75:p}, space :0:43:x}}, space :::p}, seq l {space :p:122:p, comp GuestLogin:::p:115:p, space ::122:x}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp Title:::p:66:p, space :::p, comp UsernameTitle:::p::p, space :p:2:p, comp Username:::p:40:p, space ::26:x, comp PasswordTitle:::p::p, space :::p, comp Password:::p:40:p, space s:::p, par b {comp Register::b:p::p, comp Login::b:p::p}, space s:::p, comp GuestLogin:::p::p, space :p:42:p}}"
-		} ) {
-			name: "LoginGUI"
-			"background": sfield java.awt.Color white
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "loginGUI"
 			"defaultCloseOperation": 3
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "Username"
-				"background": sfield java.awt.Color cyan
-				"foreground": sfield java.awt.Color black
-			} )
-			add( new FormComponent( "javax.swing.JPasswordField" ) {
-				name: "Password"
-				"columns": 1
-				"background": sfield java.awt.Color cyan
-				"foreground": sfield java.awt.Color black
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "Title"
-				"text": "Chirpy Login"
-				"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 10, false )
-				"horizontalAlignment": 0
-				"background": sfield java.awt.Color cyan
-				"foreground": sfield java.awt.Color black
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "Login"
-				"text": "Login"
-				"background": sfield java.awt.Color cyan
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "LoginActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "Register"
-				"text": "Register"
-				"background": sfield java.awt.Color cyan
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "RegisterActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "GuestLogin"
-				"text": "Guest Login"
-				"background": sfield java.awt.Color cyan
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "GuestLoginActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "UsernameTitle"
-				"text": "Username"
-				"foreground": sfield java.awt.Color black
+			"$sizePolicy": 0
+			"minimumSize": new java.awt.Dimension( 375, 400 )
+			"background": new java.awt.Color( 255, 255, 255, 255 )
+			"visible": true
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp Title:::::x}, seq l {space :p:50:p, par l {par l:::p {seq t {comp Login:::p:115:p, space :::x, comp Register:::p:115:p}, comp Password::t:p:260:p, comp Username::t:p:260:p}, comp UsernameTitle:::p:75:p, comp PasswordTitle::l:p:75:p}, space :0:0:x}}, space :::p}, seq l {space :p:122:p, comp GuestLogin:::p:115:p, space :::x}}"
+				"$verticalGroup": "par l {seq l {space :::p, comp Title:::p:66:p, space :::p, comp UsernameTitle:::p::p, space :p:2:p, comp Username:::p:40:p, space :::x, comp PasswordTitle:::p::p, space :::p, comp Password:::p:40:p, space s:::p, par b {comp Register::b:p::p, comp Login::b:p::p}, space s:::p, comp GuestLogin:::p::p, space :p:42:p}}"
+			} ) {
+				name: "panel1"
 				"background": sfield java.awt.Color white
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "PasswordTitle"
-				"text": "Password"
-				"foreground": sfield java.awt.Color black
-				"background": sfield java.awt.Color white
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "Username"
+					"background": sfield java.awt.Color cyan
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JPasswordField" ) {
+					name: "Password"
+					"columns": 1
+					"background": sfield java.awt.Color cyan
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "Title"
+					"text": "Chirpy Login"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 10, false )
+					"horizontalAlignment": 0
+					"background": sfield java.awt.Color cyan
+					"foreground": sfield java.awt.Color black
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "Login"
+					"text": "Login"
+					"background": sfield java.awt.Color cyan
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "LoginActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "Register"
+					"text": "Register"
+					"background": sfield java.awt.Color cyan
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "RegisterActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "GuestLogin"
+					"text": "Guest Login"
+					"background": sfield java.awt.Color cyan
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "GuestLoginActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "UsernameTitle"
+					"text": "Username"
+					"foreground": sfield java.awt.Color black
+					"background": sfield java.awt.Color white
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "PasswordTitle"
+					"text": "Password"
+					"foreground": sfield java.awt.Color black
+					"background": sfield java.awt.Color white
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 30, 0 )
-			"size": new java.awt.Dimension( 375, 405 )
+			"location": new java.awt.Point( 5, 5 )
+			"size": new java.awt.Dimension( 375, 400 )
 		} )
 	}
 }

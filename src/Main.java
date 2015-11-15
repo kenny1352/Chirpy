@@ -9,7 +9,7 @@ public class Main {
        //LoginTemp GUI = new LoginTemp();
        LoginGUI loginGUI = new LoginGUI();
        //User user = new User("Bob", "ljhfllkfadf");
-       //NewChirpWindow chirpWindow = new NewChirpWindow(user);chirpWindow.setVisible(true);
+       //NewChirpWindow chirpWindow = new NewChirpWindow(user);
        //HomePageGUI homePageGUI = new HomePageGUI(user);
        //homePageGUI.setVisible(true);
        //HomeGUI homeGUI = new HomeGUI();homeGUI.setVisible(true);
