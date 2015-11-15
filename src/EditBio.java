@@ -19,15 +19,34 @@ public class EditBio extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - H Morgan
-        formattedTextField1 = new JFormattedTextField();
+        scrollPane1 = new JScrollPane();
+        textPane1 = new JTextPane();
+        button1 = new JButton();
+        button2 = new JButton();
 
         //======== this ========
         setTitle("Edit Bio");
         Container contentPane = getContentPane();
         contentPane.setLayout(new FormLayout(
-            "15*(default, $lcgap)",
-            "3*(default, $lgap), default"));
-        contentPane.add(formattedTextField1, CC.xywh(1, 1, 29, 7));
+            "14*(default, $lcgap), default",
+            "4*(default, $lgap), default"));
+
+        //======== scrollPane1 ========
+        {
+
+            //---- textPane1 ----
+            textPane1.setText("Write new bio here...");
+            scrollPane1.setViewportView(textPane1);
+        }
+        contentPane.add(scrollPane1, CC.xywh(1, 1, 29, 7));
+
+        //---- button1 ----
+        button1.setText("Save");
+        contentPane.add(button1, CC.xywh(3, 9, 9, 1));
+
+        //---- button2 ----
+        button2.setText("Cancel");
+        contentPane.add(button2, CC.xywh(19, 9, 9, 1));
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -35,6 +54,9 @@ public class EditBio extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - H Morgan
-    private JFormattedTextField formattedTextField1;
+    private JScrollPane scrollPane1;
+    private JTextPane textPane1;
+    private JButton button1;
+    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
