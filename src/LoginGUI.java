@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
-//import org.jdesktop.swingx.*;
+import javax.swing.border.*;
 /*
  * Created by JFormDesigner on Wed Nov 04 19:43:27 EST 2015
  */
@@ -55,7 +55,7 @@ public class LoginGUI extends JFrame {
 
             //======== panel1 ========
             {
-                panel1.setBackground(Color.white);
+                panel1.setBackground(new Color(204, 255, 255));
 
                 // JFormDesigner evaluation mark
                 panel1.setBorder(new javax.swing.border.CompoundBorder(
@@ -66,34 +66,36 @@ public class LoginGUI extends JFrame {
 
 
                 //---- Username ----
-                Username.setBackground(Color.cyan);
+                Username.setBackground(Color.white);
                 Username.setForeground(Color.black);
 
                 //---- Password ----
                 Password.setColumns(1);
-                Password.setBackground(Color.cyan);
+                Password.setBackground(Color.white);
                 Password.setForeground(Color.black);
 
                 //---- Title ----
                 Title.setText("Chirpy Login");
                 Title.setFont(Title.getFont().deriveFont(Title.getFont().getStyle() | Font.BOLD, Title.getFont().getSize() + 10f));
                 Title.setHorizontalAlignment(SwingConstants.CENTER);
-                Title.setBackground(Color.cyan);
+                Title.setBackground(Color.white);
                 Title.setForeground(Color.black);
+                Title.setOpaque(true);
+                Title.setBorder(new MatteBorder(2, 2, 2, 2, Color.darkGray));
 
                 //---- Login ----
                 Login.setText("Login");
-                Login.setBackground(Color.cyan);
+                Login.setBackground(Color.lightGray);
                 Login.addActionListener(e -> LoginActionPerformed(e));
 
                 //---- Register ----
                 Register.setText("Register");
-                Register.setBackground(Color.cyan);
+                Register.setBackground(Color.lightGray);
                 Register.addActionListener(e -> RegisterActionPerformed(e));
 
                 //---- GuestLogin ----
                 GuestLogin.setText("Guest Login");
-                GuestLogin.setBackground(Color.cyan);
+                GuestLogin.setBackground(Color.lightGray);
                 GuestLogin.addActionListener(e -> GuestLoginActionPerformed(e));
 
                 //---- UsernameTitle ----
