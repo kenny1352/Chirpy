@@ -9,16 +9,19 @@ new FormModel {
 			"alwaysOnTop": true
 			"defaultCloseOperation": 2
 			"iconImage": sfield com.jformdesigner.model.FormObject NULL_VALUE
+			"title": "New Chirp"
+			"minimumSize": new java.awt.Dimension( 200, 200 )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "dialogPane"
 				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
-				"background": new java.awt.Color( 204, 255, 255, 255 )
+				"background": new java.awt.Color( 153, 204, 255, 255 )
+				"minimumSize": new java.awt.Dimension( 300, 200 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
 					"hgap": 5
 					"vgap": 5
 				} ) {
 					name: "contentPanel"
-					"background": new java.awt.Color( 204, 255, 255, 255 )
+					"background": new java.awt.Color( 153, 204, 255, 255 )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
 						"font": new java.awt.Font( "Monospaced", 0, 14 )
@@ -34,24 +37,32 @@ new FormModel {
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "Center"
 					} )
-					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					add( new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 						name: "menu1"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
 						"preferredSize": new java.awt.Dimension( 306, 35 )
-						"text": "Select Chirp publicity setting"
-						"background": new java.awt.Color( 204, 204, 204, 255 )
+						"background": new java.awt.Color( 153, 204, 255, 255 )
+						"border": new javax.swing.border.LineBorder( sfield java.awt.Color black, 1, false )
+						"opaque": true
+						"inheritsPopupMenu": true
+						"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
 							name: "radioButtonMenuItem1"
 							"text": "Post Publicly"
 							"font": new java.awt.Font( "Segoe UI", 0, 16 )
 							"focusable": true
 							"selected": true
+							"focusPainted": true
+							"border": &EmptyBorder0 new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
 						} )
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
 							name: "radioButtonMenuItem2"
 							"text": "Subscribers Only"
 							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"focusPainted": true
 							"focusable": true
+							"rolloverEnabled": true
+							"border": #EmptyBorder0
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "South"
@@ -59,21 +70,26 @@ new FormModel {
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"
 				} )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"columns": 2
+					"hgap": 10
+				} ) {
 					name: "buttonBar"
 					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
-					"background": new java.awt.Color( 204, 255, 255, 255 )
+					"background": new java.awt.Color( 153, 204, 255, 255 )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "okButton"
 						"text": "Post New Chirp"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": new java.awt.Color( 204, 255, 255, 255 )
+						"background": &ColorUIResource0 new javax.swing.plaf.ColorUIResource( 238, 238, 238 )
+						"border": &MatteBorder0 new javax.swing.border.MatteBorder( 1, 1, 1, 1, sfield java.awt.Color black )
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "cancelButton"
 						"text": "Cancel"
 						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": new java.awt.Color( 204, 255, 255, 255 )
+						"background": #ColorUIResource0
+						"border": #MatteBorder0
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "South"
@@ -81,7 +97,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 400, 300 )
+			"size": new java.awt.Dimension( 400, 280 )
 		} )
 	}
 }

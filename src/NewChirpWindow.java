@@ -1,7 +1,9 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import org.jdesktop.swingx.*;
+import javax.swing.plaf.*;
+//import org.jdesktop.swingx.*;
 /*
  * Created by JFormDesigner on Sat Nov 14 15:13:42 EST 2015
  */
@@ -14,6 +16,14 @@ import org.jdesktop.swingx.*;
 public class NewChirpWindow extends JFrame {
     public NewChirpWindow(User author) {
         initComponents();
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(radioButtonMenuItem1);
+        buttonGroup.add(radioButtonMenuItem2);
+        authorUser = author;
+    }
+
+    private void menu1ActionPerformed(ActionEvent e) {
+        // TODO add your code here
     }
 
     private void initComponents() {
@@ -23,7 +33,7 @@ public class NewChirpWindow extends JFrame {
         contentPanel = new JPanel();
         scrollPane1 = new JScrollPane();
         textPane1 = new JTextPane();
-        menu1 = new JMenu();
+        menu1 = new JMenuBar();
         radioButtonMenuItem1 = new JRadioButtonMenuItem();
         radioButtonMenuItem2 = new JRadioButtonMenuItem();
         buttonBar = new JPanel();
@@ -34,13 +44,16 @@ public class NewChirpWindow extends JFrame {
         setAlwaysOnTop(true);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(null);
+        setTitle("New Chirp");
+        setMinimumSize(new Dimension(200, 200));
         Container contentPane = getContentPane();
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.X_AXIS));
 
         //======== dialogPane ========
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
-            dialogPane.setBackground(new Color(204, 255, 255));
+            dialogPane.setBackground(new Color(153, 204, 255));
+            dialogPane.setMinimumSize(new Dimension(300, 200));
 
             // JFormDesigner evaluation mark
             dialogPane.setBorder(new javax.swing.border.CompoundBorder(
@@ -53,7 +66,7 @@ public class NewChirpWindow extends JFrame {
 
             //======== contentPanel ========
             {
-                contentPanel.setBackground(new Color(204, 255, 255));
+                contentPanel.setBackground(new Color(153, 204, 255));
                 contentPanel.setLayout(new BorderLayout(5, 5));
 
                 //======== scrollPane1 ========
@@ -75,20 +88,28 @@ public class NewChirpWindow extends JFrame {
                 {
                     menu1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                     menu1.setPreferredSize(new Dimension(306, 35));
-                    menu1.setText("Select Chirp publicity setting");
-                    menu1.setBackground(new Color(204, 204, 204));
+                    menu1.setBackground(new Color(153, 204, 255));
+                    menu1.setBorder(LineBorder.createBlackLineBorder());
+                    menu1.setOpaque(true);
+                    menu1.setInheritsPopupMenu(true);
+                    menu1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
                     //---- radioButtonMenuItem1 ----
                     radioButtonMenuItem1.setText("Post Publicly");
                     radioButtonMenuItem1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                     radioButtonMenuItem1.setFocusable(true);
                     radioButtonMenuItem1.setSelected(true);
+                    radioButtonMenuItem1.setFocusPainted(true);
+                    radioButtonMenuItem1.setBorder(new EmptyBorder(5, 5, 5, 5));
                     menu1.add(radioButtonMenuItem1);
 
                     //---- radioButtonMenuItem2 ----
                     radioButtonMenuItem2.setText("Subscribers Only");
                     radioButtonMenuItem2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    radioButtonMenuItem2.setFocusPainted(true);
                     radioButtonMenuItem2.setFocusable(true);
+                    radioButtonMenuItem2.setRolloverEnabled(true);
+                    radioButtonMenuItem2.setBorder(new EmptyBorder(5, 5, 5, 5));
                     menu1.add(radioButtonMenuItem2);
                 }
                 contentPanel.add(menu1, BorderLayout.SOUTH);
@@ -98,19 +119,21 @@ public class NewChirpWindow extends JFrame {
             //======== buttonBar ========
             {
                 buttonBar.setBorder(new EmptyBorder(12, 0, 0, 0));
-                buttonBar.setBackground(new Color(204, 255, 255));
-                buttonBar.setLayout(new GridLayout());
+                buttonBar.setBackground(new Color(153, 204, 255));
+                buttonBar.setLayout(new GridLayout(1, 2, 10, 0));
 
                 //---- okButton ----
                 okButton.setText("Post New Chirp");
                 okButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                okButton.setBackground(new Color(204, 255, 255));
+                okButton.setBackground(new Color(238, 238, 238));
+                okButton.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
                 buttonBar.add(okButton);
 
                 //---- cancelButton ----
                 cancelButton.setText("Cancel");
                 cancelButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                cancelButton.setBackground(new Color(204, 255, 255));
+                cancelButton.setBackground(new Color(238, 238, 238));
+                cancelButton.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
                 buttonBar.add(cancelButton);
             }
             dialogPane.add(buttonBar, BorderLayout.SOUTH);
@@ -127,11 +150,13 @@ public class NewChirpWindow extends JFrame {
     private JPanel contentPanel;
     private JScrollPane scrollPane1;
     private JTextPane textPane1;
-    private JMenu menu1;
+    private JMenuBar menu1;
     private JRadioButtonMenuItem radioButtonMenuItem1;
     private JRadioButtonMenuItem radioButtonMenuItem2;
     private JPanel buttonBar;
     private JButton okButton;
     private JButton cancelButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    private User authorUser;
 }
