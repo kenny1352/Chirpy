@@ -13,20 +13,36 @@ public class LoginTemp extends JFrame {
 
     private void LoginActionPerformed(ActionEvent e) {
         homepage = new HomeGUI();
-        homepage.createConnection(Username.getText(), new String(Password.getPassword()));
+        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+            System.out.println("CONNECTION ERROR");
+            homepage.dispose();
+            return;
+        }
         homepage.setVisible(true);
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
         homepage = new HomeGUI();
-        homepage.createUser(Username.getText(), new String(Password.getPassword()));
-        homepage.createConnection(Username.getText(), new String(Password.getPassword()));
+        if (!homepage.createUser(Username.getText(), new String(Password.getPassword()))) {
+            System.out.println("USER CREATION ERROR");
+            homepage.dispose();
+            return;
+        }
+        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+            System.out.println("CONNECTION ERROR");
+            homepage.dispose();
+            return;
+        }
         homepage.setVisible(true);
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
         homepage = new HomeGUI();
-        homepage.createConnection("Guest", "Guest");
+        if (homepage.createConnection("Guest", "Guest")) {
+            System.out.println("CONNECTION ERROR");
+            homepage.dispose();
+            return;
+        }
         homepage.setVisible(true);
     }
 
