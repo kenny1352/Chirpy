@@ -22,6 +22,10 @@ public class SearchWindow extends JDialog {
         initComponents();
     }
 
+    public void setLabel1(String string) {
+        label1.setText(string);
+    }
+
     private void searchButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
