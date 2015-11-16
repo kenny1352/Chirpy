@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by Kenny on 11/12/2015.
@@ -23,7 +27,7 @@ public class LoginTemp extends JFrame {
 
     private void RegisterActionPerformed(ActionEvent e) {
         homepage = new HomeGUI();
-        if (!homepage.createUser(Username.getText(), new String(Password.getPassword()))) {
+        if (!createUser(Username.getText(), new String(Password.getPassword()))) {
             System.out.println("USER CREATION ERROR");
             homepage.dispose();
             return;
@@ -44,6 +48,37 @@ public class LoginTemp extends JFrame {
             return;
         }
         homepage.setVisible(true);
+    }
+
+    public boolean createUser(String username, String password) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection tempconn = null;
+            tempconn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", "addUser", "admin123");
+            System.out.println("Database Connected");
+
+            Statement statement = tempconn.createStatement();
+            statement.executeUpdate("CREATE USER '" + username + "'@'%' IDENTIFIED BY '" + password + "'");
+            Statement statement1 = tempconn.createStatement();
+            statement1.executeUpdate("GRANT CREATE, INSERT, SELECT ON chirpy.* TO '" + username + "'@'%'");
+            tempconn.close();
+            return true;
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
+        catch (ClassNotFoundException ex1) {
+            System.out.println("ClassNotFoundException: " + ex1.getMessage());
+        }
+        catch (InstantiationException ex2) {
+            System.out.println("InstantiationException: " + ex2.getMessage());
+        }
+        catch (IllegalAccessException ex3) {
+            System.out.println("IllegalAccessException: " + ex3.getMessage());
+        }
+        return false;
     }
 
     private void initComponents() {
