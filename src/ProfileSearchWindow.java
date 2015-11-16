@@ -107,7 +107,7 @@ public class ProfileSearchWindow extends JDialog {
                 label1.setHorizontalAlignment(SwingConstants.CENTER);
                 label1.setBackground(new Color(204, 255, 255));
                 label1.setOpaque(true);
-                contentPanel.add(label1, BorderLayout.PAGE_START);
+                contentPanel.add(label1, BorderLayout.NORTH);
 
                 //---- textField1 ----
                 textField1.setPreferredSize(new Dimension(75, 50));
