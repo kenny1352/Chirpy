@@ -10,20 +10,19 @@ new FormModel {
 			"defaultCloseOperation": 3
 			"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
 			"minimumSize": new java.awt.Dimension( 650, 600 )
-			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "panel3"
-				"orientation": 0
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "title"
 					"text": "Guest Newsfeed"
 					"font": new java.awt.Font( "Segoe UI", 1, 22 )
 					"opaque": true
-					"preferredSize": new java.awt.Dimension( 42, 45 )
+					"preferredSize": new java.awt.Dimension( 42, 50 )
 					"horizontalTextPosition": 0
 					"horizontalAlignment": 0
 					"background": new java.awt.Color( 204, 255, 255, 255 )
 				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "left"
+					"value": "North"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 					name: "panel4"
@@ -72,7 +71,7 @@ new FormModel {
 						"value": "Center"
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "right"
+					"value": "Center"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"

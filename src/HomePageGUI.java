@@ -94,7 +94,7 @@ public class HomePageGUI extends JFrame {
         headerText.setFont(new Font("Segoe UI", Font.BOLD, 22));
         headerText.setHorizontalAlignment(SwingConstants.CENTER);
         headerText.setBackground(new Color(204, 255, 255));
-        headerText.setPreferredSize(new Dimension(77, 45));
+        headerText.setPreferredSize(new Dimension(77, 50));
         headerText.setOpaque(true);
         contentPane.add(headerText, BorderLayout.NORTH);
 
@@ -109,7 +109,7 @@ public class HomePageGUI extends JFrame {
                 menuPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
                 menuPanel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
                 menuPanel.setPreferredSize(new Dimension(180, 390));
-                menuPanel.setBackground(new Color(0, 255, 204));
+                menuPanel.setBackground(new Color(102, 255, 204));
                 menuPanel.setMinimumSize(new Dimension(180, 274));
                 menuPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 

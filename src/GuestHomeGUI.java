@@ -35,7 +35,7 @@ public class GuestHomeGUI extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
-        panel3 = new JSplitPane();
+        panel3 = new JPanel();
         title = new JLabel();
         panel4 = new JPanel();
         panel1 = new JPanel();
@@ -57,29 +57,29 @@ public class GuestHomeGUI extends JFrame {
 
         //======== panel3 ========
         {
-            panel3.setOrientation(JSplitPane.VERTICAL_SPLIT);
+
+            // JFormDesigner evaluation mark
+            panel3.setBorder(new javax.swing.border.CompoundBorder(
+                new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
+                    "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
+                    javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                    java.awt.Color.red), panel3.getBorder())); panel3.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
+
+            panel3.setLayout(new BorderLayout());
 
             //---- title ----
             title.setText("Guest Newsfeed");
             title.setFont(new Font("Segoe UI", Font.BOLD, 22));
             title.setOpaque(true);
-            title.setPreferredSize(new Dimension(42, 45));
+            title.setPreferredSize(new Dimension(42, 50));
             title.setHorizontalTextPosition(SwingConstants.CENTER);
             title.setHorizontalAlignment(SwingConstants.CENTER);
             title.setBackground(new Color(204, 255, 255));
-            panel3.setTopComponent(title);
+            panel3.add(title, BorderLayout.NORTH);
 
             //======== panel4 ========
             {
                 panel4.setBackground(new Color(102, 255, 204));
-
-                // JFormDesigner evaluation mark
-                panel4.setBorder(new javax.swing.border.CompoundBorder(
-                    new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                        "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                        javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                        java.awt.Color.red), panel4.getBorder())); panel4.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
-
                 panel4.setLayout(new BorderLayout());
 
                 //======== panel1 ========
@@ -122,7 +122,7 @@ public class GuestHomeGUI extends JFrame {
                 }
                 panel4.add(scrollPane1, BorderLayout.CENTER);
             }
-            panel3.setBottomComponent(panel4);
+            panel3.add(panel4, BorderLayout.CENTER);
         }
         contentPane.add(panel3, BorderLayout.CENTER);
         pack();
@@ -132,7 +132,7 @@ public class GuestHomeGUI extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Catherine Merz
-    private JSplitPane panel3;
+    private JPanel panel3;
     private JLabel title;
     private JPanel panel4;
     private JPanel panel1;

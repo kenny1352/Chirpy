@@ -7,13 +7,15 @@ new FormModel {
 			name: "this"
 			"visible": true
 			"minimumSize": new java.awt.Dimension( 650, 600 )
+			"title": "Chirpy"
+			"background": new java.awt.Color( 102, 255, 204, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "[Username]'s Chirps"
 				"horizontalAlignment": 0
 				"background": new java.awt.Color( 204, 255, 255, 255 )
 				"opaque": true
-				"preferredSize": new java.awt.Dimension( 106, 45 )
+				"preferredSize": new java.awt.Dimension( 106, 50 )
 				"font": new java.awt.Font( "Segoe UI", 1, 22 )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "North"

@@ -15,7 +15,7 @@ new FormModel {
 				"font": new java.awt.Font( "Segoe UI", 1, 22 )
 				"horizontalAlignment": 0
 				"background": new java.awt.Color( 204, 255, 255, 255 )
-				"preferredSize": new java.awt.Dimension( 77, 45 )
+				"preferredSize": new java.awt.Dimension( 77, 50 )
 				"opaque": true
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "North"
@@ -37,7 +37,7 @@ new FormModel {
 					"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
 					"font": new java.awt.Font( "Segoe UI", 0, 14 )
 					"preferredSize": new java.awt.Dimension( 180, 390 )
-					"background": new java.awt.Color( 0, 255, 204, 255 )
+					"background": new java.awt.Color( 102, 255, 204, 255 )
 					"minimumSize": new java.awt.Dimension( 180, 274 )
 					"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
 					add( new FormComponent( "javax.swing.JButton" ) {

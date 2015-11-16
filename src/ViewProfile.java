@@ -44,6 +44,8 @@ public class ViewProfile extends JFrame {
         //======== this ========
         setVisible(true);
         setMinimumSize(new Dimension(650, 600));
+        setTitle("Chirpy");
+        setBackground(new Color(102, 255, 204));
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
@@ -52,7 +54,7 @@ public class ViewProfile extends JFrame {
         label1.setHorizontalAlignment(SwingConstants.CENTER);
         label1.setBackground(new Color(204, 255, 255));
         label1.setOpaque(true);
-        label1.setPreferredSize(new Dimension(106, 45));
+        label1.setPreferredSize(new Dimension(106, 50));
         label1.setFont(new Font("Segoe UI", Font.BOLD, 22));
         contentPane.add(label1, BorderLayout.NORTH);
 
