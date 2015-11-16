@@ -6,13 +6,28 @@ import java.util.Date;
  */
 public class Message {
 
+
+    public Message (String tempA, String tempC, String tempR, String tempH, Date tempT, Boolean tempP) {
+        author = tempA;
+        content = tempC;
+        recipient = tempR;
+        timestamp = tempT;
+        publicSetting = tempP;
+        hashtag = new ArrayList<>();
+
+        String[] parts = tempH.split("\\s+");
+        for (String part : parts) {
+            hashtag.add(part);
+        }
+    }
+
     /**
      * Constructs message object, determining # and @ along the way.
      * @param tempA User who wrote the Chirp
      * @param tempC String content of the Chirp
      * @param tempP privacy setting; true is the public setting
      */
-    public Message (User tempA, String tempC, Boolean tempP) {
+    public Message (String tempA, String tempC, Boolean tempP) {
         author = tempA;
         timestamp = new Date();
         content = tempC;
@@ -27,7 +42,7 @@ public class Message {
     }
 
     public String toString(){
-        String chirpstring = author.getUsername();
+        String chirpstring = author;
         //if (!recipient.equals(" ")) {
         //    chirpstring = chirpstring + " @" + recipient.getUsername();
         //}
@@ -84,7 +99,7 @@ public class Message {
         return publicSetting;
     }
 
-    private User author;
+    private String author;
     // only one recipient is permitted;
     // second '@' will be ignored as part of the message
     private String recipient;
