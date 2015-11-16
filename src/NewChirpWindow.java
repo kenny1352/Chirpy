@@ -133,7 +133,6 @@ public class NewChirpWindow extends JFrame {
                 okButton.setText("Post New Chirp");
                 okButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 okButton.setBackground(new Color(238, 238, 238));
-                okButton.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
                 okButton.addActionListener(e -> okButtonActionPerformed(e));
                 buttonBar.add(okButton);
 
@@ -141,7 +140,6 @@ public class NewChirpWindow extends JFrame {
                 cancelButton.setText("Cancel");
                 cancelButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 cancelButton.setBackground(new Color(238, 238, 238));
-                cancelButton.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
                 cancelButton.addActionListener(e -> cancelButtonActionPerformed(e));
                 buttonBar.add(cancelButton);
             }
