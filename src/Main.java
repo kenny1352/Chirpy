@@ -8,7 +8,8 @@ public class Main {
    public static void main(String[] args) {
        //LoginTemp GUI = new LoginTemp();
        //LoginGUI loginGUI = new LoginGUI();
-       //User user = new User("Bob");
+       User user = new User("Bob");
+       user.setBio("This is Bob's bio. Yeah, a little boring.");
        //NewChirpWindow chirpWindow = new NewChirpWindow(user);
        //User user2 = new User("Carl", "kjhf;kajhfd");
        //HomePageGUI homePageGUI = new HomePageGUI(user);
@@ -16,7 +17,7 @@ public class Main {
        //HomeGUI homeGUI = new HomeGUI();homeGUI.setVisible(true);
        //GuestHomeGUI guestHomeGUI = new GuestHomeGUI();
        //ViewProfile viewProfile = new ViewProfile();
-       EditBio editBio = new EditBio();
-    }
+       System.out.println(user.getBio());
+       EditBioGUI editBio = new EditBioGUI(user);
+   }
 }
-
