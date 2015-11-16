@@ -26,9 +26,11 @@ public class TopicSearchWindow extends JDialog {
         // Generated using JFormDesigner Evaluation license - Catherine Merz
         dialogPane = new JPanel();
         contentPanel = new JPanel();
+        textField1 = new JTextField();
         buttonBar = new JPanel();
         okButton = new JButton();
         cancelButton = new JButton();
+        label1 = new JLabel();
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -50,6 +52,7 @@ public class TopicSearchWindow extends JDialog {
             //======== contentPanel ========
             {
                 contentPanel.setLayout(new GridLayout());
+                contentPanel.add(textField1);
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);
 
@@ -73,6 +76,10 @@ public class TopicSearchWindow extends JDialog {
                     new Insets(0, 0, 0, 0), 0, 0));
             }
             dialogPane.add(buttonBar, BorderLayout.SOUTH);
+
+            //---- label1 ----
+            label1.setText("text");
+            dialogPane.add(label1, BorderLayout.NORTH);
         }
         contentPane.add(dialogPane, BorderLayout.CENTER);
         pack();
@@ -84,8 +91,10 @@ public class TopicSearchWindow extends JDialog {
     // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JPanel dialogPane;
     private JPanel contentPanel;
+    private JTextField textField1;
     private JPanel buttonBar;
     private JButton okButton;
     private JButton cancelButton;
+    private JLabel label1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -3,7 +3,6 @@ import java.awt.event.*;
 import java.sql.Connection;
 import javax.swing.*;
 import javax.swing.border.*;
-//import org.jdesktop.swingx.*;
 /*
  * Created by JFormDesigner on Thu Nov 12 19:37:36 EST 2015
  */
@@ -24,7 +23,7 @@ public class HomePageGUI extends JFrame {
     private void bioButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Bio");
-        displayField.setText(user.getBio());
+        EditBioGUI editBioGUI = new EditBioGUI(user);
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
