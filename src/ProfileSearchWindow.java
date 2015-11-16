@@ -37,6 +37,35 @@ public class SearchWindow extends JDialog {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
+        // JFormDesigner - End of component initialization  //GEN-END:initComponents
+    }
+
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Catherine Merz
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+public class ProfileSearchWindow extends JDialog {
+    public ProfileSearchWindow(Frame owner) {
+        super(owner);
+        initComponents();
+    }
+
+    public ProfileSearchWindow(Dialog owner) {
+        super(owner);
+        initComponents();
+    }
+
+    private void searchButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void cancelButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void initComponents() {
+        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Catherine Merz
         dialogPane = new JPanel();
         contentPanel = new JPanel();
         label1 = new JLabel();
@@ -71,7 +100,7 @@ public class SearchWindow extends JDialog {
                 contentPanel.setLayout(new BorderLayout(0, 10));
 
                 //---- label1 ----
-                label1.setText("New Search");
+                label1.setText("New Profile Search");
                 label1.setFont(new Font("Segoe UI", Font.BOLD, 20));
                 label1.setPreferredSize(new Dimension(102, 40));
                 label1.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -123,4 +152,5 @@ public class SearchWindow extends JDialog {
     private JButton searchButton;
     private JButton cancelButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+}
 }
