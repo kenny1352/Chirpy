@@ -68,7 +68,7 @@ public class HomePageGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - James Campbell
+        // Generated using JFormDesigner Evaluation license - Catherine Merz
         headerText = new JLabel();
         splitPane1 = new JSplitPane();
         menuPanel = new JPanel();
@@ -242,7 +242,7 @@ public class HomePageGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - James Campbell
+    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JLabel headerText;
     private JSplitPane splitPane1;
     private JPanel menuPanel;
