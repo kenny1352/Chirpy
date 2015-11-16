@@ -1,0 +1,46 @@
+JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_51" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"title": "Edit Bio"
+			"visible": true
+			"$sizePolicy": 0
+			"defaultCloseOperation": 2
+			"maximizedBounds": new java.awt.Rectangle( 0, 0, 200000, 200000 )
+			"minimumSize": new java.awt.Dimension( 200, 80 )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextPane" ) {
+					name: "textPane1"
+					"text": "Write new bio here..."
+					"font": new java.awt.Font( "Serif", 0, 16 )
+					"preferredSize": new java.awt.Dimension( 400, 100 )
+					"minimumSize": new java.awt.Dimension( 200, 80 )
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+				name: "panel1"
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "Save"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "saveActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "Cancel"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelActionPerformed", true ) )
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "South"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 420, 185 )
+		} )
+	}
+}
