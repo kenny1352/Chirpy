@@ -3,13 +3,83 @@ JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_25" encoding: "UTF-8"
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class javax.swing.BoxLayout ) {
-			"axis": 0
-		} ) {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 			name: "this"
+			"title": "Chirpy"
+			"visible": true
+			"defaultCloseOperation": 3
+			"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+			"minimumSize": new java.awt.Dimension( 650, 600 )
+			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
+				name: "panel3"
+				"orientation": 0
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "title"
+					"text": "Guest Newsfeed"
+					"font": new java.awt.Font( "Segoe UI", 1, 22 )
+					"opaque": true
+					"preferredSize": new java.awt.Dimension( 42, 45 )
+					"horizontalTextPosition": 0
+					"horizontalAlignment": 0
+					"background": new java.awt.Color( 204, 255, 255, 255 )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "left"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel4"
+					"background": new java.awt.Color( 102, 255, 204, 255 )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+						"columns": 4
+						"hgap": 10
+						"vgap": 10
+					} ) {
+						name: "panel1"
+						"preferredSize": new java.awt.Dimension( 500, 40 )
+						"background": new java.awt.Color( 102, 255, 204, 255 )
+						"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "newsfeedButton"
+							"text": "Newsfeed"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newsfeedButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "profileSearchButton"
+							"text": "Search Profiles"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "profileSearchButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "topicSearchButton"
+							"text": "Search Topics"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "topicSearchButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "logoutButton"
+							"text": "Logout"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonActionPerformed", true ) )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "textArea1"
+							"preferredSize": new java.awt.Dimension( 0, 50 )
+							"font": new java.awt.Font( "Monospaced", 0, 14 )
+							"margin": new java.awt.Insets( 15, 15, 15, 5 )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "right"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 510, 445 )
+			"size": new java.awt.Dimension( 615, 415 )
 		} )
 	}
 }

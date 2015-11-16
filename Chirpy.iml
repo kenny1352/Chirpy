@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-5.1.37-bin (2)" level="project" />
+    <orderEntry type="library" name="JGoodies Forms" level="project" />
   </component>
 </module>
