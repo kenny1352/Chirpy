@@ -57,12 +57,63 @@ public class User {
         //search database for all messages to which this user is subscribed
         //convert the message to String
         //add this String to newsfeed
+        newsfeed.clear();
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM messages");
+
+            while (resultSet.next()) {
+                String author = resultSet.getString("username");
+                String text = resultSet.getString("messageText");
+                String recipient = resultSet.getString("recipient");
+                String hashtags = resultSet.getString("tags");
+                Date time = resultSet.getDate("timeStamp");
+                int temp = resultSet.getInt("publicSetting");
+                boolean publicSetting = false;
+                if (temp == 1) {
+                    publicSetting = true;
+                }
+                Message newMessage = new Message(author, text, recipient, hashtags, time, publicSetting);
+                if (publicSetting || subscribedTo.contains(author)) {
+                    newsfeed.add(newMessage);
+                }
+            }
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
     }
 
-    public void receivedChirps(){
+    public void downloadreceivedChirps(Connection conn){
         //search database for all messages for which this user is a recipient
         //convert the message to String
         //add this String to newsfeed
+        receivedChirps.clear();
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM messages WHERE recipient LIKE '" + username + "'");
+
+            while (resultSet.next()) {
+                String author = resultSet.getString("username");
+                String text = resultSet.getString("messageText");
+                String hashtags = resultSet.getString("tags");
+                Date time = resultSet.getDate("timeStamp");
+                int temp = resultSet.getInt("publicSetting");
+                boolean publicSetting = false;
+                if (temp == 1) {
+                    publicSetting = true;
+                }
+                Message newMessage = new Message(author, text, username, hashtags, time, publicSetting);
+                receivedChirps.add(newMessage);
+            }
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
     }
 
     public String getUsername() {
@@ -70,6 +121,22 @@ public class User {
     }
 
     public String getBio() { return bio; }
+
+    public String getPostedChirps() {
+        String returner = new String();
+        for (int i = postedChirps.size(); i >= 0; i--) {
+            returner += postedChirps.get(i).toString();
+        }
+        return returner;
+    }
+
+    public String getRecievedChirps() {
+        String returner = new String();
+        for (int i = receivedChirps.size(); i >= 0; i--) {
+            returner += receivedChirps.get(i).toString();
+        }
+        return returner;
+    }
 
     public void newSubscrip(String newUsername) { subscribedTo.add(newUsername); }
     public boolean isSubscribedTo(String aUsername) { return subscribedTo.contains(aUsername); }

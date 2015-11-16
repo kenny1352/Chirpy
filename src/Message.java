@@ -46,7 +46,7 @@ public class Message {
         //if (!recipient.equals(" ")) {
         //    chirpstring = chirpstring + " @" + recipient.getUsername();
         //}
-        chirpstring = chirpstring + "\n" + content + "\n" + timestamp.toString() + "\n";
+        chirpstring = chirpstring + "\n" + content + "\n" + timestamp.toString() + "\n" + "\n";
 
         return chirpstring;
     }

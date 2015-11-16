@@ -39,11 +39,13 @@ public class HomePageGUI extends JFrame {
     private void postedChirpsButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Posted Chirps");
+        displayField.setText(user.getPostedChirps());
     }
 
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Received Chirps");
+        displayField.setText(user.getRecievedChirps());
     }
 
     private void sentChirpsButtonActionPerformed(ActionEvent e) {
@@ -66,7 +68,7 @@ public class HomePageGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Catherine Merz
+        // Generated using JFormDesigner Evaluation license - James Campbell
         headerText = new JLabel();
         splitPane1 = new JSplitPane();
         menuPanel = new JPanel();
@@ -240,7 +242,7 @@ public class HomePageGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
+    // Generated using JFormDesigner Evaluation license - James Campbell
     private JLabel headerText;
     private JSplitPane splitPane1;
     private JPanel menuPanel;
@@ -258,4 +260,5 @@ public class HomePageGUI extends JFrame {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
     private User user;
+    private Connection conn;
 }
