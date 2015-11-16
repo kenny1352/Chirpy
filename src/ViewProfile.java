@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -11,8 +13,21 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class ViewProfile extends JFrame {
-    public ViewProfile() {
+    public ViewProfile(String profileSearched, Boolean guestUser, ArrayList<String> subscriptions) {
         initComponents();
+        label1.setText(profileSearched + "'s Chirps");
+        if (guestUser) {
+            buttonBar.setVisible(false);
+        }
+        // TODO set up Newsfeed
+    }
+
+    private void viewBioButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void subscribeButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
     }
 
     private void initComponents() {
@@ -20,7 +35,7 @@ public class ViewProfile extends JFrame {
         // Generated using JFormDesigner Evaluation license - Catherine Merz
         label1 = new JLabel();
         panel1 = new JPanel();
-        panel2 = new JPanel();
+        buttonBar = new JPanel();
         viewBioButton = new JButton();
         subscribeButton = new JButton();
         scrollPane1 = new JScrollPane();
@@ -29,6 +44,8 @@ public class ViewProfile extends JFrame {
         //======== this ========
         setVisible(true);
         setMinimumSize(new Dimension(650, 600));
+        setTitle("Chirpy");
+        setBackground(new Color(102, 255, 204));
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
@@ -37,7 +54,7 @@ public class ViewProfile extends JFrame {
         label1.setHorizontalAlignment(SwingConstants.CENTER);
         label1.setBackground(new Color(204, 255, 255));
         label1.setOpaque(true);
-        label1.setPreferredSize(new Dimension(106, 45));
+        label1.setPreferredSize(new Dimension(106, 50));
         label1.setFont(new Font("Segoe UI", Font.BOLD, 22));
         contentPane.add(label1, BorderLayout.NORTH);
 
@@ -54,24 +71,26 @@ public class ViewProfile extends JFrame {
 
             panel1.setLayout(new BorderLayout());
 
-            //======== panel2 ========
+            //======== buttonBar ========
             {
-                panel2.setBackground(new Color(102, 255, 204));
-                panel2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                panel2.setBorder(new EmptyBorder(5, 5, 5, 5));
-                panel2.setLayout(new GridLayout(1, 2, 10, 10));
+                buttonBar.setBackground(new Color(102, 255, 204));
+                buttonBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                buttonBar.setBorder(new EmptyBorder(5, 5, 5, 5));
+                buttonBar.setLayout(new GridLayout(1, 2, 10, 10));
 
                 //---- viewBioButton ----
                 viewBioButton.setText("View Bio");
                 viewBioButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                panel2.add(viewBioButton);
+                viewBioButton.addActionListener(e -> viewBioButtonActionPerformed(e));
+                buttonBar.add(viewBioButton);
 
                 //---- subscribeButton ----
                 subscribeButton.setText("Subscribe");
                 subscribeButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                panel2.add(subscribeButton);
+                subscribeButton.addActionListener(e -> subscribeButtonActionPerformed(e));
+                buttonBar.add(subscribeButton);
             }
-            panel1.add(panel2, BorderLayout.NORTH);
+            panel1.add(buttonBar, BorderLayout.NORTH);
 
             //======== scrollPane1 ========
             {
@@ -94,7 +113,7 @@ public class ViewProfile extends JFrame {
     // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JLabel label1;
     private JPanel panel1;
-    private JPanel panel2;
+    private JPanel buttonBar;
     private JButton viewBioButton;
     private JButton subscribeButton;
     private JScrollPane scrollPane1;

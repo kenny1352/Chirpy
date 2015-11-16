@@ -26,7 +26,7 @@ public class NewChirpWindow extends JFrame {
     }
 
     private void okButtonActionPerformed(ActionEvent e) {
-        Message chirp = new Message(authorUser, textPane1.getText(), radioButtonMenuItem1.isSelected());
+        Message chirp = new Message(authorUser.getUsername(), textPane1.getText(), radioButtonMenuItem1.isSelected());
         //System.out.println(chirp.toString());
         // TODO add new Chirp to database
         dispose();
@@ -59,7 +59,7 @@ public class NewChirpWindow extends JFrame {
         //======== dialogPane ========
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
-            dialogPane.setBackground(new Color(153, 204, 255));
+            dialogPane.setBackground(new Color(102, 255, 204));
             dialogPane.setMinimumSize(new Dimension(300, 200));
 
             // JFormDesigner evaluation mark
@@ -73,7 +73,7 @@ public class NewChirpWindow extends JFrame {
 
             //======== contentPanel ========
             {
-                contentPanel.setBackground(new Color(153, 204, 255));
+                contentPanel.setBackground(new Color(102, 255, 204));
                 contentPanel.setLayout(new BorderLayout(5, 5));
 
                 //======== scrollPane1 ========
@@ -126,7 +126,7 @@ public class NewChirpWindow extends JFrame {
             //======== buttonBar ========
             {
                 buttonBar.setBorder(new EmptyBorder(12, 0, 0, 0));
-                buttonBar.setBackground(new Color(153, 204, 255));
+                buttonBar.setBackground(new Color(102, 255, 204));
                 buttonBar.setLayout(new GridLayout(1, 2, 10, 0));
 
                 //---- okButton ----

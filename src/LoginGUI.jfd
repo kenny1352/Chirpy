@@ -11,8 +11,8 @@ new FormModel {
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			"visible": true
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp Title:::::x}, seq l {space :p:50:p, par l {par l:::p {seq t {comp Login:::p:115:p, space :::x, comp Register:::p:115:p}, comp Password::t:p:260:p, comp Username::t:p:260:p}, comp UsernameTitle:::p:75:p, comp PasswordTitle::l:p:75:p}, space :0:0:x}}, space :::p}, seq l {space :p:122:p, comp GuestLogin:::p:115:p, space :::x}}"
-				"$verticalGroup": "par l {seq l {space :::p, comp Title:::p:66:p, space :::p, comp UsernameTitle:::p::p, space :p:2:p, comp Username:::p:40:p, space :::x, comp PasswordTitle:::p::p, space :::p, comp Password:::p:40:p, space s:::p, par b {comp Register::b:p::p, comp Login::b:p::p}, space s:::p, comp GuestLogin:::p::p, space :p:42:p}}"
+				"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp Title:::::x}, seq l {space :p:50:p, par l {par l:::p {seq t {comp Login:::p:115:p, space :::x, comp Register:::p:115:p}, comp Password::t:p:260:p}, comp PasswordTitle::l:p:75:p, comp Username::l:p:260:p, comp UsernameTitle::l:p:75:p}, space :0:43:x}}, space :::p}, seq l {space :p:122:p, comp GuestLogin:::p:115:p, space :::x}}"
+				"$verticalGroup": "par l {seq l {space :::p, comp Title:::p:66:p, space ::11:x, comp UsernameTitle:::p::p, space :::p, comp Username:::p:40:p, space u:::p, comp PasswordTitle:::p::p, space :::p, comp Password:::p:40:p, space s:::p, par b {comp Register::b:p::p, comp Login::b:p::p}, space s:::p, comp GuestLogin:::p::p, space :p:42:p}}"
 			} ) {
 				name: "panel1"
 				"background": new java.awt.Color( 204, 255, 255, 255 )
@@ -36,6 +36,7 @@ new FormModel {
 					"foreground": sfield java.awt.Color black
 					"opaque": true
 					"border": new javax.swing.border.MatteBorder( 2, 2, 2, 2, sfield java.awt.Color darkGray )
+					"preferredSize": new java.awt.Dimension( 135, 50 )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "Login"

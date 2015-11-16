@@ -82,6 +82,7 @@ public class LoginGUI extends JFrame {
                 Title.setForeground(Color.black);
                 Title.setOpaque(true);
                 Title.setBorder(new MatteBorder(2, 2, 2, 2, Color.darkGray));
+                Title.setPreferredSize(new Dimension(135, 50));
 
                 //---- Login ----
                 Login.setText("Login");
@@ -125,11 +126,11 @@ public class LoginGUI extends JFrame {
                                                 .addComponent(Login, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(Register, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(Password, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Username, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(UsernameTitle, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(PasswordTitle, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
+                                            .addComponent(Password, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(PasswordTitle, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Username, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(UsernameTitle, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 43, Short.MAX_VALUE)))
                             .addContainerGap())
                         .addGroup(panel1Layout.createSequentialGroup()
                             .addGap(122, 122, 122)
@@ -141,11 +142,11 @@ public class LoginGUI extends JFrame {
                         .addGroup(panel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(Title, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                             .addComponent(UsernameTitle)
-                            .addGap(2, 2, 2)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(Username, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(PasswordTitle)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(Password, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
