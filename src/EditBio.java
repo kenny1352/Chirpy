@@ -18,7 +18,7 @@ public class EditBio extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - H Morgan
+        // Generated using JFormDesigner Evaluation license - Catherine Merz
         scrollPane1 = new JScrollPane();
         textPane1 = new JTextPane();
         button1 = new JButton();
@@ -26,6 +26,7 @@ public class EditBio extends JFrame {
 
         //======== this ========
         setTitle("Edit Bio");
+        setVisible(true);
         Container contentPane = getContentPane();
         contentPane.setLayout(new FormLayout(
             "14*(default, $lcgap), default",
@@ -53,7 +54,7 @@ public class EditBio extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - H Morgan
+    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JScrollPane scrollPane1;
     private JTextPane textPane1;
     private JButton button1;
