@@ -136,7 +136,7 @@ public class User {
 
     private String displayChirps(ArrayList<Message> list) {
         String printString = "";
-        if (list.size()<0) {
+        if (list.size()>0) {
             for (int i = list.size()-1; i > -1; i--) {
                 printString += list.get(i).toString();
             }

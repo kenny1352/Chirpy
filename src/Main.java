@@ -14,9 +14,6 @@ public class Main {
        HomePageGUI homePageGUI = new HomePageGUI();
        //homePageGUI.setVisible(true);
        //HomeGUI homeGUI = new HomeGUI();homeGUI.setVisible(true);
-       //GuestHomeGUI guestHomeGUI = new GuestHomeGUI();
-       //ViewProfile viewProfile = new ViewProfile();
-       //EditBio editBio = new EditBio();
     }
 }
 
