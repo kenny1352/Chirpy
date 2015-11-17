@@ -34,11 +34,12 @@ public class TopicSearchWindow extends JDialog {
 
         //======== this ========
         Container contentPane = getContentPane();
-        contentPane.setLayout(new BorderLayout());
+        contentPane.setLayout(new BorderLayout(0, 10));
 
         //======== dialogPane ========
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
+            dialogPane.setBackground(new Color(204, 255, 255));
 
             // JFormDesigner evaluation mark
             dialogPane.setBorder(new javax.swing.border.CompoundBorder(
@@ -58,6 +59,8 @@ public class TopicSearchWindow extends JDialog {
                 label1.setHorizontalAlignment(SwingConstants.CENTER);
                 label1.setPreferredSize(new Dimension(19, 40));
                 label1.setFont(new Font("Segoe UI", Font.BOLD, 20));
+                label1.setBackground(new Color(204, 255, 255));
+                label1.setOpaque(true);
                 contentPanel.add(label1, BorderLayout.NORTH);
                 contentPanel.add(textField1, BorderLayout.CENTER);
             }
@@ -66,21 +69,18 @@ public class TopicSearchWindow extends JDialog {
             //======== buttonBar ========
             {
                 buttonBar.setBorder(new EmptyBorder(12, 0, 0, 0));
-                buttonBar.setLayout(new GridBagLayout());
-                ((GridBagLayout)buttonBar.getLayout()).columnWidths = new int[] {0, 85, 80};
-                ((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0};
+                buttonBar.setBackground(new Color(204, 255, 255));
+                buttonBar.setLayout(new GridLayout(1, 0, 10, 0));
 
                 //---- okButton ----
-                okButton.setText("OK");
-                buttonBar.add(okButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 5), 0, 0));
+                okButton.setText("Search");
+                okButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                buttonBar.add(okButton);
 
                 //---- cancelButton ----
                 cancelButton.setText("Cancel");
-                buttonBar.add(cancelButton, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 0), 0, 0));
+                cancelButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                buttonBar.add(cancelButton);
             }
             dialogPane.add(buttonBar, BorderLayout.SOUTH);
         }

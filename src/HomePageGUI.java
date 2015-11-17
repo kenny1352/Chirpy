@@ -121,11 +121,7 @@ public class HomePageGUI extends JFrame {
                         javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                         java.awt.Color.red), menuPanel.getBorder())); menuPanel.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
-                menuPanel.setLayout(new GridBagLayout());
-                ((GridBagLayout)menuPanel.getLayout()).columnWidths = new int[] {0, 0};
-                ((GridBagLayout)menuPanel.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-                ((GridBagLayout)menuPanel.getLayout()).columnWeights = new double[] {0.0, 1.0E-4};
-                ((GridBagLayout)menuPanel.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+                menuPanel.setLayout(new GridLayout(9, 1, 0, 5));
 
                 //---- bioButton ----
                 bioButton.setText("Bio");
@@ -133,9 +129,7 @@ public class HomePageGUI extends JFrame {
                 bioButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 bioButton.setBackground(new Color(204, 204, 204));
                 bioButton.addActionListener(e -> bioButtonActionPerformed(e));
-                menuPanel.add(bioButton, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(bioButton);
 
                 //---- newsfeedButton ----
                 newsfeedButton.setText("Newsfeed");
@@ -143,9 +137,7 @@ public class HomePageGUI extends JFrame {
                 newsfeedButton.setBackground(new Color(204, 204, 204));
                 newsfeedButton.setPreferredSize(new Dimension(99, 40));
                 newsfeedButton.addActionListener(e -> newsfeedButtonActionPerformed(e));
-                menuPanel.add(newsfeedButton, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(newsfeedButton);
 
                 //---- newChirpButton ----
                 newChirpButton.setText("New Chirp");
@@ -153,9 +145,7 @@ public class HomePageGUI extends JFrame {
                 newChirpButton.setBackground(new Color(204, 204, 204));
                 newChirpButton.setPreferredSize(new Dimension(104, 40));
                 newChirpButton.addActionListener(e -> newChirpButtonActionPerformed(e));
-                menuPanel.add(newChirpButton, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(newChirpButton);
 
                 //---- postedChirpsButton ----
                 postedChirpsButton.setText("View Posted Chirps");
@@ -164,9 +154,7 @@ public class HomePageGUI extends JFrame {
                 postedChirpsButton.setPreferredSize(new Dimension(170, 40));
                 postedChirpsButton.setBackground(new Color(204, 204, 204));
                 postedChirpsButton.addActionListener(e -> postedChirpsButtonActionPerformed(e));
-                menuPanel.add(postedChirpsButton, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(postedChirpsButton);
 
                 //---- receivedChirpsButton ----
                 receivedChirpsButton.setText("View Recieved Chirps");
@@ -176,9 +164,7 @@ public class HomePageGUI extends JFrame {
                 receivedChirpsButton.setMargin(new Insets(4, 14, 4, 14));
                 receivedChirpsButton.setHorizontalTextPosition(SwingConstants.LEFT);
                 receivedChirpsButton.addActionListener(e -> receivedChirpsButtonActionPerformed(e));
-                menuPanel.add(receivedChirpsButton, new GridBagConstraints(0, 4, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(receivedChirpsButton);
 
                 //---- sentChirpsButton ----
                 sentChirpsButton.setText("View Sent Chirps");
@@ -186,9 +172,7 @@ public class HomePageGUI extends JFrame {
                 sentChirpsButton.setBackground(new Color(204, 204, 204));
                 sentChirpsButton.setPreferredSize(new Dimension(148, 40));
                 sentChirpsButton.addActionListener(e -> sentChirpsButtonActionPerformed(e));
-                menuPanel.add(sentChirpsButton, new GridBagConstraints(0, 5, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(sentChirpsButton);
 
                 //---- searchProfilesButton ----
                 searchProfilesButton.setText("Search Profiles");
@@ -196,9 +180,7 @@ public class HomePageGUI extends JFrame {
                 searchProfilesButton.setBackground(new Color(204, 204, 204));
                 searchProfilesButton.setPreferredSize(new Dimension(133, 40));
                 searchProfilesButton.addActionListener(e -> searchProfilesButtonActionPerformed(e));
-                menuPanel.add(searchProfilesButton, new GridBagConstraints(0, 6, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(searchProfilesButton);
 
                 //---- searchTopicsButton ----
                 searchTopicsButton.setText("Search Topics");
@@ -206,9 +188,7 @@ public class HomePageGUI extends JFrame {
                 searchTopicsButton.setBackground(new Color(204, 204, 204));
                 searchTopicsButton.setPreferredSize(new Dimension(125, 40));
                 searchTopicsButton.addActionListener(e -> searchTopicsButtonActionPerformed(e));
-                menuPanel.add(searchTopicsButton, new GridBagConstraints(0, 7, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 0), 0, 0));
+                menuPanel.add(searchTopicsButton);
 
                 //---- logoutButton ----
                 logoutButton.setText("Logout");
@@ -216,9 +196,7 @@ public class HomePageGUI extends JFrame {
                 logoutButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 logoutButton.setBackground(new Color(204, 204, 204));
                 logoutButton.addActionListener(e -> logoutButtonActionPerformed(e));
-                menuPanel.add(logoutButton, new GridBagConstraints(0, 8, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 0), 0, 0));
+                menuPanel.add(logoutButton);
             }
             splitPane1.setLeftComponent(menuPanel);
 
