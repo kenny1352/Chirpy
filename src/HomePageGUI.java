@@ -53,11 +53,11 @@ public class HomePageGUI extends JFrame {
     }
 
     private void searchProfilesButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        new ProfileSearchWindow(this);
     }
 
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        new TopicSearchWindow(this);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
@@ -69,7 +69,7 @@ public class HomePageGUI extends JFrame {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
         headerText = new JLabel();
-        splitPane1 = new JSplitPane();
+        splitPane1 = new JPanel();
         menuPanel = new JPanel();
         bioButton = new JButton();
         newsfeedButton = new JButton();
@@ -87,6 +87,7 @@ public class HomePageGUI extends JFrame {
         setTitle("Chirpy");
         setMinimumSize(new Dimension(650, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new Color(102, 255, 204));
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
@@ -101,9 +102,16 @@ public class HomePageGUI extends JFrame {
 
         //======== splitPane1 ========
         {
-            splitPane1.setDividerLocation(190);
-            splitPane1.setContinuousLayout(true);
-            splitPane1.setDividerSize(1);
+            splitPane1.setBackground(new Color(102, 255, 204));
+
+            // JFormDesigner evaluation mark
+            splitPane1.setBorder(new javax.swing.border.CompoundBorder(
+                new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
+                    "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
+                    javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                    java.awt.Color.red), splitPane1.getBorder())); splitPane1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
+
+            splitPane1.setLayout(new BorderLayout());
 
             //======== menuPanel ========
             {
@@ -113,28 +121,20 @@ public class HomePageGUI extends JFrame {
                 menuPanel.setBackground(new Color(102, 255, 204));
                 menuPanel.setMinimumSize(new Dimension(180, 274));
                 menuPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-                // JFormDesigner evaluation mark
-                menuPanel.setBorder(new javax.swing.border.CompoundBorder(
-                    new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                        "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                        javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                        java.awt.Color.red), menuPanel.getBorder())); menuPanel.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
-
-                menuPanel.setLayout(new GridLayout(9, 1, 0, 5));
+                menuPanel.setLayout(new GridLayout(9, 1, 0, 8));
 
                 //---- bioButton ----
                 bioButton.setText("Bio");
                 bioButton.setPreferredSize(new Dimension(50, 40));
                 bioButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                bioButton.setBackground(new Color(204, 204, 204));
+                bioButton.setBackground(UIManager.getColor("Button.background"));
                 bioButton.addActionListener(e -> bioButtonActionPerformed(e));
                 menuPanel.add(bioButton);
 
                 //---- newsfeedButton ----
                 newsfeedButton.setText("Newsfeed");
                 newsfeedButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                newsfeedButton.setBackground(new Color(204, 204, 204));
+                newsfeedButton.setBackground(UIManager.getColor("Button.background"));
                 newsfeedButton.setPreferredSize(new Dimension(99, 40));
                 newsfeedButton.addActionListener(e -> newsfeedButtonActionPerformed(e));
                 menuPanel.add(newsfeedButton);
@@ -142,7 +142,7 @@ public class HomePageGUI extends JFrame {
                 //---- newChirpButton ----
                 newChirpButton.setText("New Chirp");
                 newChirpButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                newChirpButton.setBackground(new Color(204, 204, 204));
+                newChirpButton.setBackground(UIManager.getColor("Button.background"));
                 newChirpButton.setPreferredSize(new Dimension(104, 40));
                 newChirpButton.addActionListener(e -> newChirpButtonActionPerformed(e));
                 menuPanel.add(newChirpButton);
@@ -152,7 +152,7 @@ public class HomePageGUI extends JFrame {
                 postedChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 postedChirpsButton.setMaximumSize(new Dimension(164, 38));
                 postedChirpsButton.setPreferredSize(new Dimension(170, 40));
-                postedChirpsButton.setBackground(new Color(204, 204, 204));
+                postedChirpsButton.setBackground(UIManager.getColor("Button.background"));
                 postedChirpsButton.addActionListener(e -> postedChirpsButtonActionPerformed(e));
                 menuPanel.add(postedChirpsButton);
 
@@ -160,7 +160,7 @@ public class HomePageGUI extends JFrame {
                 receivedChirpsButton.setText("View Recieved Chirps");
                 receivedChirpsButton.setPreferredSize(new Dimension(180, 40));
                 receivedChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                receivedChirpsButton.setBackground(new Color(204, 204, 204));
+                receivedChirpsButton.setBackground(UIManager.getColor("Button.background"));
                 receivedChirpsButton.setMargin(new Insets(4, 14, 4, 14));
                 receivedChirpsButton.setHorizontalTextPosition(SwingConstants.LEFT);
                 receivedChirpsButton.addActionListener(e -> receivedChirpsButtonActionPerformed(e));
@@ -169,7 +169,7 @@ public class HomePageGUI extends JFrame {
                 //---- sentChirpsButton ----
                 sentChirpsButton.setText("View Sent Chirps");
                 sentChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                sentChirpsButton.setBackground(new Color(204, 204, 204));
+                sentChirpsButton.setBackground(UIManager.getColor("Button.background"));
                 sentChirpsButton.setPreferredSize(new Dimension(148, 40));
                 sentChirpsButton.addActionListener(e -> sentChirpsButtonActionPerformed(e));
                 menuPanel.add(sentChirpsButton);
@@ -177,7 +177,7 @@ public class HomePageGUI extends JFrame {
                 //---- searchProfilesButton ----
                 searchProfilesButton.setText("Search Profiles");
                 searchProfilesButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                searchProfilesButton.setBackground(new Color(204, 204, 204));
+                searchProfilesButton.setBackground(UIManager.getColor("Button.background"));
                 searchProfilesButton.setPreferredSize(new Dimension(133, 40));
                 searchProfilesButton.addActionListener(e -> searchProfilesButtonActionPerformed(e));
                 menuPanel.add(searchProfilesButton);
@@ -185,7 +185,7 @@ public class HomePageGUI extends JFrame {
                 //---- searchTopicsButton ----
                 searchTopicsButton.setText("Search Topics");
                 searchTopicsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                searchTopicsButton.setBackground(new Color(204, 204, 204));
+                searchTopicsButton.setBackground(UIManager.getColor("Button.background"));
                 searchTopicsButton.setPreferredSize(new Dimension(125, 40));
                 searchTopicsButton.addActionListener(e -> searchTopicsButtonActionPerformed(e));
                 menuPanel.add(searchTopicsButton);
@@ -194,11 +194,11 @@ public class HomePageGUI extends JFrame {
                 logoutButton.setText("Logout");
                 logoutButton.setPreferredSize(new Dimension(75, 40));
                 logoutButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                logoutButton.setBackground(new Color(204, 204, 204));
+                logoutButton.setBackground(UIManager.getColor("Button.background"));
                 logoutButton.addActionListener(e -> logoutButtonActionPerformed(e));
                 menuPanel.add(logoutButton);
             }
-            splitPane1.setLeftComponent(menuPanel);
+            splitPane1.add(menuPanel, BorderLayout.WEST);
 
             //======== scrollPane1 ========
             {
@@ -210,7 +210,7 @@ public class HomePageGUI extends JFrame {
                 displayField.setFont(new Font("Monospaced", Font.PLAIN, 14));
                 scrollPane1.setViewportView(displayField);
             }
-            splitPane1.setRightComponent(scrollPane1);
+            splitPane1.add(scrollPane1, BorderLayout.CENTER);
         }
         contentPane.add(splitPane1, BorderLayout.CENTER);
         pack();
@@ -221,7 +221,7 @@ public class HomePageGUI extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JLabel headerText;
-    private JSplitPane splitPane1;
+    private JPanel splitPane1;
     private JPanel menuPanel;
     private JButton bioButton;
     private JButton newsfeedButton;

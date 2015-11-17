@@ -43,6 +43,8 @@ public class TopicSearchWindow extends JDialog {
 
         //======== this ========
         setVisible(true);
+        setAlwaysOnTop(true);
+        setMinimumSize(new Dimension(300, 39));
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout(0, 10));
 
