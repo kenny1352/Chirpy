@@ -6,7 +6,7 @@ import java.lang.*;
 public class Main {
 
    public static void main(String[] args) {
-       LoginTemp GUI = new LoginTemp();
+       //LoginTemp GUI = new LoginTemp();
        //LoginGUI loginGUI = new LoginGUI();
        //User user = new User("Bob");
        //NewChirpWindow chirpWindow = new NewChirpWindow(user);
@@ -16,7 +16,7 @@ public class Main {
        //HomeGUI homeGUI = new HomeGUI();homeGUI.setVisible(true);
        //GuestHomeGUI guestHomeGUI = new GuestHomeGUI();
        //ViewProfile viewProfile = new ViewProfile();
-       //EditBio editBio = new EditBio();
+       EditBio editBio = new EditBio();
     }
 }
 
