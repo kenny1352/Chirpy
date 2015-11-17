@@ -130,12 +130,18 @@ public class User {
         }
     }
 
-    public ArrayList getPostedChirps() {
-        return postedChirps;
+    public String getPostedChirps() {
+        return messageDisplay(postedChirps);
     }
 
-    public ArrayList getRecievedChirps() {
-        return receivedChirps;
+    public String getRecievedChirps() {
+        return messageDisplay(receivedChirps);
+    }
+
+    private String messageDisplay(ArrayList<Message> list) {
+        String string = "";
+        for (Message message : list) string += message.toString();
+        return string;
     }
 
     public void newSubscrip(String newUsername) { subscribedTo.add(newUsername); }
