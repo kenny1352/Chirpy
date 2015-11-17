@@ -3,49 +3,61 @@ JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_25" encoding: "UTF-8"
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class java.awt.BorderLayout ) {
+			"vgap": 10
+		} ) {
 			name: "this"
+			"visible": true
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "dialogPane"
 				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+				"background": new java.awt.Color( 204, 255, 255, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) {
+					"vgap": 10
+				} ) {
 					name: "contentPanel"
+					"background": new java.awt.Color( 204, 255, 255, 255 )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "New Topic Search"
+						"horizontalAlignment": 0
+						"preferredSize": new java.awt.Dimension( 19, 40 )
+						"font": new java.awt.Font( "Segoe UI", 1, 20 )
+						"background": new java.awt.Color( 204, 255, 255, 255 )
+						"opaque": true
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
+					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
 						name: "textField1"
+						"margin": new java.awt.Insets( 15, 15, 15, 5 )
+						"minimumSize": new java.awt.Dimension( 14, 50 )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"
 				} )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-					"$columnSpecs": "0:1.0, 80, 80"
-					"$rowSpecs": "0"
-					"$hGap": 5
-					"$vGap": 5
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"hgap": 10
 				} ) {
 					name: "buttonBar"
 					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
+					"background": new java.awt.Color( 204, 255, 255, 255 )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "okButton"
-						"text": "OK"
-					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-						"gridx": 1
-						"gridy": 0
+						"text": "Search"
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "okButtonActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "cancelButton"
 						"text": "Cancel"
-					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-						"gridx": 2
-						"gridy": 0
+						"font": new java.awt.Font( "Segoe UI", 0, 16 )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelButtonActionPerformed", true ) )
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "South"
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label1"
-					"text": "text"
-				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "North"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"

@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -21,24 +22,34 @@ public class TopicSearchWindow extends JDialog {
         initComponents();
     }
 
+    private void okButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void cancelButtonActionPerformed(ActionEvent e) {
+        dispose();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
         dialogPane = new JPanel();
         contentPanel = new JPanel();
+        label1 = new JLabel();
         textField1 = new JTextField();
         buttonBar = new JPanel();
         okButton = new JButton();
         cancelButton = new JButton();
-        label1 = new JLabel();
 
         //======== this ========
+        setVisible(true);
         Container contentPane = getContentPane();
-        contentPane.setLayout(new BorderLayout());
+        contentPane.setLayout(new BorderLayout(0, 10));
 
         //======== dialogPane ========
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
+            dialogPane.setBackground(new Color(204, 255, 255));
 
             // JFormDesigner evaluation mark
             dialogPane.setBorder(new javax.swing.border.CompoundBorder(
@@ -51,35 +62,44 @@ public class TopicSearchWindow extends JDialog {
 
             //======== contentPanel ========
             {
-                contentPanel.setLayout(new GridLayout());
-                contentPanel.add(textField1);
+                contentPanel.setBackground(new Color(204, 255, 255));
+                contentPanel.setLayout(new BorderLayout(0, 10));
+
+                //---- label1 ----
+                label1.setText("New Topic Search");
+                label1.setHorizontalAlignment(SwingConstants.CENTER);
+                label1.setPreferredSize(new Dimension(19, 40));
+                label1.setFont(new Font("Segoe UI", Font.BOLD, 20));
+                label1.setBackground(new Color(204, 255, 255));
+                label1.setOpaque(true);
+                contentPanel.add(label1, BorderLayout.NORTH);
+
+                //---- textField1 ----
+                textField1.setMargin(new Insets(15, 15, 15, 5));
+                textField1.setMinimumSize(new Dimension(14, 50));
+                contentPanel.add(textField1, BorderLayout.CENTER);
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);
 
             //======== buttonBar ========
             {
                 buttonBar.setBorder(new EmptyBorder(12, 0, 0, 0));
-                buttonBar.setLayout(new GridBagLayout());
-                ((GridBagLayout)buttonBar.getLayout()).columnWidths = new int[] {0, 85, 80};
-                ((GridBagLayout)buttonBar.getLayout()).columnWeights = new double[] {1.0, 0.0, 0.0};
+                buttonBar.setBackground(new Color(204, 255, 255));
+                buttonBar.setLayout(new GridLayout(1, 0, 10, 0));
 
                 //---- okButton ----
-                okButton.setText("OK");
-                buttonBar.add(okButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 5), 0, 0));
+                okButton.setText("Search");
+                okButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                okButton.addActionListener(e -> okButtonActionPerformed(e));
+                buttonBar.add(okButton);
 
                 //---- cancelButton ----
                 cancelButton.setText("Cancel");
-                buttonBar.add(cancelButton, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 0, 0), 0, 0));
+                cancelButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                cancelButton.addActionListener(e -> cancelButtonActionPerformed(e));
+                buttonBar.add(cancelButton);
             }
             dialogPane.add(buttonBar, BorderLayout.SOUTH);
-
-            //---- label1 ----
-            label1.setText("text");
-            dialogPane.add(label1, BorderLayout.NORTH);
         }
         contentPane.add(dialogPane, BorderLayout.CENTER);
         pack();
@@ -91,10 +111,10 @@ public class TopicSearchWindow extends JDialog {
     // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JPanel dialogPane;
     private JPanel contentPanel;
+    private JLabel label1;
     private JTextField textField1;
     private JPanel buttonBar;
     private JButton okButton;
     private JButton cancelButton;
-    private JLabel label1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

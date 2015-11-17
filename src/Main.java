@@ -16,7 +16,7 @@ public class Main {
        //GuestHomeGUI guestHomeGUI = new GuestHomeGUI();
        //ViewProfile viewProfile = new ViewProfile();
        //EditBio editBio = new EditBio();
-       SearchWindow searchWindow = new SearchWindow(homePageGUI);
+       TopicSearchWindow searchWindow = new TopicSearchWindow(homePageGUI);
     }
 }
 
