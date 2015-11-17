@@ -17,7 +17,6 @@ import javax.swing.border.*;
 public class HomePageGUI extends JFrame {
     public HomePageGUI() {
         initComponents();
-        //headerText.setText(user.getUsername()+"'s Newsfeed");
     }
 
     public boolean createConnection(String username, String password) {
@@ -106,7 +105,6 @@ public class HomePageGUI extends JFrame {
         newChirpButton = new JButton();
         postedChirpsButton = new JButton();
         receivedChirpsButton = new JButton();
-        sentChirpsButton = new JButton();
         searchProfilesButton = new JButton();
         searchTopicsButton = new JButton();
         logoutButton = new JButton();
@@ -197,14 +195,6 @@ public class HomePageGUI extends JFrame {
                 receivedChirpsButton.addActionListener(e -> receivedChirpsButtonActionPerformed(e));
                 menuPanel.add(receivedChirpsButton);
 
-                //---- sentChirpsButton ----
-                sentChirpsButton.setText("View Sent Chirps");
-                sentChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                sentChirpsButton.setBackground(UIManager.getColor("Button.background"));
-                sentChirpsButton.setPreferredSize(new Dimension(148, 40));
-                sentChirpsButton.addActionListener(e -> sentChirpsButtonActionPerformed(e));
-                menuPanel.add(sentChirpsButton);
-
                 //---- searchProfilesButton ----
                 searchProfilesButton.setText("Search Profiles");
                 searchProfilesButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
@@ -236,7 +226,7 @@ public class HomePageGUI extends JFrame {
 
                 //---- displayField ----
                 displayField.setEditable(false);
-                displayField.setText("hjgfkgf");
+                displayField.setText("Welcome!");
                 displayField.setMargin(new Insets(15, 15, 15, 5));
                 displayField.setFont(new Font("Monospaced", Font.PLAIN, 14));
                 scrollPane1.setViewportView(displayField);
@@ -259,7 +249,6 @@ public class HomePageGUI extends JFrame {
     private JButton newChirpButton;
     private JButton postedChirpsButton;
     private JButton receivedChirpsButton;
-    private JButton sentChirpsButton;
     private JButton searchProfilesButton;
     private JButton searchTopicsButton;
     private JButton logoutButton;

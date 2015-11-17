@@ -62,7 +62,6 @@ public class EditBioGUI extends JFrame {
 
         //======== panel1 ========
         {
-            panel1.setBackground(new Color(102, 255, 204));
 
             // JFormDesigner evaluation mark
             panel1.setBorder(new javax.swing.border.CompoundBorder(
@@ -71,7 +70,7 @@ public class EditBioGUI extends JFrame {
                     javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
-            panel1.setLayout(new GridLayout(1, 0, 10, 0));
+            panel1.setLayout(new GridLayout());
 
             //---- button1 ----
             button1.setText("Save");
