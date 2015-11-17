@@ -12,10 +12,10 @@ public class User {
 
     public User (String tempU) {
         username = tempU;
-        subscribedTo = new ArrayList<>();
-        postedChirps = new ArrayList<>();
-        newsfeed = new ArrayList<>();
-        receivedChirps = new ArrayList<>();
+        subscribedTo = new ArrayList<String>();
+        postedChirps = new ArrayList<Message>();
+        newsfeed = new ArrayList<Message>();
+        receivedChirps = new ArrayList<Message>();
     }
 
     public void setBio(String bioString){ bio = bioString; }
