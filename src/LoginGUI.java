@@ -1,5 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -19,21 +23,74 @@ public class LoginGUI extends JFrame {
     }
 
     private void LoginActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        homepage = new HomePageGUI();
+        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+            System.out.println("CONNECTION ERROR");
+            homepage.dispose();
+            return;
+        }
+        homepage.setVisible(true);
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        homepage = new HomePageGUI();
+        if (!createUser(Username.getText(), new String(Password.getPassword()))) {
+            System.out.println("USER CREATION ERROR");
+            homepage.dispose();
+            return;
+        }
+        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+            System.out.println("CONNECTION ERROR");
+            homepage.dispose();
+            return;
+        }
+        homepage.setVisible(true);
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        homepage = new HomePageGUI();
+        if (homepage.createConnection("Guest", "Guest")) {
+            System.out.println("CONNECTION ERROR");
+            homepage.dispose();
+            return;
+        }
+        homepage.setVisible(true);
+    }
+
+    public boolean createUser(String username, String password) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection tempconn = null;
+            tempconn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", "addUser", "admin123");
+            System.out.println("Database Connected");
+
+            Statement statement = tempconn.createStatement();
+            statement.executeUpdate("CREATE USER '" + username + "'@'%' IDENTIFIED BY '" + password + "'");
+            Statement statement1 = tempconn.createStatement();
+            statement1.executeUpdate("GRANT CREATE, INSERT, SELECT ON chirpy.* TO '" + username + "'@'%'");
+            tempconn.close();
+            return true;
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
+        catch (ClassNotFoundException ex1) {
+            System.out.println("ClassNotFoundException: " + ex1.getMessage());
+        }
+        catch (InstantiationException ex2) {
+            System.out.println("InstantiationException: " + ex2.getMessage());
+        }
+        catch (IllegalAccessException ex3) {
+            System.out.println("IllegalAccessException: " + ex3.getMessage());
+        }
+        return false;
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - James Campbell
-        loginGUI = new JFrame();
         panel1 = new JPanel();
         Username = new JTextField();
         Password = new JPasswordField();
@@ -46,11 +103,11 @@ public class LoginGUI extends JFrame {
 
         //======== loginGUI ========
         {
-            loginGUI.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            loginGUI.setMinimumSize(new Dimension(375, 400));
-            loginGUI.setBackground(Color.white);
-            loginGUI.setVisible(true);
-            Container loginGUIContentPane = loginGUI.getContentPane();
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            setMinimumSize(new Dimension(375, 400));
+            setBackground(Color.white);
+            setVisible(true);
+            Container loginGUIContentPane = getContentPane();
             loginGUIContentPane.setLayout(new BorderLayout());
 
             //======== panel1 ========
@@ -160,15 +217,15 @@ public class LoginGUI extends JFrame {
                 );
             }
             loginGUIContentPane.add(panel1, BorderLayout.CENTER);
-            loginGUI.pack();
-            loginGUI.setLocationRelativeTo(loginGUI.getOwner());
+            pack();
+            setLocationRelativeTo(getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - James Campbell
-    private JFrame loginGUI;
+    private HomePageGUI homepage;
     private JPanel panel1;
     private JTextField Username;
     private JPasswordField Password;
