@@ -122,20 +122,34 @@ public class User {
 
     public String getBio() { return bio; }
 
-    public void getNewsfeed(ArrayList<String> tempList) {
+    public String getNewsfeed() {
+        String printString = "";
         if (newsfeed.size() < 0) {
-            for (int i = tempList.size()-1; i > -1; i--) {
-                tempList.add(newsfeed.get(i).toString());
+            for (int i = newsfeed.size()-1; i > -1; i--) {
+                printString += newsfeed.get(i).toString();
             }
         }
+        return printString;
     }
 
-    public ArrayList getPostedChirps() {
-        return postedChirps;
+    public String getPostedChirps() {
+        String printString = "";
+        if (postedChirps.size() < 0) {
+            for (int i = postedChirps.size()-1; i > -1; i--) {
+                printString += postedChirps.get(i).toString();
+            }
+        }
+        return printString;
     }
 
-    public ArrayList getRecievedChirps() {
-        return receivedChirps;
+    public String getRecievedChirps() {
+        String printString = "";
+        if (receivedChirps.size() < 0) {
+            for (int i = receivedChirps.size()-1; i > -1; i--) {
+                printString += receivedChirps.get(i).toString();
+            }
+        }
+        return printString;
     }
 
     public void newSubscrip(String newUsername) { subscribedTo.add(newUsername); }

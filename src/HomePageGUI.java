@@ -58,14 +58,7 @@ public class HomePageGUI extends JFrame {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Newsfeed");
         user.downloadNews(conn);
-        ArrayList<Message> tempList = new ArrayList();
-        String printString = "";
-        if (tempList.size() < 0) {
-            for (int i = tempList.size()-1; i > -1; i--) {
-                printString += tempList.get(i);
-            }
-        }
-        displayField.setText(printString);
+        displayField.setText(user.getNewsfeed());
     }
 
     private void newChirpButtonActionPerformed(ActionEvent e) {
@@ -76,30 +69,14 @@ public class HomePageGUI extends JFrame {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Posted Chirps");
         user.downloadPosted(conn);
-        ArrayList tempList = new ArrayList();
-        tempList = user.getPostedChirps();
-        String printString = "";
-        if (tempList.size() < 0) {
-            for (int i = tempList.size()-1; i > -1; i--) {
-                printString += tempList.get(i);
-            }
-        }
-        displayField.setText(printString);
+        displayField.setText(user.getPostedChirps());
     }
 
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Received Chirps");
         user.downloadreceivedChirps(conn);
-        ArrayList<Message> tempList = new ArrayList<>();
-        tempList = user.getRecievedChirps();
-        String printString = "";
-        if (tempList.size() < 0) {
-            for (int i = tempList.size()-1; i > -1; i--) {
-                printString += tempList.get(i).toString();
-            }
-        }
-        displayField.setText(printString);
+        displayField.setText(user.getRecievedChirps());
     }
 
     private void sentChirpsButtonActionPerformed(ActionEvent e) {
