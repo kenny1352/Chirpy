@@ -35,7 +35,7 @@ public class Message {
 
         //pull hashtags from content
         ArrayList<String> hashtag = new ArrayList<>();
-        findHashtags(); // see private method below (Hannah's code)
+        //findHashtags(); // see private method below (Hannah's code)
 
         //pull a single recipient from content
         findrecipient();
@@ -51,6 +51,7 @@ public class Message {
         return chirpstring;
     }
 
+    //BROKEN
     private void findHashtags() {
         //pull hashtags from content
         boolean reading=false;
@@ -71,6 +72,7 @@ public class Message {
         }
     }
 
+    //BROKEN
     private void findrecipient(){
         if(content.contains("@")) {
             int i=content.indexOf("@");
@@ -125,7 +127,7 @@ public class Message {
     }
 
     public String getHashtag() {
-        return null;
+        return "#test";
     }
 
     private String author;
