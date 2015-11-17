@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -21,6 +22,14 @@ public class TopicSearchWindow extends JDialog {
         initComponents();
     }
 
+    private void okButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void cancelButtonActionPerformed(ActionEvent e) {
+        dispose();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
@@ -33,6 +42,7 @@ public class TopicSearchWindow extends JDialog {
         cancelButton = new JButton();
 
         //======== this ========
+        setVisible(true);
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout(0, 10));
 
@@ -52,7 +62,8 @@ public class TopicSearchWindow extends JDialog {
 
             //======== contentPanel ========
             {
-                contentPanel.setLayout(new BorderLayout());
+                contentPanel.setBackground(new Color(204, 255, 255));
+                contentPanel.setLayout(new BorderLayout(0, 10));
 
                 //---- label1 ----
                 label1.setText("New Topic Search");
@@ -62,6 +73,10 @@ public class TopicSearchWindow extends JDialog {
                 label1.setBackground(new Color(204, 255, 255));
                 label1.setOpaque(true);
                 contentPanel.add(label1, BorderLayout.NORTH);
+
+                //---- textField1 ----
+                textField1.setMargin(new Insets(15, 15, 15, 5));
+                textField1.setMinimumSize(new Dimension(14, 50));
                 contentPanel.add(textField1, BorderLayout.CENTER);
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);
@@ -75,11 +90,13 @@ public class TopicSearchWindow extends JDialog {
                 //---- okButton ----
                 okButton.setText("Search");
                 okButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                okButton.addActionListener(e -> okButtonActionPerformed(e));
                 buttonBar.add(okButton);
 
                 //---- cancelButton ----
                 cancelButton.setText("Cancel");
                 cancelButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                cancelButton.addActionListener(e -> cancelButtonActionPerformed(e));
                 buttonBar.add(cancelButton);
             }
             dialogPane.add(buttonBar, BorderLayout.SOUTH);
