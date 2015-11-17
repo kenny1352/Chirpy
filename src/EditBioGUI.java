@@ -32,7 +32,7 @@ public class EditBioGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - H Morgan
+        // Generated using JFormDesigner Evaluation license - Catherine Merz
         scrollPane1 = new JScrollPane();
         textPane1 = new JTextPane();
         panel1 = new JPanel();
@@ -52,7 +52,7 @@ public class EditBioGUI extends JFrame {
         {
 
             //---- textPane1 ----
-            textPane1.setText(thisuserbio);
+            textPane1.setText("Write new bio here...");
             textPane1.setFont(new Font("Serif", Font.PLAIN, 16));
             textPane1.setPreferredSize(new Dimension(400, 100));
             textPane1.setMinimumSize(new Dimension(200, 80));
@@ -62,6 +62,7 @@ public class EditBioGUI extends JFrame {
 
         //======== panel1 ========
         {
+            panel1.setBackground(new Color(102, 255, 204));
 
             // JFormDesigner evaluation mark
             panel1.setBorder(new javax.swing.border.CompoundBorder(
@@ -70,7 +71,7 @@ public class EditBioGUI extends JFrame {
                     javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
-            panel1.setLayout(new GridLayout());
+            panel1.setLayout(new GridLayout(1, 0, 10, 0));
 
             //---- button1 ----
             button1.setText("Save");
@@ -89,7 +90,7 @@ public class EditBioGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - H Morgan
+    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JScrollPane scrollPane1;
     private JTextPane textPane1;
     private JPanel panel1;
