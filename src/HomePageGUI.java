@@ -3,7 +3,6 @@ import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -19,7 +18,6 @@ public class HomePageGUI extends JFrame {
     public HomePageGUI() {
         initComponents();
         //headerText.setText(user.getUsername()+"'s Newsfeed");
-        setVisible(false);
     }
 
     public boolean createConnection(String username, String password) {
@@ -120,6 +118,7 @@ public class HomePageGUI extends JFrame {
         setMinimumSize(new Dimension(650, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBackground(new Color(102, 255, 204));
+        setVisible(true);
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 

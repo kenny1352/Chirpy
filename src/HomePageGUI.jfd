@@ -10,6 +10,7 @@ new FormModel {
 			"minimumSize": new java.awt.Dimension( 650, 600 )
 			"defaultCloseOperation": 3
 			"background": new java.awt.Color( 102, 255, 204, 255 )
+			"visible": true
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "headerText"
 				"text": "Chirpy"
