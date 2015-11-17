@@ -123,30 +123,22 @@ public class User {
     public String getBio() { return bio; }
 
     public String getNewsfeed() {
-        String printString = "";
-        if (newsfeed.size() < 0) {
-            for (int i = newsfeed.size()-1; i > -1; i--) {
-                printString += newsfeed.get(i).toString();
-            }
-        }
-        return printString;
+        return displayChirps(newsfeed);
     }
 
     public String getPostedChirps() {
-        String printString = "";
-        if (postedChirps.size() < 0) {
-            for (int i = postedChirps.size()-1; i > -1; i--) {
-                printString += postedChirps.get(i).toString();
-            }
-        }
-        return printString;
+        return displayChirps(postedChirps);
     }
 
     public String getRecievedChirps() {
+        return displayChirps(receivedChirps);
+    }
+
+    private String displayChirps(ArrayList<Message> list) {
         String printString = "";
-        if (receivedChirps.size() < 0) {
-            for (int i = receivedChirps.size()-1; i > -1; i--) {
-                printString += receivedChirps.get(i).toString();
+        if (list.size()<0) {
+            for (int i = list.size()-1; i > -1; i--) {
+                printString += list.get(i).toString();
             }
         }
         return printString;
