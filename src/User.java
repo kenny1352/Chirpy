@@ -124,7 +124,7 @@ public class User {
 
     public String getNewsfeed() {
         String printString = "";
-        if (newsfeed.size() < 0) {
+        if (newsfeed.size() > 0) {
             for (int i = newsfeed.size()-1; i > -1; i--) {
                 printString += newsfeed.get(i).toString();
             }
@@ -134,7 +134,7 @@ public class User {
 
     public String getPostedChirps() {
         String printString = "";
-        if (postedChirps.size() < 0) {
+        if (postedChirps.size() > 0) {
             for (int i = postedChirps.size()-1; i > -1; i--) {
                 printString += postedChirps.get(i).toString();
             }
@@ -144,7 +144,7 @@ public class User {
 
     public String getRecievedChirps() {
         String printString = "";
-        if (receivedChirps.size() < 0) {
+        if (receivedChirps.size() > 0) {
             for (int i = receivedChirps.size()-1; i > -1; i--) {
                 printString += receivedChirps.get(i).toString();
             }
