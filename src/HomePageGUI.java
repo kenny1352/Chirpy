@@ -17,7 +17,8 @@ import javax.swing.border.*;
 public class HomePageGUI extends JFrame {
     public HomePageGUI() {
         initComponents();
-        //headerText.setText(user.getUsername()+"'s Newsfeed");
+        headerText.setText(user.getUsername()+"'s Newsfeed");
+        displayField.setText(user.getNewsfeed());
     }
 
     public boolean createConnection(String username, String password) {
