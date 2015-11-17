@@ -17,8 +17,6 @@ import javax.swing.border.*;
 public class HomePageGUI extends JFrame {
     public HomePageGUI() {
         initComponents();
-        headerText.setText(user.getUsername()+"'s Newsfeed");
-        displayField.setText(user.getNewsfeed());
     }
 
     public boolean createConnection(String username, String password) {
@@ -237,7 +235,7 @@ public class HomePageGUI extends JFrame {
 
                 //---- displayField ----
                 displayField.setEditable(false);
-                displayField.setText("hjgfkgf");
+                displayField.setText("Welcome!");
                 displayField.setMargin(new Insets(15, 15, 15, 5));
                 displayField.setFont(new Font("Monospaced", Font.PLAIN, 14));
                 scrollPane1.setViewportView(displayField);
