@@ -53,7 +53,7 @@ public class EditBioGUI extends JFrame {
         {
 
             //---- textPane1 ----
-            textPane1.setText("Write new bio here...");
+            textPane1.setText(thisuserbio);
             textPane1.setFont(new Font("Serif", Font.PLAIN, 16));
             textPane1.setPreferredSize(new Dimension(400, 100));
             textPane1.setMinimumSize(new Dimension(200, 80));
