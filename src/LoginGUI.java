@@ -32,7 +32,7 @@ public class LoginGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Catherine Merz
+        // Generated using JFormDesigner Evaluation license - James Campbell
         loginGUI = new JFrame();
         panel1 = new JPanel();
         Username = new JTextField();
@@ -167,7 +167,7 @@ public class LoginGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
+    // Generated using JFormDesigner Evaluation license - James Campbell
     private JFrame loginGUI;
     private JPanel panel1;
     private JTextField Username;

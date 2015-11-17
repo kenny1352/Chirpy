@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.plaf.*;
@@ -13,12 +14,13 @@ import javax.swing.plaf.*;
  * @author Catherine Merz
  */
 public class NewChirpWindow extends JFrame {
-    public NewChirpWindow(User author) {
+    public NewChirpWindow(User author, Connection connection) {
         initComponents();
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(radioButtonMenuItem1);
         buttonGroup.add(radioButtonMenuItem2);
         authorUser = author;
+        conn = connection;
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
@@ -29,6 +31,24 @@ public class NewChirpWindow extends JFrame {
         Message chirp = new Message(authorUser.getUsername(), textPane1.getText(), radioButtonMenuItem1.isSelected());
         //System.out.println(chirp.toString());
         // TODO add new Chirp to database
+        try {
+            String sql = "INSERT INTO messages (username, messageText, tags, recipient, timeStamp, publicSetting)" + "VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, chirp.getAuthor());
+            statement.setString(2, chirp.getContent());
+            statement.setString(3, chirp.getHashtag());
+            statement.setString(4, chirp.getRecipient());
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String date = sdf.format(chirp.getTimestamp());
+            statement.setString(5, date);
+            statement.setInt(6, chirp.getPublicSetting());
+            statement.executeUpdate();
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
         dispose();
     }
 
@@ -166,4 +186,5 @@ public class NewChirpWindow extends JFrame {
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
     private User authorUser;
+    private Connection conn;
 }

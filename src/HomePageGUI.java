@@ -1,6 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 //import org.jdesktop.swingx.*;
@@ -14,11 +17,36 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class HomePageGUI extends JFrame {
-    public HomePageGUI(User user) {
+    public HomePageGUI() {
         initComponents();
-        this.user = user;
-        headerText.setText(user.getUsername()+"'s Newsfeed");
-        setVisible(true);
+        //headerText.setText(user.getUsername()+"'s Newsfeed");
+        setVisible(false);
+    }
+
+    public boolean createConnection(String username, String password) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            conn = null;
+            conn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", username, password);
+            System.out.println("Database Connected");
+            user = new User(username);
+            return true;
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
+        catch (ClassNotFoundException ex1) {
+            System.out.println("ClassNotFoundException: " + ex1.getMessage());
+        }
+        catch (InstantiationException ex2) {
+            System.out.println("InstantiationException: " + ex2.getMessage());
+        }
+        catch (IllegalAccessException ex3) {
+            System.out.println("IllegalAccessException: " + ex3.getMessage());
+        }
+        return false;
     }
 
     private void bioButtonActionPerformed(ActionEvent e) {
@@ -30,22 +58,49 @@ public class HomePageGUI extends JFrame {
     private void newsfeedButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Newsfeed");
+        user.downloadNews(conn);
+        ArrayList<Message> tempList = new ArrayList();
+        String printString = "";
+        if (tempList.size() < 0) {
+            for (int i = tempList.size()-1; i > -1; i--) {
+                printString += tempList.get(i);
+            }
+        }
+        displayField.setText(printString);
     }
 
     private void newChirpButtonActionPerformed(ActionEvent e) {
-        new NewChirpWindow(user);
+        new NewChirpWindow(user, conn);
     }
 
     private void postedChirpsButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Posted Chirps");
-        displayField.setText(user.getPostedChirps());
+        user.downloadPosted(conn);
+        ArrayList tempList = new ArrayList();
+        tempList = user.getPostedChirps();
+        String printString = "";
+        if (tempList.size() < 0) {
+            for (int i = tempList.size()-1; i > -1; i--) {
+                printString += tempList.get(i);
+            }
+        }
+        displayField.setText(printString);
     }
 
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Received Chirps");
-        displayField.setText(user.getRecievedChirps());
+        user.downloadreceivedChirps(conn);
+        ArrayList<Message> tempList = new ArrayList<>();
+        tempList = user.getRecievedChirps();
+        String printString = "";
+        if (tempList.size() < 0) {
+            for (int i = tempList.size()-1; i > -1; i--) {
+                printString += tempList.get(i).toString();
+            }
+        }
+        displayField.setText(printString);
     }
 
     private void sentChirpsButtonActionPerformed(ActionEvent e) {

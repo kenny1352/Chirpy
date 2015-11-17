@@ -46,7 +46,7 @@ public class Message {
         //if (!recipient.equals(" ")) {
         //    chirpstring = chirpstring + " @" + recipient.getUsername();
         //}
-        chirpstring = chirpstring + "\n" + content + "\n" + timestamp.toString() + "\n" + "\n";
+        chirpstring = chirpstring + "\n" + content + "\n" + "\n";
 
         return chirpstring;
     }
@@ -97,6 +97,35 @@ public class Message {
 
     public boolean checkPublicSetting(){
         return publicSetting;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getRecipient() {
+        return recipient;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public int getPublicSetting() {
+        if (publicSetting) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    public String getHashtag() {
+        return null;
     }
 
     private String author;

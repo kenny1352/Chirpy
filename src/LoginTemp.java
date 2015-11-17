@@ -16,7 +16,7 @@ public class LoginTemp extends JFrame {
     }
 
     private void LoginActionPerformed(ActionEvent e) {
-        homepage = new HomeGUI();
+        homepage = new HomePageGUI();
         if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
             System.out.println("CONNECTION ERROR");
             homepage.dispose();
@@ -26,7 +26,7 @@ public class LoginTemp extends JFrame {
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
-        homepage = new HomeGUI();
+        homepage = new HomePageGUI();
         if (!createUser(Username.getText(), new String(Password.getPassword()))) {
             System.out.println("USER CREATION ERROR");
             homepage.dispose();
@@ -41,7 +41,7 @@ public class LoginTemp extends JFrame {
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
-        homepage = new HomeGUI();
+        homepage = new HomePageGUI();
         if (homepage.createConnection("Guest", "Guest")) {
             System.out.println("CONNECTION ERROR");
             homepage.dispose();
@@ -197,7 +197,7 @@ public class LoginTemp extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - James Campbell
-    private HomeGUI homepage;
+    private HomePageGUI homepage;
     private JTextField Username;
     private JPasswordField Password;
     private JLabel Title;
