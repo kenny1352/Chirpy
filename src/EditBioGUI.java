@@ -22,7 +22,6 @@ public class EditBioGUI extends JFrame {
     private void saveActionPerformed(ActionEvent e) {
         // TODO add your code here
         user.setBio(textPane1.getText());
-        System.out.println(user.getBio());
         dispose();
     }
 
