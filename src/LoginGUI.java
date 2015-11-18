@@ -90,7 +90,8 @@ public class LoginGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - James Campbell
+        // Generated using JFormDesigner Evaluation license - Catherine Merz
+        loginGUI = new JFrame();
         panel1 = new JPanel();
         Username = new JTextField();
         Password = new JPasswordField();
@@ -103,11 +104,11 @@ public class LoginGUI extends JFrame {
 
         //======== loginGUI ========
         {
-            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            setMinimumSize(new Dimension(375, 400));
-            setBackground(Color.white);
-            setVisible(true);
-            Container loginGUIContentPane = getContentPane();
+            loginGUI.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            loginGUI.setMinimumSize(new Dimension(375, 400));
+            loginGUI.setBackground(Color.white);
+            loginGUI.setVisible(true);
+            Container loginGUIContentPane = loginGUI.getContentPane();
             loginGUIContentPane.setLayout(new BorderLayout());
 
             //======== panel1 ========
@@ -217,15 +218,15 @@ public class LoginGUI extends JFrame {
                 );
             }
             loginGUIContentPane.add(panel1, BorderLayout.CENTER);
-            pack();
-            setLocationRelativeTo(getOwner());
+            loginGUI.pack();
+            loginGUI.setLocationRelativeTo(loginGUI.getOwner());
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - James Campbell
-    private HomePageGUI homepage;
+    // Generated using JFormDesigner Evaluation license - Catherine Merz
+    private JFrame loginGUI;
     private JPanel panel1;
     private JTextField Username;
     private JPasswordField Password;
@@ -236,4 +237,6 @@ public class LoginGUI extends JFrame {
     private JLabel UsernameTitle;
     private JLabel PasswordTitle;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    private HomePageGUI homepage;
 }

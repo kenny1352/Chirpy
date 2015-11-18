@@ -38,7 +38,7 @@ public class Message {
         //findHashtags(); // see private method below (Hannah's code)
 
         //pull a single recipient from content
-        findrecipient();
+        findRecipient();
     }
 
     public String toString(){
@@ -73,23 +73,13 @@ public class Message {
     }
 
     //BROKEN
-    private void findrecipient(){
+    private void findRecipient(){
         if(content.contains("@")) {
-            int i=content.indexOf("@");
-            boolean reading = true;
-
-            while(reading){
-                i++;
-                if(content.charAt(i)!=' '){
-                    recipient=recipient+content.charAt(i);
-                }
-                else{
-                    reading=false;
-                }
-            }
-        }
-        else{
-            recipient=" ";
+            //int index = content.indexOf("@");boolean reading = true;
+            recipient = content.split("@")[1].split(" ")[0];
+            //while(reading){i++;if(content.charAt(i)!=' '){recipient=recipient+content.charAt(i);} else{reading=false;}}
+        } else{
+            recipient = "";
         }
     }
 
