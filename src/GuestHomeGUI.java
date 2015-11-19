@@ -1,5 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -14,6 +17,27 @@ import javax.swing.border.*;
 public class GuestHomeGUI extends JFrame {
     public GuestHomeGUI() {
         initComponents();
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            conn = null;
+            conn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", "Guest", "Guest");
+            System.out.println("Database Connected");
+            user = new User("Guest");
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
+        catch (ClassNotFoundException ex1) {
+            System.out.println("ClassNotFoundException: " + ex1.getMessage());
+        }
+        catch (InstantiationException ex2) {
+            System.out.println("InstantiationException: " + ex2.getMessage());
+        }
+        catch (IllegalAccessException ex3) {
+            System.out.println("IllegalAccessException: " + ex3.getMessage());
+        }
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
@@ -147,4 +171,6 @@ public class GuestHomeGUI extends JFrame {
     private JScrollPane scrollPane1;
     private JTextArea textArea1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private Connection conn;
+    private User user;
 }
