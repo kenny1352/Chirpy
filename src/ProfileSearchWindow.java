@@ -28,6 +28,8 @@ public class ProfileSearchWindow extends JDialog {
 
     private void searchButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
+        // searches database for appropriate User profileSearched
+        // viewProfile(user, profileSearched, boolean??)
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {

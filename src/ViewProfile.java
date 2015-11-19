@@ -13,21 +13,39 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class ViewProfile extends JFrame {
-    public ViewProfile(String profileSearched, Boolean guestUser, ArrayList<String> subscriptions) {
+    public ViewProfile(User user, User profileSearched, Boolean guestUser/*, ArrayList<String> subscriptions*/) {
         initComponents();
+        this.user=user;
+        this.profileSearched = profileSearched;
         label1.setText(profileSearched + "'s Chirps");
         if (guestUser) {
-            buttonBar.setVisible(false);
+            //buttonBar.setVisible(false);
+            subscribeButton.setVisible(false);
+        }
+        else if (user.isSubscribedTo(profileSearched.getUsername())){
+            subscribeButton.setText("Unsubscribe");
         }
         // TODO set up Newsfeed
+        //convert profileSearched to the user it represents
+        //look through database to get user information for this profileSearched user??
+
+        //profileSearched.downloadPosted(conn); -- borrowed from the HomePageGUI code for newsfeed
+        //textArea1.setText(profileSearched.getPostedChirps());
     }
 
     private void viewBioButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
+        //textArea1.setText(profileSearched.getBio());
     }
 
     private void subscribeButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
+        if (subscribeButton.getText()=="Unsubscribe"){
+            user.unsubscribe(profileSearched.getUsername());
+        }
+        else if (subscribeButton.getText()=="Subscribe"){
+            user.newSubscrip(profileSearched.getUsername());
+        }
     }
 
     private void initComponents() {
@@ -119,4 +137,7 @@ public class ViewProfile extends JFrame {
     private JScrollPane scrollPane1;
     private JTextArea textArea1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+    private User user;
+    private User profileSearched;
 }

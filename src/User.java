@@ -145,6 +145,7 @@ public class User {
     }
 
     public void newSubscrip(String newUsername) { subscribedTo.add(newUsername); }
+    public void unsubscribe(String xUsername) { subscribedTo.remove(xUsername); }
     public boolean isSubscribedTo(String aUsername) { return subscribedTo.contains(aUsername); }
 
     private String username;    //stored in database
