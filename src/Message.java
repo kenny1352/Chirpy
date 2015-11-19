@@ -115,6 +115,14 @@ public class Message {
         return hashtag.get(0);
     }
 
+    public String hashToString() {
+        String tags = "";
+        for (int i = 0; i < hashtag.size(); i++) {
+            tags = tags + hashtag.get(i) + " ";
+        }
+        return tags;
+    }
+
     private String author;
     // only one recipient is permitted;
     // second '@' will be ignored as part of the message
