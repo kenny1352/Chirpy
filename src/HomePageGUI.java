@@ -46,13 +46,15 @@ public class HomePageGUI extends JFrame {
     }
 
     private void bioButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername() + "'s Bio");
         EditBioGUI editBioGUI = new EditBioGUI(user);
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        updateNewsfeed();
+    }
+
+    public void updateNewsfeed() {
         headerText.setText(user.getUsername() + "'s Newsfeed");
         user.downloadNews(conn);
         displayField.setText(user.getNewsfeed());
@@ -63,14 +65,12 @@ public class HomePageGUI extends JFrame {
     }
 
     private void postedChirpsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername() + "'s Posted Chirps");
         user.downloadPosted(conn);
         displayField.setText(user.getPostedChirps());
     }
 
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername() + "'s Received Chirps");
         user.downloadreceivedChirps(conn);
         displayField.setText(user.getRecievedChirps());
