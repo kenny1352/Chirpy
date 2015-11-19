@@ -26,9 +26,7 @@ public class ViewProfile extends JFrame {
             subscribeButton.setText("Unsubscribe");
         }
         // TODO set up Newsfeed
-        //convert profileSearched to the user it represents
-        //look through database to get user information for this profileSearched user??
-
+        //draw user info about posted messages from database
         //profileSearched.downloadPosted(conn); -- borrowed from the HomePageGUI code for newsfeed
         //textArea1.setText(profileSearched.getPostedChirps());
     }
