@@ -1,6 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -45,8 +48,13 @@ public class LoginGUI extends JFrame {
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
-        guestHomepage = new GuestHomeGUI();
-        guestHomepage.setVisible(true);
+        homepage = new HomePageGUI();
+        if (homepage.createConnection("Guest", "Guest")) {
+            System.out.println("CONNECTION ERROR");
+            homepage.dispose();
+            return;
+        }
+        homepage.setVisible(true);
     }
 
     public boolean createUser(String username, String password) {
@@ -60,13 +68,6 @@ public class LoginGUI extends JFrame {
             statement.executeUpdate("CREATE USER '" + username + "'@'%' IDENTIFIED BY '" + password + "'");
             Statement statement1 = tempconn.createStatement();
             statement1.executeUpdate("GRANT CREATE, INSERT, SELECT ON chirpy.* TO '" + username + "'@'%'");
-            String sql = "INSERT INTO users (username, bio)" + "VALUES (?, ?)";
-            PreparedStatement statement2 = tempconn.prepareStatement(sql);
-            statement2.setString(1, username);
-            statement2.setString(2, "Hello World!");
-            statement2.executeUpdate();
-            Statement statement3 = tempconn.createStatement();
-            statement3.executeUpdate("CREATE TABLE " + username + "_SUBSCRIBE " + "(users VARCHAR(45), PRIMARY KEY (users))");
             tempconn.close();
             return true;
         }
@@ -225,7 +226,6 @@ public class LoginGUI extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - James Campbell
     private HomePageGUI homepage;
-    private GuestHomeGUI guestHomepage;
     private JPanel panel1;
     private JTextField Username;
     private JPasswordField Password;

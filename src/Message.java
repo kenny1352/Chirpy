@@ -34,11 +34,11 @@ public class Message {
         publicSetting = tempP;
 
         //pull hashtags from content
-        ArrayList<String> hashtag = new ArrayList<>();
-        //findHashtags(); // see private method below (Hannah's code)
+        hashtag = new ArrayList<>();
+        findHashtags();
 
         //pull a single recipient from content
-        findrecipient();
+        findRecipient();
     }
 
     public String toString(){
@@ -46,7 +46,7 @@ public class Message {
         //if (!recipient.equals(" ")) {
         //    chirpstring = chirpstring + " @" + recipient.getUsername();
         //}
-        chirpstring = chirpstring + "\n" + content + "\n" + "\n";
+        chirpstring = chirpstring + " posted on " + timestamp + ":\n" + content + "\n" + "\n";
 
         return chirpstring;
     }
@@ -54,42 +54,26 @@ public class Message {
     //BROKEN
     private void findHashtags() {
         //pull hashtags from content
-        boolean reading=false;
-        String topicstring="";
-        for(int i=0; i<content.length(); i++) {
-            if (reading) {
-                //log this character into memory
-                topicstring=topicstring+content.charAt(i);
+        //boolean reading=false;String topicstring="";for(int i=0; i<content.length(); i++) {if (reading) {//log this character into memory topicstring=topicstring+content.charAt(i);}if (content.charAt(i)=='#') {topicstring="";reading=true;}if (content.charAt(i)==' ') {reading=false;hashtag.add(topicstring);}}
+        if (content.contains("#")) {
+            String[] contentArray = content.split(" ");
+            for (int i = 0; i < contentArray.length; i++) {
+                if (contentArray[i].contains("#")) {
+                    hashtag.add(contentArray[i].replace("#", ""));
+                }
             }
-            if (content.charAt(i)=='#') {
-                topicstring="";
-                reading=true;
-            }
-            if (content.charAt(i)==' ') {
-                reading=false;
-                hashtag.add(topicstring);
-            }
+        } else {
+            hashtag.add("");
         }
+
     }
 
-    //BROKEN
-    private void findrecipient(){
+    // NOT BROKEN
+    private void findRecipient(){
         if(content.contains("@")) {
-            int i=content.indexOf("@");
-            boolean reading = true;
-
-            while(reading){
-                i++;
-                if(content.charAt(i)!=' '){
-                    recipient=recipient+content.charAt(i);
-                }
-                else{
-                    reading=false;
-                }
-            }
-        }
-        else{
-            recipient=" ";
+            recipient = content.split("@")[1].split(" ")[0];
+        } else{
+            recipient = "";
         }
     }
 
@@ -127,7 +111,16 @@ public class Message {
     }
 
     public String getHashtag() {
-        return "#test";
+        //return "#test";
+        return hashtag.get(0);
+    }
+
+    public String hashToString() {
+        String tags = "";
+        for (int i = 0; i < hashtag.size(); i++) {
+            tags = tags + hashtag.get(i) + " ";
+        }
+        return tags;
     }
 
     private String author;
