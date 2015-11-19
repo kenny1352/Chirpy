@@ -28,28 +28,31 @@ public class NewChirpWindow extends JFrame {
     }
 
     private void okButtonActionPerformed(ActionEvent e) {
-        Message chirp = new Message(authorUser.getUsername(), textPane1.getText(), radioButtonMenuItem1.isSelected());
-        //System.out.println(chirp.toString());
-        // TODO add new Chirp to database
-        try {
-            String sql = "INSERT INTO messages (username, messageText, tags, recipient, timeStamp, publicSetting)" + "VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, chirp.getAuthor());
-            statement.setString(2, chirp.getContent());
-            statement.setString(3, chirp.getHashtag());
-            statement.setString(4, chirp.getRecipient());
-            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String date = sdf.format(chirp.getTimestamp());
-            statement.setString(5, date);
-            statement.setInt(6, chirp.getPublicSetting());
-            statement.executeUpdate();
+        if(textPane1.getText().length()<=140) {
+            Message chirp = new Message(authorUser.getUsername(), textPane1.getText(), radioButtonMenuItem1.isSelected());
+            //System.out.println(chirp.toString());
+            // TODO add new Chirp to database
+            try {
+                String sql = "INSERT INTO messages (username, messageText, tags, recipient, timeStamp, publicSetting)" + "VALUES (?, ?, ?, ?, ?, ?)";
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.setString(1, chirp.getAuthor());
+                statement.setString(2, chirp.getContent());
+                statement.setString(3, chirp.getHashtag());
+                statement.setString(4, chirp.getRecipient());
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String date = sdf.format(chirp.getTimestamp());
+                statement.setString(5, date);
+                statement.setInt(6, chirp.getPublicSetting());
+                statement.executeUpdate();
+            } catch (SQLException SQLex) {
+                System.out.println("SQLException: " + SQLex.getMessage());
+                System.out.println("SQLState: " + SQLex.getSQLState());
+                System.out.println("VendorError: " + SQLex.getErrorCode());
+            }
+            dispose();
+        } else{
+            setTitle("New Chirp - 140 char max");
         }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }
-        dispose();
     }
 
     private void initComponents() {
