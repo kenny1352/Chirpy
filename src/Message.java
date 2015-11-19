@@ -34,8 +34,8 @@ public class Message {
         publicSetting = tempP;
 
         //pull hashtags from content
-        ArrayList<String> hashtag = new ArrayList<>();
-        //findHashtags(); // see private method below (Hannah's code)
+        hashtag = new ArrayList<>();
+        findHashtags();
 
         //pull a single recipient from content
         findRecipient();
@@ -54,30 +54,24 @@ public class Message {
     //BROKEN
     private void findHashtags() {
         //pull hashtags from content
-        boolean reading=false;
-        String topicstring="";
-        for(int i=0; i<content.length(); i++) {
-            if (reading) {
-                //log this character into memory
-                topicstring=topicstring+content.charAt(i);
+        //boolean reading=false;String topicstring="";for(int i=0; i<content.length(); i++) {if (reading) {//log this character into memory topicstring=topicstring+content.charAt(i);}if (content.charAt(i)=='#') {topicstring="";reading=true;}if (content.charAt(i)==' ') {reading=false;hashtag.add(topicstring);}}
+        if (content.contains("#")) {
+            String[] contentArray = content.split(" ");
+            for (int i = 0; i < contentArray.length; i++) {
+                if (contentArray[i].contains("#")) {
+                    hashtag.add(contentArray[i].replace("#", ""));
+                }
             }
-            if (content.charAt(i)=='#') {
-                topicstring="";
-                reading=true;
-            }
-            if (content.charAt(i)==' ') {
-                reading=false;
-                hashtag.add(topicstring);
-            }
+        } else {
+            hashtag.add("");
         }
+
     }
 
-    //BROKEN
+    // NOT BROKEN
     private void findRecipient(){
         if(content.contains("@")) {
-            //int index = content.indexOf("@");boolean reading = true;
             recipient = content.split("@")[1].split(" ")[0];
-            //while(reading){i++;if(content.charAt(i)!=' '){recipient=recipient+content.charAt(i);} else{reading=false;}}
         } else{
             recipient = "";
         }
@@ -117,7 +111,8 @@ public class Message {
     }
 
     public String getHashtag() {
-        return "#test";
+        //return "#test";
+        return hashtag.get(0);
     }
 
     private String author;
