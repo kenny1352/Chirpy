@@ -29,7 +29,7 @@ new FormModel {
 					name: "panel1"
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 						"columns": 1
-						"rows": 6
+						"rows": 7
 						"vgap": 8
 					} ) {
 						name: "menuPanel"
@@ -91,7 +91,7 @@ new FormModel {
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonActionPerformed", true ) )
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "North"
+						"value": "Center"
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 						"rows": 3
@@ -99,7 +99,7 @@ new FormModel {
 						"vgap": 8
 					} ) {
 						name: "panel2"
-						"preferredSize": new java.awt.Dimension( 195, 200 )
+						"preferredSize": new java.awt.Dimension( 195, 150 )
 						"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
 						"background": new java.awt.Color( 102, 255, 204, 255 )
 						add( new FormComponent( "javax.swing.JTextField" ) {
@@ -125,7 +125,7 @@ new FormModel {
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchTopicsButtonActionPerformed", true ) )
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "West"
+						"value": "Last"
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "West"

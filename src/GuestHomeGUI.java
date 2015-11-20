@@ -121,7 +121,7 @@ public class GuestHomeGUI extends JFrame {
                     panel1.setPreferredSize(new Dimension(180, 40));
                     panel1.setBackground(new Color(102, 255, 204));
                     panel1.setBorder(new EmptyBorder(5, 5, 5, 5));
-                    panel1.setLayout(new GridLayout(5, 1, 10, 10));
+                    panel1.setLayout(new GridLayout(6, 1, 10, 10));
 
                     //---- newsfeedButton ----
                     newsfeedButton.setText("Newsfeed");
@@ -170,7 +170,7 @@ public class GuestHomeGUI extends JFrame {
                 scrollPane1.setPreferredSize(new Dimension(0, 52));
 
                 //---- textArea1 ----
-                textArea1.setPreferredSize(new Dimension(50, 50));
+                textArea1.setPreferredSize(new Dimension(84, 50));
                 textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));
                 textArea1.setMargin(new Insets(15, 15, 15, 5));
                 textArea1.setEditable(false);
