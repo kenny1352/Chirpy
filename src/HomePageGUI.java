@@ -50,7 +50,7 @@ public class HomePageGUI extends JFrame {
     private void bioButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername() + "'s Bio");
-        EditBioGUI editBioGUI = new EditBioGUI(user);
+        EditBioGUI editBioGUI = new EditBioGUI(user, conn);
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
