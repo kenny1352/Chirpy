@@ -1,9 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.*;
 import com.jgoodies.forms.factories.*;
 import com.jgoodies.forms.layout.*;
@@ -17,24 +13,15 @@ import com.jgoodies.forms.layout.*;
  * @author H Morgan
  */
 public class EditBioGUI extends JFrame {
-    public EditBioGUI(User user, Connection connection) {
+    public EditBioGUI(User user) {
         this.user=user;
         thisuserbio=user.getBio();
-        conn = connection;
         initComponents();
     }
 
     private void saveActionPerformed(ActionEvent e) {
         // TODO add your code here
         user.setBio(textPane1.getText());
-        try {
-            Statement statement = conn.createStatement();
-            statement.executeUpdate("UPDATE users SET bio='" + textPane1.getText() +"' WHERE username LIKE '" + user.getUsername() + "'");
-        } catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }
         dispose();
     }
 
@@ -112,5 +99,4 @@ public class EditBioGUI extends JFrame {
 
     private User user;
     private String thisuserbio;
-    private Connection conn;
 }
