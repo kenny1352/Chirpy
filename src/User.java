@@ -74,7 +74,7 @@ public class User {
                     publicSetting = true;
                 }
                 Message newMessage = new Message(author, text, recipient, hashtags, time, publicSetting);
-                if (publicSetting || subscribedTo.contains(author)) {
+                if (publicSetting || subscribedTo.contains(author) || author.equals(username)) {
                     newsfeed.add(newMessage);
                 }
             }

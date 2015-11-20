@@ -1,5 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -12,8 +17,9 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class TopicSearchWindow extends JDialog {
-    public TopicSearchWindow(Frame owner) {
+    public TopicSearchWindow(Frame owner, Connection connection) {
         super(owner);
+        conn = connection;
         initComponents();
     }
 
@@ -23,7 +29,27 @@ public class TopicSearchWindow extends JDialog {
     }
 
     private void okButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        /*try {
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM messages WHERE recipient LIKE '" + username + "'");
+
+            while (resultSet.next()) {
+                String author = resultSet.getString("username");
+                String text = resultSet.getString("messageText");
+                String hashtags = resultSet.getString("tags");
+                Date time = resultSet.getDate("timeStamp");
+                int temp = resultSet.getInt("publicSetting");
+                boolean publicSetting = false;
+                if (temp == 1) {
+                    publicSetting = true;
+                }
+            }
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }*/
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
@@ -119,4 +145,5 @@ public class TopicSearchWindow extends JDialog {
     private JButton okButton;
     private JButton cancelButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private Connection conn;
 }
