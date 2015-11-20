@@ -58,6 +58,12 @@ public class GuestHomeGUI extends JFrame {
 
     private void topicSearchButtonActionPerformed(ActionEvent e) {
         //new TopicSearchWindow(this);
+        String searchTopic = textField1.getText();
+        title.setText("Newsfeed Chirps containing #"+searchTopic);
+        user.downloadNews(conn);
+        textArea1.setText(user.searchNews(searchTopic));
+        textArea1.setSelectionStart(0);
+        textArea1.setSelectionEnd(0);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
