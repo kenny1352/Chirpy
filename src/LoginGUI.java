@@ -47,6 +47,7 @@ public class LoginGUI extends JFrame {
 
     private void GuestLoginActionPerformed(ActionEvent e) {
         guestHomepage = new GuestHomeGUI();
+        guestHomepage.updateNewsfeed();
         guestHomepage.setVisible(true);
     }
 
