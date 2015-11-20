@@ -54,7 +54,10 @@ public class HomePageGUI extends JFrame {
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        updateNewsfeed();
+    }
+
+    public void updateNewsfeed() {
         headerText.setText(user.getUsername() + "'s Newsfeed");
         user.downloadNews(conn);
         displayField.setText(user.getNewsfeed());
@@ -65,22 +68,15 @@ public class HomePageGUI extends JFrame {
     }
 
     private void postedChirpsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername() + "'s Posted Chirps");
         user.downloadPosted(conn);
         displayField.setText(user.getPostedChirps());
     }
 
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername() + "'s Received Chirps");
         user.downloadreceivedChirps(conn);
         displayField.setText(user.getRecievedChirps());
-    }
-
-    private void sentChirpsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
-        headerText.setText(user.getUsername() + "'s Sent Chirps");
     }
 
     private void searchProfilesButtonActionPerformed(ActionEvent e) {
@@ -107,7 +103,6 @@ public class HomePageGUI extends JFrame {
         newChirpButton = new JButton();
         postedChirpsButton = new JButton();
         receivedChirpsButton = new JButton();
-        sentChirpsButton = new JButton();
         searchProfilesButton = new JButton();
         searchTopicsButton = new JButton();
         logoutButton = new JButton();
@@ -198,14 +193,6 @@ public class HomePageGUI extends JFrame {
                 receivedChirpsButton.addActionListener(e -> receivedChirpsButtonActionPerformed(e));
                 menuPanel.add(receivedChirpsButton);
 
-                //---- sentChirpsButton ----
-                sentChirpsButton.setText("View Sent Chirps");
-                sentChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                sentChirpsButton.setBackground(UIManager.getColor("Button.background"));
-                sentChirpsButton.setPreferredSize(new Dimension(148, 40));
-                sentChirpsButton.addActionListener(e -> sentChirpsButtonActionPerformed(e));
-                menuPanel.add(sentChirpsButton);
-
                 //---- searchProfilesButton ----
                 searchProfilesButton.setText("Search Profiles");
                 searchProfilesButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
@@ -237,7 +224,7 @@ public class HomePageGUI extends JFrame {
 
                 //---- displayField ----
                 displayField.setEditable(false);
-                displayField.setText("hjgfkgf");
+                displayField.setText("Welcome!");
                 displayField.setMargin(new Insets(15, 15, 15, 5));
                 displayField.setFont(new Font("Monospaced", Font.PLAIN, 14));
                 scrollPane1.setViewportView(displayField);
@@ -260,7 +247,6 @@ public class HomePageGUI extends JFrame {
     private JButton newChirpButton;
     private JButton postedChirpsButton;
     private JButton receivedChirpsButton;
-    private JButton sentChirpsButton;
     private JButton searchProfilesButton;
     private JButton searchTopicsButton;
     private JButton logoutButton;

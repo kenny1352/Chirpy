@@ -26,6 +26,7 @@ public class LoginGUI extends JFrame {
             homepage.dispose();
             return;
         }
+        homepage.updateNewsfeed();
         homepage.setVisible(true);
     }
 
