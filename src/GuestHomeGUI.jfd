@@ -32,7 +32,7 @@ new FormModel {
 						"columns": 1
 						"hgap": 10
 						"vgap": 10
-						"rows": 5
+						"rows": 6
 					} ) {
 						name: "panel1"
 						"preferredSize": new java.awt.Dimension( 180, 40 )
@@ -90,7 +90,7 @@ new FormModel {
 					"preferredSize": new java.awt.Dimension( 0, 52 )
 					add( new FormComponent( "javax.swing.JTextArea" ) {
 						name: "textArea1"
-						"preferredSize": new java.awt.Dimension( 50, 50 )
+						"preferredSize": new java.awt.Dimension( 84, 50 )
 						"font": new java.awt.Font( "Monospaced", 0, 14 )
 						"margin": new java.awt.Insets( 15, 15, 15, 5 )
 						"editable": false
