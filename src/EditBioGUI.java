@@ -15,7 +15,12 @@ import com.jgoodies.forms.layout.*;
 public class EditBioGUI extends JFrame {
     public EditBioGUI(User user) {
         this.user=user;
-        thisuserbio=user.getBio();
+        if(user.getBio()==null){
+            thisuserbio="Write your bio here!";
+        }
+        else{
+            thisuserbio=user.getBio();
+        }
         initComponents();
     }
 
