@@ -61,7 +61,7 @@ public class LoginGUI extends JFrame {
             Statement statement = tempconn.createStatement();
             statement.executeUpdate("CREATE USER '" + username + "'@'%' IDENTIFIED BY '" + password + "'");
             Statement statement1 = tempconn.createStatement();
-            statement1.executeUpdate("GRANT CREATE, INSERT, SELECT, UPDATE ON chirpy.* TO '" + username + "'@'%'");
+            statement1.executeUpdate("GRANT CREATE, INSERT, SELECT, UPDATE, DELETE ON chirpy.* TO '" + username + "'@'%'");
             Statement statement2 = tempconn.createStatement();
             statement2.executeUpdate("CREATE TABLE " + username + "_subscribe(users VARCHAR(45) PRIMARY KEY)");
             String sql = "INSERT INTO users (username, bio)" + "VALUES (?, ?)";

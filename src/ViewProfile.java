@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
@@ -13,7 +14,7 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class ViewProfile extends JFrame {
-    public ViewProfile(User user, User profileSearched, Boolean guestUser/*, ArrayList<String> subscriptions*/) {
+    public ViewProfile(User user, User profileSearched, Boolean guestUser, Connection connection) {
         initComponents();
         this.user=user;
         this.profileSearched = profileSearched;
@@ -27,22 +28,42 @@ public class ViewProfile extends JFrame {
         }
         // TODO set up Newsfeed
         //draw user info about posted messages from database
-        //profileSearched.downloadPosted(conn); -- borrowed from the HomePageGUI code for newsfeed
-        //textArea1.setText(profileSearched.getPostedChirps());
+        conn = connection;
+        profileSearched.downloadPosted(conn);
+        textArea1.setText(profileSearched.getPostedChirps());
     }
 
     private void viewBioButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
-        //textArea1.setText(profileSearched.getBio());
+        textArea1.setText(profileSearched.getBio());
     }
 
     private void subscribeButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
-        if (subscribeButton.getText()=="Unsubscribe"){
+        if (subscribeButton.getText().equals("Unsubscribe")){
             user.unsubscribe(profileSearched.getUsername());
+            try {
+                Statement statement = conn.createStatement();
+                statement.executeUpdate("DELETE FROM " + user.getUsername() + "_subscribe WHERE users LIKE '" + profileSearched.getUsername() + "'");
+            }
+            catch (SQLException SQLex) {
+                System.out.println("SQLException: " + SQLex.getMessage());
+                System.out.println("SQLState: " + SQLex.getSQLState());
+                System.out.println("VendorError: " + SQLex.getErrorCode());
+            }
         }
-        else if (subscribeButton.getText()=="Subscribe"){
+        else if (subscribeButton.getText().equals("Subscribe")){
             user.newSubscrip(profileSearched.getUsername());
+            try {
+                String sql = "INSERT INTO " + user.getUsername() + "_subscribe(users) VALUES(?)";
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.setString(1, profileSearched.getUsername());
+                statement.execute();
+            }
+            catch (SQLException SQLex) {
+                System.out.println("SQLException: " + SQLex.getMessage());
+                System.out.println("SQLState: " + SQLex.getSQLState());
+                System.out.println("VendorError: " + SQLex.getErrorCode());
+            }
         }
     }
 
@@ -138,4 +159,5 @@ public class ViewProfile extends JFrame {
 
     private User user;
     private User profileSearched;
+    private Connection conn;
 }
