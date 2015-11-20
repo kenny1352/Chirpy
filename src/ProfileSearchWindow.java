@@ -1,5 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -12,8 +17,9 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class ProfileSearchWindow extends JDialog {
-    public ProfileSearchWindow(Frame owner) {
+    public ProfileSearchWindow(Frame owner, Connection connection) {
         super(owner);
+        conn = connection;
         initComponents();
     }
 
@@ -28,8 +34,18 @@ public class ProfileSearchWindow extends JDialog {
 
     private void searchButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
-        // searches database for appropriate User profileSearched
-        // viewProfile(user, profileSearched, boolean??)
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE username LIKE '" + textField1.getText() + "'");
+            resultSet.next();
+            User user = new User(resultSet.getString("username"));
+            user.setBio(resultSet.getString("bio"));
+        }
+        catch (SQLException SQLex) {
+            System.out.println("SQLException: " + SQLex.getMessage());
+            System.out.println("SQLState: " + SQLex.getSQLState());
+            System.out.println("VendorError: " + SQLex.getErrorCode());
+        }
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
@@ -127,4 +143,5 @@ public class ProfileSearchWindow extends JDialog {
     private JButton searchButton;
     private JButton cancelButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private Connection conn;
 }

@@ -86,11 +86,11 @@ public class HomePageGUI extends JFrame {
     }
 
     private void searchProfilesButtonActionPerformed(ActionEvent e) {
-        new ProfileSearchWindow(this);
+        new ProfileSearchWindow(this, conn);
     }
 
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
-        new TopicSearchWindow(this);
+        //new TopicSearchWindow(this);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
