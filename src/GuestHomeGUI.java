@@ -53,11 +53,11 @@ public class GuestHomeGUI extends JFrame {
     }
 
     private void profileSearchButtonActionPerformed(ActionEvent e) {
-        new ProfileSearchWindow(this);
+        //new ProfileSearchWindow(this);
     }
 
     private void topicSearchButtonActionPerformed(ActionEvent e) {
-        new TopicSearchWindow(this);
+        //new TopicSearchWindow(this);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
@@ -66,7 +66,7 @@ public class GuestHomeGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Catherine Merz
+        // Generated using JFormDesigner Evaluation license - H Morgan
         panel3 = new JPanel();
         title = new JLabel();
         panel4 = new JPanel();
@@ -162,13 +162,12 @@ public class GuestHomeGUI extends JFrame {
             panel3.add(panel4, BorderLayout.CENTER);
         }
         contentPane.add(panel3, BorderLayout.CENTER);
-        pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
+    // Generated using JFormDesigner Evaluation license - H Morgan
     private JPanel panel3;
     private JLabel title;
     private JPanel panel4;
