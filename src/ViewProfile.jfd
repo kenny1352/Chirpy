@@ -54,6 +54,7 @@ new FormModel {
 						"font": new java.awt.Font( "Monospaced", 0, 14 )
 						"margin": new java.awt.Insets( 15, 15, 15, 5 )
 						"text": "fjsvhkdnkdvnjkbjskbnv"
+						"editable": false
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"

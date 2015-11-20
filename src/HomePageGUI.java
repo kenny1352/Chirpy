@@ -100,7 +100,13 @@ public class HomePageGUI extends JFrame {
     }
 
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
-        new TopicSearchWindow(this);
+        //new TopicSearchWindow(this);
+        String searchTopic = textField1.getText();
+        headerText.setText("Newsfeed Chirps containing #"+searchTopic);
+        user.downloadNews(conn);
+        displayField.setText(user.searchNews(searchTopic));
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
@@ -171,7 +177,7 @@ public class HomePageGUI extends JFrame {
                     menuPanel.setBackground(new Color(102, 255, 204));
                     menuPanel.setMinimumSize(new Dimension(185, 274));
                     menuPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-                    menuPanel.setLayout(new GridLayout(6, 1, 0, 8));
+                    menuPanel.setLayout(new GridLayout(7, 1, 0, 8));
 
                     //---- bioButton ----
                     bioButton.setText("Bio");
@@ -224,11 +230,11 @@ public class HomePageGUI extends JFrame {
                     logoutButton.addActionListener(e -> logoutButtonActionPerformed(e));
                     menuPanel.add(logoutButton);
                 }
-                panel1.add(menuPanel, BorderLayout.NORTH);
+                panel1.add(menuPanel, BorderLayout.CENTER);
 
                 //======== panel2 ========
                 {
-                    panel2.setPreferredSize(new Dimension(195, 200));
+                    panel2.setPreferredSize(new Dimension(195, 150));
                     panel2.setBorder(new EmptyBorder(5, 5, 5, 5));
                     panel2.setBackground(new Color(102, 255, 204));
                     panel2.setLayout(new GridLayout(3, 1, 0, 8));
@@ -255,7 +261,7 @@ public class HomePageGUI extends JFrame {
                     searchTopicsButton.addActionListener(e -> searchTopicsButtonActionPerformed(e));
                     panel2.add(searchTopicsButton);
                 }
-                panel1.add(panel2, BorderLayout.WEST);
+                panel1.add(panel2, BorderLayout.PAGE_END);
             }
             splitPane1.add(panel1, BorderLayout.WEST);
 
