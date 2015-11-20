@@ -25,84 +25,107 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "splitPane1"
 				"background": new java.awt.Color( 102, 255, 204, 255 )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
-					"columns": 1
-					"rows": 9
-					"vgap": 8
-				} ) {
-					name: "menuPanel"
-					"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
-					"font": new java.awt.Font( "Segoe UI", 0, 14 )
-					"preferredSize": new java.awt.Dimension( 195, 390 )
-					"background": new java.awt.Color( 102, 255, 204, 255 )
-					"minimumSize": new java.awt.Dimension( 185, 274 )
-					"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "bioButton"
-						"text": "Bio"
-						"preferredSize": new java.awt.Dimension( 50, 40 )
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": &SwingColor0 new com.jformdesigner.model.SwingColor( "Button.background" )
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bioButtonActionPerformed", true ) )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel1"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+						"columns": 1
+						"rows": 6
+						"vgap": 8
+					} ) {
+						name: "menuPanel"
+						"componentOrientation": sfield java.awt.ComponentOrientation LEFT_TO_RIGHT
+						"font": new java.awt.Font( "Segoe UI", 0, 14 )
+						"preferredSize": new java.awt.Dimension( 195, 275 )
+						"background": new java.awt.Color( 102, 255, 204, 255 )
+						"minimumSize": new java.awt.Dimension( 185, 274 )
+						"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "bioButton"
+							"text": "Bio"
+							"preferredSize": new java.awt.Dimension( 50, 40 )
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"background": &SwingColor0 new com.jformdesigner.model.SwingColor( "Button.background" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bioButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "newsfeedButton"
+							"text": "Newsfeed"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"background": #SwingColor0
+							"preferredSize": new java.awt.Dimension( 99, 40 )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newsfeedButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "newChirpButton"
+							"text": "New Chirp"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"background": #SwingColor0
+							"preferredSize": new java.awt.Dimension( 104, 40 )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newChirpButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "postedChirpsButton"
+							"text": "View Posted Chirps"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"maximumSize": new java.awt.Dimension( 164, 38 )
+							"preferredSize": new java.awt.Dimension( 170, 40 )
+							"background": #SwingColor0
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "postedChirpsButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "receivedChirpsButton"
+							"text": "View Recieved Chirps"
+							"preferredSize": new java.awt.Dimension( 180, 40 )
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"background": #SwingColor0
+							"margin": new java.awt.Insets( 4, 14, 4, 14 )
+							"horizontalTextPosition": 2
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "receivedChirpsButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "logoutButton"
+							"text": "Logout"
+							"preferredSize": new java.awt.Dimension( 75, 40 )
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"background": #SwingColor0
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonActionPerformed", true ) )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
 					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "newsfeedButton"
-						"text": "Newsfeed"
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": #SwingColor0
-						"preferredSize": new java.awt.Dimension( 99, 40 )
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newsfeedButtonActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "newChirpButton"
-						"text": "New Chirp"
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": #SwingColor0
-						"preferredSize": new java.awt.Dimension( 104, 40 )
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newChirpButtonActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "postedChirpsButton"
-						"text": "View Posted Chirps"
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"maximumSize": new java.awt.Dimension( 164, 38 )
-						"preferredSize": new java.awt.Dimension( 170, 40 )
-						"background": #SwingColor0
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "postedChirpsButtonActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "receivedChirpsButton"
-						"text": "View Recieved Chirps"
-						"preferredSize": new java.awt.Dimension( 180, 40 )
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": #SwingColor0
-						"margin": new java.awt.Insets( 4, 14, 4, 14 )
-						"horizontalTextPosition": 2
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "receivedChirpsButtonActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "searchProfilesButton"
-						"text": "Search Profiles"
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": #SwingColor0
-						"preferredSize": new java.awt.Dimension( 133, 40 )
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchProfilesButtonActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "searchTopicsButton"
-						"text": "Search Topics"
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": #SwingColor0
-						"preferredSize": new java.awt.Dimension( 125, 40 )
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchTopicsButtonActionPerformed", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JButton" ) {
-						name: "logoutButton"
-						"text": "Logout"
-						"preferredSize": new java.awt.Dimension( 75, 40 )
-						"font": new java.awt.Font( "Segoe UI", 0, 16 )
-						"background": #SwingColor0
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonActionPerformed", true ) )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+						"rows": 3
+						"columns": 1
+						"vgap": 8
+					} ) {
+						name: "panel2"
+						"preferredSize": new java.awt.Dimension( 195, 200 )
+						"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
+						"background": new java.awt.Color( 102, 255, 204, 255 )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField1"
+							"margin": new java.awt.Insets( 5, 5, 5, 5 )
+							"text": "Enter search term here..."
+							"font": new java.awt.Font( "Segoe UI", 2, 14 )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "searchProfilesButton"
+							"text": "Search Profiles"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"background": #SwingColor0
+							"preferredSize": new java.awt.Dimension( 133, 40 )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchProfilesButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "searchTopicsButton"
+							"text": "Search Topics"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
+							"background": #SwingColor0
+							"preferredSize": new java.awt.Dimension( 125, 40 )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchTopicsButtonActionPerformed", true ) )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "West"
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "West"
