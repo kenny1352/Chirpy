@@ -115,6 +115,7 @@ public class ViewProfile extends JFrame {
                 textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));
                 textArea1.setMargin(new Insets(15, 15, 15, 5));
                 textArea1.setText("fjsvhkdnkdvnjkbjskbnv");
+                textArea1.setEditable(false);
                 scrollPane1.setViewportView(textArea1);
             }
             panel1.add(scrollPane1, BorderLayout.CENTER);
