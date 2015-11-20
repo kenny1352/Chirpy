@@ -111,11 +111,6 @@ public class Message {
     }
 
     public String getHashtag() {
-        //return "#test";
-        return hashtag.get(0);
-    }
-
-    public String hashToString() {
         String tags = "";
         for (int i = 0; i < hashtag.size(); i++) {
             tags = tags + hashtag.get(i) + " ";
