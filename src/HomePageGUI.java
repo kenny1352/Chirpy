@@ -90,7 +90,7 @@ public class HomePageGUI extends JFrame {
     }
 
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
-        //new TopicSearchWindow(this);
+        new TopicSearchWindow(this);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {

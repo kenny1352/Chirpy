@@ -17,9 +17,8 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class TopicSearchWindow extends JDialog {
-    public TopicSearchWindow(Frame owner, Connection connection) {
+    public TopicSearchWindow(Frame owner) {
         super(owner);
-        conn = connection;
         initComponents();
     }
 
@@ -28,28 +27,8 @@ public class TopicSearchWindow extends JDialog {
         initComponents();
     }
 
-    private void okButtonActionPerformed(ActionEvent e) {
-        /*try {
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM messages WHERE recipient LIKE '" + username + "'");
-
-            while (resultSet.next()) {
-                String author = resultSet.getString("username");
-                String text = resultSet.getString("messageText");
-                String hashtags = resultSet.getString("tags");
-                Date time = resultSet.getDate("timeStamp");
-                int temp = resultSet.getInt("publicSetting");
-                boolean publicSetting = false;
-                if (temp == 1) {
-                    publicSetting = true;
-                }
-            }
-        }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }*/
+    private String okButtonActionPerformed(ActionEvent e) {
+        return textField1.getText();
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
