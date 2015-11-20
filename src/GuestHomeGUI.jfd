@@ -28,36 +28,41 @@ new FormModel {
 					name: "panel4"
 					"background": new java.awt.Color( 102, 255, 204, 255 )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
-						"columns": 4
+						"columns": 1
 						"hgap": 10
 						"vgap": 10
+						"rows": 9
 					} ) {
 						name: "panel1"
-						"preferredSize": new java.awt.Dimension( 500, 40 )
+						"preferredSize": new java.awt.Dimension( 180, 40 )
 						"background": new java.awt.Color( 102, 255, 204, 255 )
 						"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "newsfeedButton"
 							"text": "Newsfeed"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newsfeedButtonActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "profileSearchButton"
 							"text": "Search Profiles"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "profileSearchButtonActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "topicSearchButton"
 							"text": "Search Topics"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "topicSearchButtonActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "logoutButton"
 							"text": "Logout"
+							"font": new java.awt.Font( "Segoe UI", 0, 16 )
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonActionPerformed", true ) )
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "North"
+						"value": "West"
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
@@ -78,7 +83,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 615, 415 )
+			"size": new java.awt.Dimension( 650, 515 )
 		} )
 	}
 }

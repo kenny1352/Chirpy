@@ -108,32 +108,36 @@ public class GuestHomeGUI extends JFrame {
 
                 //======== panel1 ========
                 {
-                    panel1.setPreferredSize(new Dimension(500, 40));
+                    panel1.setPreferredSize(new Dimension(180, 40));
                     panel1.setBackground(new Color(102, 255, 204));
                     panel1.setBorder(new EmptyBorder(5, 5, 5, 5));
-                    panel1.setLayout(new GridLayout(1, 4, 10, 10));
+                    panel1.setLayout(new GridLayout(9, 1, 10, 10));
 
                     //---- newsfeedButton ----
                     newsfeedButton.setText("Newsfeed");
+                    newsfeedButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                     newsfeedButton.addActionListener(e -> newsfeedButtonActionPerformed(e));
                     panel1.add(newsfeedButton);
 
                     //---- profileSearchButton ----
                     profileSearchButton.setText("Search Profiles");
+                    profileSearchButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                     profileSearchButton.addActionListener(e -> profileSearchButtonActionPerformed(e));
                     panel1.add(profileSearchButton);
 
                     //---- topicSearchButton ----
                     topicSearchButton.setText("Search Topics");
+                    topicSearchButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                     topicSearchButton.addActionListener(e -> topicSearchButtonActionPerformed(e));
                     panel1.add(topicSearchButton);
 
                     //---- logoutButton ----
                     logoutButton.setText("Logout");
+                    logoutButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                     logoutButton.addActionListener(e -> logoutButtonActionPerformed(e));
                     panel1.add(logoutButton);
                 }
-                panel4.add(panel1, BorderLayout.NORTH);
+                panel4.add(panel1, BorderLayout.WEST);
 
                 //======== scrollPane1 ========
                 {
