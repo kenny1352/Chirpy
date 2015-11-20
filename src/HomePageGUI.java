@@ -54,6 +54,10 @@ public class HomePageGUI extends JFrame {
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
+        updateNewsfeed();
+    }
+
+    public void updateNewsfeed() {
         headerText.setText(user.getUsername() + "'s Newsfeed");
         user.downloadNews(conn);
         displayField.setText(user.getNewsfeed());
