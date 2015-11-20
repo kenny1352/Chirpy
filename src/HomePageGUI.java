@@ -17,8 +17,8 @@ import javax.swing.border.*;
 public class HomePageGUI extends JFrame {
     public HomePageGUI() {
         initComponents();
-        headerText.setText(user.getUsername()+"'s Newsfeed");
-        displayField.setText(user.getNewsfeed());
+        //headerText.setText(user.getUsername()+"'s Newsfeed");
+        //displayField.setText(user.getNewsfeed());
     }
 
     public boolean createConnection(String username, String password) {
@@ -74,15 +74,9 @@ public class HomePageGUI extends JFrame {
     }
 
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername() + "'s Received Chirps");
         user.downloadreceivedChirps(conn);
         displayField.setText(user.getRecievedChirps());
-    }
-
-    private void sentChirpsButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
-        headerText.setText(user.getUsername() + "'s Sent Chirps");
     }
 
     private void searchProfilesButtonActionPerformed(ActionEvent e) {
