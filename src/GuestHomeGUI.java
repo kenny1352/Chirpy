@@ -66,10 +66,10 @@ public class GuestHomeGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - H Morgan
+        // Generated using JFormDesigner Evaluation license - Catherine Merz
         panel3 = new JPanel();
         title = new JLabel();
-        panel4 = new JPanel();
+        panel4 = new JSplitPane();
         panel1 = new JPanel();
         newsfeedButton = new JButton();
         profileSearchButton = new JButton();
@@ -112,7 +112,7 @@ public class GuestHomeGUI extends JFrame {
             //======== panel4 ========
             {
                 panel4.setBackground(new Color(102, 255, 204));
-                panel4.setLayout(new BorderLayout());
+                panel4.setDividerSize(2);
 
                 //======== panel1 ========
                 {
@@ -145,19 +145,21 @@ public class GuestHomeGUI extends JFrame {
                     logoutButton.addActionListener(e -> logoutButtonActionPerformed(e));
                     panel1.add(logoutButton);
                 }
-                panel4.add(panel1, BorderLayout.WEST);
+                panel4.setLeftComponent(panel1);
 
                 //======== scrollPane1 ========
                 {
+                    scrollPane1.setPreferredSize(new Dimension(0, 52));
 
                     //---- textArea1 ----
+                    textArea1.setPreferredSize(new Dimension(50, 50));
                     textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));
                     textArea1.setMargin(new Insets(15, 15, 15, 5));
                     textArea1.setEditable(false);
                     textArea1.setText("Welcome!");
                     scrollPane1.setViewportView(textArea1);
                 }
-                panel4.add(scrollPane1, BorderLayout.CENTER);
+                panel4.setRightComponent(scrollPane1);
             }
             panel3.add(panel4, BorderLayout.CENTER);
         }
@@ -167,10 +169,10 @@ public class GuestHomeGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - H Morgan
+    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JPanel panel3;
     private JLabel title;
-    private JPanel panel4;
+    private JSplitPane panel4;
     private JPanel panel1;
     private JButton newsfeedButton;
     private JButton profileSearchButton;

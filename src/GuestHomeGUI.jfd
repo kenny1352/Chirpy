@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_51" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_25" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -25,9 +25,10 @@ new FormModel {
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "North"
 				} )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
 					name: "panel4"
 					"background": new java.awt.Color( 102, 255, 204, 255 )
+					"dividerSize": 2
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
 						"columns": 1
 						"hgap": 10
@@ -63,21 +64,21 @@ new FormModel {
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonActionPerformed", true ) )
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "West"
+						"value": "left"
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
 						"preferredSize": new java.awt.Dimension( 0, 52 )
 						add( new FormComponent( "javax.swing.JTextArea" ) {
 							name: "textArea1"
-							"preferredSize": new java.awt.Dimension( 0, 50 )
+							"preferredSize": new java.awt.Dimension( 50, 50 )
 							"font": new java.awt.Font( "Monospaced", 0, 14 )
 							"margin": new java.awt.Insets( 15, 15, 15, 5 )
 							"editable": false
 							"text": "Welcome!"
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
-						"value": "Center"
+						"value": "right"
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"
