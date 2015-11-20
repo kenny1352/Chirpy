@@ -17,7 +17,7 @@ public class ViewProfile extends JFrame {
         initComponents();
         this.user=user;
         this.profileSearched = profileSearched;
-        label1.setText(profileSearched + "'s Chirps");
+        label1.setText(profileSearched.getUsername() + "'s Chirps");
         if (guestUser) {
             //buttonBar.setVisible(false);
             subscribeButton.setVisible(false);
