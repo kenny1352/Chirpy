@@ -147,11 +147,14 @@ public class GuestHomeGUI extends JFrame {
 
                 //======== scrollPane1 ========
                 {
+                    scrollPane1.setPreferredSize(new Dimension(86, 52));
 
                     //---- textArea1 ----
                     textArea1.setPreferredSize(new Dimension(0, 50));
                     textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));
                     textArea1.setMargin(new Insets(15, 15, 15, 5));
+                    textArea1.setEditable(false);
+                    textArea1.setText("jhjlhfljdfalsjdf");
                     scrollPane1.setViewportView(textArea1);
                 }
                 panel4.add(scrollPane1, BorderLayout.CENTER);
