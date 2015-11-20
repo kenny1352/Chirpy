@@ -48,14 +48,16 @@ public class GuestHomeGUI extends JFrame {
         title.setText("Guest Newsfeed");
         user.downloadNews(conn);
         textArea1.setText(user.getNewsfeed());
+        textArea1.setSelectionStart(0);
+        textArea1.setSelectionEnd(0);
     }
 
     private void profileSearchButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        new ProfileSearchWindow(this);
     }
 
     private void topicSearchButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        new TopicSearchWindow(this);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
@@ -147,11 +149,14 @@ public class GuestHomeGUI extends JFrame {
 
                 //======== scrollPane1 ========
                 {
+                    scrollPane1.setPreferredSize(new Dimension(86, 52));
 
                     //---- textArea1 ----
                     textArea1.setPreferredSize(new Dimension(0, 50));
                     textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));
                     textArea1.setMargin(new Insets(15, 15, 15, 5));
+                    textArea1.setEditable(false);
+                    textArea1.setText("Welcome!");
                     scrollPane1.setViewportView(textArea1);
                 }
                 panel4.add(scrollPane1, BorderLayout.CENTER);
