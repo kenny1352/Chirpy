@@ -48,6 +48,8 @@ public class GuestHomeGUI extends JFrame {
         title.setText("Guest Newsfeed");
         user.downloadNews(conn);
         textArea1.setText(user.getNewsfeed());
+        textArea1.setSelectionStart(0);
+        textArea1.setSelectionEnd(0);
     }
 
     private void profileSearchButtonActionPerformed(ActionEvent e) {
@@ -64,7 +66,7 @@ public class GuestHomeGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Catherine Merz
+        // Generated using JFormDesigner Evaluation license - H Morgan
         panel3 = new JPanel();
         title = new JLabel();
         panel4 = new JPanel();
@@ -149,9 +151,10 @@ public class GuestHomeGUI extends JFrame {
                 {
 
                     //---- textArea1 ----
-                    textArea1.setPreferredSize(new Dimension(0, 50));
                     textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));
                     textArea1.setMargin(new Insets(15, 15, 15, 5));
+                    textArea1.setEditable(false);
+                    textArea1.setText("Welcome!");
                     scrollPane1.setViewportView(textArea1);
                 }
                 panel4.add(scrollPane1, BorderLayout.CENTER);
@@ -165,7 +168,7 @@ public class GuestHomeGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
+    // Generated using JFormDesigner Evaluation license - H Morgan
     private JPanel panel3;
     private JLabel title;
     private JPanel panel4;

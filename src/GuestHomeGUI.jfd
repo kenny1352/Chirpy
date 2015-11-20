@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_25" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.2.2.228" Java: "1.8.0_51" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -66,11 +66,14 @@ new FormModel {
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
+						"preferredSize": new java.awt.Dimension( 86, 52 )
 						add( new FormComponent( "javax.swing.JTextArea" ) {
 							name: "textArea1"
 							"preferredSize": new java.awt.Dimension( 0, 50 )
 							"font": new java.awt.Font( "Monospaced", 0, 14 )
 							"margin": new java.awt.Insets( 15, 15, 15, 5 )
+							"editable": false
+							"text": "Welcome!"
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "Center"
