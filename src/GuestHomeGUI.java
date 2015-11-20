@@ -41,7 +41,9 @@ public class GuestHomeGUI extends JFrame {
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        title.setText(user.getUsername() + "Guest Newsfeed");
+        user.downloadNews(conn);
+        textArea1.setText(user.getNewsfeed());
     }
 
     private void profileSearchButtonActionPerformed(ActionEvent e) {
