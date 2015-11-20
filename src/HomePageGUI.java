@@ -61,6 +61,8 @@ public class HomePageGUI extends JFrame {
         headerText.setText(user.getUsername() + "'s Newsfeed");
         user.downloadNews(conn);
         displayField.setText(user.getNewsfeed());
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
     }
 
     private void newChirpButtonActionPerformed(ActionEvent e) {
@@ -71,12 +73,16 @@ public class HomePageGUI extends JFrame {
         headerText.setText(user.getUsername() + "'s Posted Chirps");
         user.downloadPosted(conn);
         displayField.setText(user.getPostedChirps());
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
     }
 
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
         headerText.setText(user.getUsername() + "'s Received Chirps");
         user.downloadreceivedChirps(conn);
         displayField.setText(user.getRecievedChirps());
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
     }
 
     private void searchProfilesButtonActionPerformed(ActionEvent e) {
