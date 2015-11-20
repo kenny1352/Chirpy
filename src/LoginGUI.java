@@ -1,9 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -63,6 +60,13 @@ public class LoginGUI extends JFrame {
             statement.executeUpdate("CREATE USER '" + username + "'@'%' IDENTIFIED BY '" + password + "'");
             Statement statement1 = tempconn.createStatement();
             statement1.executeUpdate("GRANT CREATE, INSERT, SELECT ON chirpy.* TO '" + username + "'@'%'");
+            Statement statement2 = tempconn.createStatement();
+            statement2.executeUpdate("CREATE TABLE " + username + "_subscribe(users VARCHAR(45) PRIMARY KEY)");
+            String sql = "INSERT INTO users (username, bio)" + "VALUES (?, ?)";
+            PreparedStatement statement3 = tempconn.prepareStatement(sql);
+            statement3.setString(1, username);
+            statement3.setString(2, "Hello World!");
+            statement3.execute();
             tempconn.close();
             return true;
         }
