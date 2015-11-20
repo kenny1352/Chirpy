@@ -148,6 +148,16 @@ public class User {
     public void unsubscribe(String xUsername) { subscribedTo.remove(xUsername); }
     public boolean isSubscribedTo(String aUsername) { return subscribedTo.contains(aUsername); }
 
+    public String searchNews(String topic){
+        String foundTopicsString = "";
+        String hashtagString = "#"+topic+" ";
+        for(int i=newsfeed.size()-1; i>-1; i--){
+            if(newsfeed.get(i).getContent().contains(hashtagString))
+            foundTopicsString += newsfeed.get(i).toString();
+        }
+        return foundTopicsString;
+    }
+
     private String username;    //stored in database
     private String bio;         //stored in database
     private ArrayList<String> subscribedTo;     //this info stored in database, will be

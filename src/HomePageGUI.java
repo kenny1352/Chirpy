@@ -91,6 +91,12 @@ public class HomePageGUI extends JFrame {
 
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
         //new TopicSearchWindow(this);
+        String searchTopic = textField1.getText();
+        headerText.setText("Newsfeed Chirps containing #"+searchTopic);
+        user.downloadNews(conn);
+        displayField.setText(user.searchNews(searchTopic));
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
