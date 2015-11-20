@@ -111,7 +111,7 @@ public class HomePageGUI extends JFrame {
 
         //======== this ========
         setTitle("Chirpy");
-        setMinimumSize(new Dimension(650, 600));
+        setMinimumSize(new Dimension(670, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBackground(new Color(102, 255, 204));
         setVisible(true);
@@ -144,9 +144,9 @@ public class HomePageGUI extends JFrame {
             {
                 menuPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
                 menuPanel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-                menuPanel.setPreferredSize(new Dimension(180, 390));
+                menuPanel.setPreferredSize(new Dimension(195, 390));
                 menuPanel.setBackground(new Color(102, 255, 204));
-                menuPanel.setMinimumSize(new Dimension(180, 274));
+                menuPanel.setMinimumSize(new Dimension(185, 274));
                 menuPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
                 menuPanel.setLayout(new GridLayout(9, 1, 0, 8));
 
