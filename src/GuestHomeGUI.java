@@ -47,15 +47,19 @@ public class GuestHomeGUI extends JFrame {
     public void updateNewsfeed() {
         title.setText("Guest Newsfeed");
         user.downloadNews(conn);
-        textArea1.setText(user.getNewsfeed());
+        displayField.setText(user.getNewsfeed());
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
     }
 
     private void profileSearchButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
+        new ProfileSearchWindow(this);
     }
 
     private void topicSearchButtonActionPerformed(ActionEvent e) {
         // TODO add your code here
+        new TopicSearchWindow(this);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
@@ -74,7 +78,7 @@ public class GuestHomeGUI extends JFrame {
         topicSearchButton = new JButton();
         logoutButton = new JButton();
         scrollPane1 = new JScrollPane();
-        textArea1 = new JTextArea();
+        displayField = new JTextArea();
 
         //======== this ========
         setTitle("Chirpy");
@@ -149,13 +153,13 @@ public class GuestHomeGUI extends JFrame {
                 {
                     scrollPane1.setPreferredSize(new Dimension(86, 52));
 
-                    //---- textArea1 ----
-                    textArea1.setPreferredSize(new Dimension(0, 50));
-                    textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));
-                    textArea1.setMargin(new Insets(15, 15, 15, 5));
-                    textArea1.setEditable(false);
-                    textArea1.setText("jhjlhfljdfalsjdf");
-                    scrollPane1.setViewportView(textArea1);
+                    //---- displayField ----
+                    displayField.setPreferredSize(new Dimension(0, 50));
+                    displayField.setFont(new Font("Monospaced", Font.PLAIN, 14));
+                    displayField.setMargin(new Insets(15, 15, 15, 5));
+                    displayField.setEditable(false);
+                    displayField.setText("jhjlhfljdfalsjdf");
+                    scrollPane1.setViewportView(displayField);
                 }
                 panel4.add(scrollPane1, BorderLayout.CENTER);
             }
@@ -178,7 +182,7 @@ public class GuestHomeGUI extends JFrame {
     private JButton topicSearchButton;
     private JButton logoutButton;
     private JScrollPane scrollPane1;
-    private JTextArea textArea1;
+    private JTextArea displayField;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private Connection conn;
     private User user;
