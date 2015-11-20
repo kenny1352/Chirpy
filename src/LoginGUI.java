@@ -48,13 +48,8 @@ public class LoginGUI extends JFrame {
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
-        homepage = new HomePageGUI();
-        if (homepage.createConnection("Guest", "Guest")) {
-            System.out.println("CONNECTION ERROR");
-            homepage.dispose();
-            return;
-        }
-        homepage.setVisible(true);
+        guestHomepage = new GuestHomeGUI();
+        guestHomepage.setVisible(true);
     }
 
     public boolean createUser(String username, String password) {
@@ -225,6 +220,7 @@ public class LoginGUI extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - James Campbell
+    private GuestHomeGUI guestHomepage;
     private HomePageGUI homepage;
     private JPanel panel1;
     private JTextField Username;
