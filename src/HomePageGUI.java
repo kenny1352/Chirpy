@@ -103,15 +103,18 @@ public class HomePageGUI extends JFrame {
         // Generated using JFormDesigner Evaluation license - Catherine Merz
         headerText = new JLabel();
         splitPane1 = new JPanel();
+        panel1 = new JPanel();
         menuPanel = new JPanel();
         bioButton = new JButton();
         newsfeedButton = new JButton();
         newChirpButton = new JButton();
         postedChirpsButton = new JButton();
         receivedChirpsButton = new JButton();
+        logoutButton = new JButton();
+        panel2 = new JPanel();
+        textField1 = new JTextField();
         searchProfilesButton = new JButton();
         searchTopicsButton = new JButton();
-        logoutButton = new JButton();
         scrollPane1 = new JScrollPane();
         displayField = new JTextArea();
 
@@ -146,84 +149,105 @@ public class HomePageGUI extends JFrame {
 
             splitPane1.setLayout(new BorderLayout());
 
-            //======== menuPanel ========
+            //======== panel1 ========
             {
-                menuPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-                menuPanel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-                menuPanel.setPreferredSize(new Dimension(195, 390));
-                menuPanel.setBackground(new Color(102, 255, 204));
-                menuPanel.setMinimumSize(new Dimension(185, 274));
-                menuPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-                menuPanel.setLayout(new GridLayout(9, 1, 0, 8));
+                panel1.setLayout(new BorderLayout());
 
-                //---- bioButton ----
-                bioButton.setText("Bio");
-                bioButton.setPreferredSize(new Dimension(50, 40));
-                bioButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                bioButton.setBackground(UIManager.getColor("Button.background"));
-                bioButton.addActionListener(e -> bioButtonActionPerformed(e));
-                menuPanel.add(bioButton);
+                //======== menuPanel ========
+                {
+                    menuPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+                    menuPanel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+                    menuPanel.setPreferredSize(new Dimension(195, 275));
+                    menuPanel.setBackground(new Color(102, 255, 204));
+                    menuPanel.setMinimumSize(new Dimension(185, 274));
+                    menuPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+                    menuPanel.setLayout(new GridLayout(6, 1, 0, 8));
 
-                //---- newsfeedButton ----
-                newsfeedButton.setText("Newsfeed");
-                newsfeedButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                newsfeedButton.setBackground(UIManager.getColor("Button.background"));
-                newsfeedButton.setPreferredSize(new Dimension(99, 40));
-                newsfeedButton.addActionListener(e -> newsfeedButtonActionPerformed(e));
-                menuPanel.add(newsfeedButton);
+                    //---- bioButton ----
+                    bioButton.setText("Bio");
+                    bioButton.setPreferredSize(new Dimension(50, 40));
+                    bioButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    bioButton.setBackground(UIManager.getColor("Button.background"));
+                    bioButton.addActionListener(e -> bioButtonActionPerformed(e));
+                    menuPanel.add(bioButton);
 
-                //---- newChirpButton ----
-                newChirpButton.setText("New Chirp");
-                newChirpButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                newChirpButton.setBackground(UIManager.getColor("Button.background"));
-                newChirpButton.setPreferredSize(new Dimension(104, 40));
-                newChirpButton.addActionListener(e -> newChirpButtonActionPerformed(e));
-                menuPanel.add(newChirpButton);
+                    //---- newsfeedButton ----
+                    newsfeedButton.setText("Newsfeed");
+                    newsfeedButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    newsfeedButton.setBackground(UIManager.getColor("Button.background"));
+                    newsfeedButton.setPreferredSize(new Dimension(99, 40));
+                    newsfeedButton.addActionListener(e -> newsfeedButtonActionPerformed(e));
+                    menuPanel.add(newsfeedButton);
 
-                //---- postedChirpsButton ----
-                postedChirpsButton.setText("View Posted Chirps");
-                postedChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                postedChirpsButton.setMaximumSize(new Dimension(164, 38));
-                postedChirpsButton.setPreferredSize(new Dimension(170, 40));
-                postedChirpsButton.setBackground(UIManager.getColor("Button.background"));
-                postedChirpsButton.addActionListener(e -> postedChirpsButtonActionPerformed(e));
-                menuPanel.add(postedChirpsButton);
+                    //---- newChirpButton ----
+                    newChirpButton.setText("New Chirp");
+                    newChirpButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    newChirpButton.setBackground(UIManager.getColor("Button.background"));
+                    newChirpButton.setPreferredSize(new Dimension(104, 40));
+                    newChirpButton.addActionListener(e -> newChirpButtonActionPerformed(e));
+                    menuPanel.add(newChirpButton);
 
-                //---- receivedChirpsButton ----
-                receivedChirpsButton.setText("View Recieved Chirps");
-                receivedChirpsButton.setPreferredSize(new Dimension(180, 40));
-                receivedChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                receivedChirpsButton.setBackground(UIManager.getColor("Button.background"));
-                receivedChirpsButton.setMargin(new Insets(4, 14, 4, 14));
-                receivedChirpsButton.setHorizontalTextPosition(SwingConstants.LEFT);
-                receivedChirpsButton.addActionListener(e -> receivedChirpsButtonActionPerformed(e));
-                menuPanel.add(receivedChirpsButton);
+                    //---- postedChirpsButton ----
+                    postedChirpsButton.setText("View Posted Chirps");
+                    postedChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    postedChirpsButton.setMaximumSize(new Dimension(164, 38));
+                    postedChirpsButton.setPreferredSize(new Dimension(170, 40));
+                    postedChirpsButton.setBackground(UIManager.getColor("Button.background"));
+                    postedChirpsButton.addActionListener(e -> postedChirpsButtonActionPerformed(e));
+                    menuPanel.add(postedChirpsButton);
 
-                //---- searchProfilesButton ----
-                searchProfilesButton.setText("Search Profiles");
-                searchProfilesButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                searchProfilesButton.setBackground(UIManager.getColor("Button.background"));
-                searchProfilesButton.setPreferredSize(new Dimension(133, 40));
-                searchProfilesButton.addActionListener(e -> searchProfilesButtonActionPerformed(e));
-                menuPanel.add(searchProfilesButton);
+                    //---- receivedChirpsButton ----
+                    receivedChirpsButton.setText("View Recieved Chirps");
+                    receivedChirpsButton.setPreferredSize(new Dimension(180, 40));
+                    receivedChirpsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    receivedChirpsButton.setBackground(UIManager.getColor("Button.background"));
+                    receivedChirpsButton.setMargin(new Insets(4, 14, 4, 14));
+                    receivedChirpsButton.setHorizontalTextPosition(SwingConstants.LEFT);
+                    receivedChirpsButton.addActionListener(e -> receivedChirpsButtonActionPerformed(e));
+                    menuPanel.add(receivedChirpsButton);
 
-                //---- searchTopicsButton ----
-                searchTopicsButton.setText("Search Topics");
-                searchTopicsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                searchTopicsButton.setBackground(UIManager.getColor("Button.background"));
-                searchTopicsButton.setPreferredSize(new Dimension(125, 40));
-                searchTopicsButton.addActionListener(e -> searchTopicsButtonActionPerformed(e));
-                menuPanel.add(searchTopicsButton);
+                    //---- logoutButton ----
+                    logoutButton.setText("Logout");
+                    logoutButton.setPreferredSize(new Dimension(75, 40));
+                    logoutButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    logoutButton.setBackground(UIManager.getColor("Button.background"));
+                    logoutButton.addActionListener(e -> logoutButtonActionPerformed(e));
+                    menuPanel.add(logoutButton);
+                }
+                panel1.add(menuPanel, BorderLayout.NORTH);
 
-                //---- logoutButton ----
-                logoutButton.setText("Logout");
-                logoutButton.setPreferredSize(new Dimension(75, 40));
-                logoutButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-                logoutButton.setBackground(UIManager.getColor("Button.background"));
-                logoutButton.addActionListener(e -> logoutButtonActionPerformed(e));
-                menuPanel.add(logoutButton);
+                //======== panel2 ========
+                {
+                    panel2.setPreferredSize(new Dimension(195, 200));
+                    panel2.setBorder(new EmptyBorder(5, 5, 5, 5));
+                    panel2.setBackground(new Color(102, 255, 204));
+                    panel2.setLayout(new GridLayout(3, 1, 0, 8));
+
+                    //---- textField1 ----
+                    textField1.setMargin(new Insets(5, 5, 5, 5));
+                    textField1.setText("Enter search term here...");
+                    textField1.setFont(new Font("Segoe UI", Font.ITALIC, 14));
+                    panel2.add(textField1);
+
+                    //---- searchProfilesButton ----
+                    searchProfilesButton.setText("Search Profiles");
+                    searchProfilesButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    searchProfilesButton.setBackground(UIManager.getColor("Button.background"));
+                    searchProfilesButton.setPreferredSize(new Dimension(133, 40));
+                    searchProfilesButton.addActionListener(e -> searchProfilesButtonActionPerformed(e));
+                    panel2.add(searchProfilesButton);
+
+                    //---- searchTopicsButton ----
+                    searchTopicsButton.setText("Search Topics");
+                    searchTopicsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    searchTopicsButton.setBackground(UIManager.getColor("Button.background"));
+                    searchTopicsButton.setPreferredSize(new Dimension(125, 40));
+                    searchTopicsButton.addActionListener(e -> searchTopicsButtonActionPerformed(e));
+                    panel2.add(searchTopicsButton);
+                }
+                panel1.add(panel2, BorderLayout.WEST);
             }
-            splitPane1.add(menuPanel, BorderLayout.WEST);
+            splitPane1.add(panel1, BorderLayout.WEST);
 
             //======== scrollPane1 ========
             {
@@ -247,15 +271,18 @@ public class HomePageGUI extends JFrame {
     // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JLabel headerText;
     private JPanel splitPane1;
+    private JPanel panel1;
     private JPanel menuPanel;
     private JButton bioButton;
     private JButton newsfeedButton;
     private JButton newChirpButton;
     private JButton postedChirpsButton;
     private JButton receivedChirpsButton;
+    private JButton logoutButton;
+    private JPanel panel2;
+    private JTextField textField1;
     private JButton searchProfilesButton;
     private JButton searchTopicsButton;
-    private JButton logoutButton;
     private JScrollPane scrollPane1;
     private JTextArea displayField;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

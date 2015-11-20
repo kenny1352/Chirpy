@@ -53,11 +53,11 @@ public class GuestHomeGUI extends JFrame {
     }
 
     private void profileSearchButtonActionPerformed(ActionEvent e) {
-        new ProfileSearchWindow(this, conn);
+        new ProfileSearchWindow(this);
     }
 
     private void topicSearchButtonActionPerformed(ActionEvent e) {
-        //new TopicSearchWindow(this, conn);
+        new TopicSearchWindow(this);
     }
 
     private void logoutButtonActionPerformed(ActionEvent e) {
