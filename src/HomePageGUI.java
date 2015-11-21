@@ -15,11 +15,9 @@ import javax.swing.border.*;
 public class HomePageGUI extends JFrame {
     public HomePageGUI() {
         initComponents();
-        //headerText.setText(user.getUsername()+"'s Newsfeed");
-        //displayField.setText(user.getNewsfeed());
     }
 
-    public boolean createConnection(String username, String password) throws SQLException,ClassNotFoundException,InstantiationException,IllegalAccessException {
+    public boolean createConnection(String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = null;
@@ -36,7 +34,6 @@ public class HomePageGUI extends JFrame {
     }
 
     private void bioButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername() + "'s Bio");
         EditBioGUI editBioGUI = new EditBioGUI(user, conn);
     }
@@ -86,7 +83,6 @@ public class HomePageGUI extends JFrame {
     }
 
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
-        //new TopicSearchWindow(this);
         String searchTopic = textField1.getText();
         headerText.setText("Newsfeed Chirps containing #"+searchTopic);
         user.downloadNews(conn);
@@ -101,23 +97,20 @@ public class HomePageGUI extends JFrame {
 
 
     private void handleSQLException(SQLException e) {
-        JOptionPane.showConfirmDialog(this, "SQLException: " + e.getMessage() + "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
+        JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
+                "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
     private void handleClassNotFoundException(ClassNotFoundException e) {
-        JOptionPane.showConfirmDialog(this, "ClassNotFoundException: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
     }
 
     private void handleInstantiationException(InstantiationException e) {
-        JOptionPane.showConfirmDialog(this,"InstantiationException: "+ e.getMessage());
+        JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
     }
 
     private void handleIllegalAccessException(IllegalAccessException e) {
-        JOptionPane.showConfirmDialog(this, "IllegalAccessException: " + e.getMessage());
-    }
-
-    private void handleConnectionError() {
-        JOptionPane.showConfirmDialog(this, "CONNECTION ERROR");
+        JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
     }
 
 

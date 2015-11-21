@@ -26,7 +26,6 @@ public class ViewProfile extends JFrame {
         else if (user.isSubscribedTo(profileSearched.getUsername())){
             subscribeButton.setText("Unsubscribe");
         }
-        // TODO set up Newsfeed
         //draw user info about posted messages from database
         conn = connection;
         profileSearched.downloadPosted(conn);
@@ -38,7 +37,6 @@ public class ViewProfile extends JFrame {
     }
 
     private void subscribeButtonActionPerformed(ActionEvent e) {
-        // TODO add your code here
         if (subscribeButton.getText().equals("Unsubscribe")){
             user.unsubscribe(profileSearched.getUsername());
             try {
@@ -46,9 +44,7 @@ public class ViewProfile extends JFrame {
                 statement.executeUpdate("DELETE FROM " + user.getUsername() + "_subscribe WHERE users LIKE '" + profileSearched.getUsername() + "'");
             }
             catch (SQLException SQLex) {
-                System.out.println("SQLException: " + SQLex.getMessage());
-                System.out.println("SQLState: " + SQLex.getSQLState());
-                System.out.println("VendorError: " + SQLex.getErrorCode());
+                handleSQLException(SQLex);
             }
         }
         else if (subscribeButton.getText().equals("Subscribe")){
@@ -60,11 +56,14 @@ public class ViewProfile extends JFrame {
                 statement.execute();
             }
             catch (SQLException SQLex) {
-                System.out.println("SQLException: " + SQLex.getMessage());
-                System.out.println("SQLState: " + SQLex.getSQLState());
-                System.out.println("VendorError: " + SQLex.getErrorCode());
+                handleSQLException(SQLex);
             }
         }
+    }
+
+    private void handleSQLException(SQLException e) {
+        JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
+                "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
     private void initComponents() {

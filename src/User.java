@@ -150,7 +150,7 @@ public class User {
     }
 
     private void handleSQLException(SQLException e) {
-        JOptionPane.showConfirmDialog(null, "SQLException: " + e.getMessage() + "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
+        JOptionPane.showMessageDialog(null, "SQLException: " + e.getMessage() + "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
     private String username;    //stored in database

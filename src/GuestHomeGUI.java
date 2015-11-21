@@ -24,20 +24,10 @@ public class GuestHomeGUI extends JFrame {
             System.out.println("Database Connected");
             user = new User("Guest");
         }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }
-        catch (ClassNotFoundException ex1) {
-            System.out.println("ClassNotFoundException: " + ex1.getMessage());
-        }
-        catch (InstantiationException ex2) {
-            System.out.println("InstantiationException: " + ex2.getMessage());
-        }
-        catch (IllegalAccessException ex3) {
-            System.out.println("IllegalAccessException: " + ex3.getMessage());
-        }
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
+        catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
+        catch (InstantiationException ex2) {handleInstantiationException(ex2);}
+        catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
     }
 
     private void newsfeedButtonActionPerformed(ActionEvent e) {
@@ -63,6 +53,26 @@ public class GuestHomeGUI extends JFrame {
     private void logoutButtonActionPerformed(ActionEvent e) {
         dispose();
     }
+
+
+
+    private void handleSQLException(SQLException e) {
+        JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
+                "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
+    }
+
+    private void handleClassNotFoundException(ClassNotFoundException e) {
+        JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
+    }
+
+    private void handleInstantiationException(InstantiationException e) {
+        JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
+    }
+
+    private void handleIllegalAccessException(IllegalAccessException e) {
+        JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
+    }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents

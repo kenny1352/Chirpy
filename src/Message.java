@@ -43,10 +43,8 @@ public class Message {
 
     public String toString(){
         String chirpstring = author;
-        //if (!recipient.equals(" ")) {
-        //    chirpstring = chirpstring + " @" + recipient.getUsername();
-        //}
-        chirpstring = chirpstring + " posted on " + timestamp + ":\n" + content + "\n" + "\n";
+        //if (!recipient.equals(" ")) {chirpstring = chirpstring + " @" + recipient.getUsername();}
+        chirpstring = chirpstring + " posted on " + timestamp + ":\n" + content + "\n\n";
 
         return chirpstring;
     }

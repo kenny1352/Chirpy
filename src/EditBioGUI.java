@@ -28,7 +28,7 @@ public class EditBioGUI extends JFrame {
             Statement statement = conn.createStatement();
             statement.executeUpdate("UPDATE users SET bio='" + textPane1.getText() +"' WHERE username LIKE '" + user.getUsername() + "'");
         } catch (SQLException SQLex) {
-            JOptionPane.showConfirmDialog(this, "SQLException: " + SQLex.getMessage() +
+            JOptionPane.showMessageDialog(this, "SQLException: " + SQLex.getMessage() +
                     "\nSQLState: " + SQLex.getSQLState() + "\nVendorError: " + SQLex.getErrorCode());
         }
         dispose();

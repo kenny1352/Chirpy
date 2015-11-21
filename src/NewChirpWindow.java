@@ -45,9 +45,8 @@ public class NewChirpWindow extends JFrame {
                 statement.setInt(6, chirp.getPublicSetting());
                 statement.executeUpdate();
             } catch (SQLException SQLex) {
-                System.out.println("SQLException: " + SQLex.getMessage());
-                System.out.println("SQLState: " + SQLex.getSQLState());
-                System.out.println("VendorError: " + SQLex.getErrorCode());
+                JOptionPane.showMessageDialog(this, "SQLException: " + SQLex.getMessage() +
+                        "\nSQLState: " + SQLex.getSQLState() + "\nVendorError: " + SQLex.getErrorCode());
             }
             dispose();
         } else{
