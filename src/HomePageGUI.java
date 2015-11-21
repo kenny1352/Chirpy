@@ -19,7 +19,7 @@ public class HomePageGUI extends JFrame {
         //displayField.setText(user.getNewsfeed());
     }
 
-    public boolean createConnection(String username, String password) {
+    public boolean createConnection(String username, String password) throws SQLException,ClassNotFoundException,InstantiationException,IllegalAccessException {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = null;
@@ -28,20 +28,10 @@ public class HomePageGUI extends JFrame {
             user = new User(username);
             return true;
         }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }
-        catch (ClassNotFoundException ex1) {
-            System.out.println("ClassNotFoundException: " + ex1.getMessage());
-        }
-        catch (InstantiationException ex2) {
-            System.out.println("InstantiationException: " + ex2.getMessage());
-        }
-        catch (IllegalAccessException ex3) {
-            System.out.println("IllegalAccessException: " + ex3.getMessage());
-        }
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
+        catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
+        catch (InstantiationException ex2) {handleInstantiationException(ex2);}
+        catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
         return false;
     }
 
@@ -92,11 +82,7 @@ public class HomePageGUI extends JFrame {
             searchUser.setBio(resultSet.getString("bio"));
             new ViewProfile(user, searchUser, false, conn);
         }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
     }
 
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
@@ -111,6 +97,27 @@ public class HomePageGUI extends JFrame {
 
     private void logoutButtonActionPerformed(ActionEvent e) {
         dispose();
+    }
+
+
+    private void handleSQLException(SQLException e) {
+        JOptionPane.showConfirmDialog(this, "SQLException: " + e.getMessage() + "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
+    }
+
+    private void handleClassNotFoundException(ClassNotFoundException e) {
+        JOptionPane.showConfirmDialog(this, "ClassNotFoundException: " + e.getMessage());
+    }
+
+    private void handleInstantiationException(InstantiationException e) {
+        JOptionPane.showConfirmDialog(this,"InstantiationException: "+ e.getMessage());
+    }
+
+    private void handleIllegalAccessException(IllegalAccessException e) {
+        JOptionPane.showConfirmDialog(this, "IllegalAccessException: " + e.getMessage());
+    }
+
+    private void handleConnectionError() {
+        JOptionPane.showConfirmDialog(this, "CONNECTION ERROR");
     }
 
 

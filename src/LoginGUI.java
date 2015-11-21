@@ -20,29 +20,41 @@ public class LoginGUI extends JFrame {
     }
 
     private void LoginActionPerformed(ActionEvent e) {
-        homepage = new HomePageGUI();
-        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
-            System.out.println("CONNECTION ERROR");
-            homepage.dispose();
-            return;
+        try {
+            homepage = new HomePageGUI();
+            if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+                handleConnectionError();
+                homepage.dispose();
+                return;
+            }
+            homepage.updateNewsfeed();
+            homepage.setVisible(true);
         }
-        homepage.updateNewsfeed();
-        homepage.setVisible(true);
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
+        catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
+        catch (InstantiationException ex2) {handleInstantiationException(ex2);}
+        catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
-        homepage = new HomePageGUI();
-        if (!createUser(Username.getText(), new String(Password.getPassword()))) {
-            System.out.println("USER CREATION ERROR");
-            homepage.dispose();
-            return;
+        try {
+            homepage = new HomePageGUI();
+            if (!createUser(Username.getText(), new String(Password.getPassword()))) {
+                System.out.println("USER CREATION ERROR");
+                homepage.dispose();
+                return;
+            }
+            if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+                handleConnectionError();
+                homepage.dispose();
+                return;
+            }
+            homepage.setVisible(true);
         }
-        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
-            System.out.println("CONNECTION ERROR");
-            homepage.dispose();
-            return;
-        }
-        homepage.setVisible(true);
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
+        catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
+        catch (InstantiationException ex2) {handleInstantiationException(ex2);}
+        catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
@@ -72,21 +84,34 @@ public class LoginGUI extends JFrame {
             tempconn.close();
             return true;
         }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }
-        catch (ClassNotFoundException ex1) {
-            System.out.println("ClassNotFoundException: " + ex1.getMessage());
-        }
-        catch (InstantiationException ex2) {
-            System.out.println("InstantiationException: " + ex2.getMessage());
-        }
-        catch (IllegalAccessException ex3) {
-            System.out.println("IllegalAccessException: " + ex3.getMessage());
-        }
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
+        catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
+        catch (InstantiationException ex2) {handleInstantiationException(ex2);}
+        catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
         return false;
+    }
+
+    private void handleSQLException(SQLException e) {
+        JOptionPane.showConfirmDialog(this,
+                "SQLException: " + e.getMessage() +
+                "\nSQLState: " + e.getSQLState() +
+                "\nVendorError: " + e.getErrorCode());
+    }
+
+    private void handleClassNotFoundException(ClassNotFoundException e) {
+        JOptionPane.showConfirmDialog(this,"ClassNotFoundException: " + e.getMessage());
+    }
+
+    private void handleInstantiationException(InstantiationException e) {
+        JOptionPane.showConfirmDialog(this,"InstantiationException: "+ e.getMessage());
+    }
+
+    private void handleIllegalAccessException(IllegalAccessException e) {
+        JOptionPane.showConfirmDialog(this,"IllegalAccessException: "+e.getMessage());
+    }
+
+    private void handleConnectionError() {
+        JOptionPane.showConfirmDialog(this,"CONNECTION ERROR");
     }
 
     private void initComponents() {

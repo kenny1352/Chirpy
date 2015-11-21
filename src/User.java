@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +24,7 @@ public class User {
     //at the beginning of each login, all the user arrays will be populated with messages stored in database
     //this ALL to be handled with SQL Queries!  Please ignore.
 
-    public void downloadPosted (Connection conn){
+    public void downloadPosted (Connection conn) {
         //search database for all messages with this user as author
         postedChirps.clear();
         try {
@@ -44,16 +45,12 @@ public class User {
                 postedChirps.add(newMessage);
             }
         }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
-        }
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
         //convert the message to String
         //add this String to postedChirps
     }
 
-    public void downloadNews (Connection conn){
+    public void downloadNews (Connection conn) {
         //search database for all messages to which this user is subscribed
         //convert the message to String
         //add this String to newsfeed
@@ -78,15 +75,12 @@ public class User {
                     newsfeed.add(newMessage);
                 }
             }
-        }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
+        } catch (SQLException SQLex) {
+            handleSQLException(SQLex);
         }
     }
 
-    public void downloadreceivedChirps(Connection conn){
+    public void downloadreceivedChirps(Connection conn) {
         //search database for all messages for which this user is a recipient
         //convert the message to String
         //add this String to newsfeed
@@ -108,11 +102,8 @@ public class User {
                 Message newMessage = new Message(author, text, username, hashtags, time, publicSetting);
                 receivedChirps.add(newMessage);
             }
-        }
-        catch (SQLException SQLex) {
-            System.out.println("SQLException: " + SQLex.getMessage());
-            System.out.println("SQLState: " + SQLex.getSQLState());
-            System.out.println("VendorError: " + SQLex.getErrorCode());
+        } catch (SQLException SQLex) {
+            handleSQLException(SQLex);
         }
     }
 
@@ -156,6 +147,10 @@ public class User {
             foundTopicsString += newsfeed.get(i).toString();
         }
         return foundTopicsString;
+    }
+
+    private void handleSQLException(SQLException e) {
+        JOptionPane.showConfirmDialog(null, "SQLException: " + e.getMessage() + "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
     private String username;    //stored in database
