@@ -142,9 +142,11 @@ public class User {
     public String searchNews(String topic){
         String foundTopicsString = "";
         String hashtagString = "#"+topic+" ";
+        String hashtagString2 = "#"+topic+"/n";
         for(int i=newsfeed.size()-1; i>-1; i--){
-            if(newsfeed.get(i).getContent().contains(hashtagString))
-            foundTopicsString += newsfeed.get(i).toString();
+            if(newsfeed.get(i).getContent().contains(hashtagString) || newsfeed.get(i).getContent().contains(hashtagString2)) {
+                foundTopicsString += newsfeed.get(i).toString();
+            }
         }
         return foundTopicsString;
     }

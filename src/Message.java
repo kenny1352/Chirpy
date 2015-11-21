@@ -9,7 +9,7 @@ public class Message {
 
     public Message (String tempA, String tempC, String tempR, String tempH, Date tempT, Boolean tempP) {
         author = tempA;
-        content = tempC;
+        content = tempC+" ";
         recipient = tempR;
         timestamp = tempT;
         publicSetting = tempP;
@@ -34,8 +34,8 @@ public class Message {
         publicSetting = tempP;
 
         //pull hashtags from content
-        hashtag = new ArrayList<>();
-        findHashtags();
+        //hashtag = new ArrayList<>();
+        //findHashtags();
 
         //pull a single recipient from content
         findRecipient();
@@ -50,7 +50,7 @@ public class Message {
     }
 
     //BROKEN
-    private void findHashtags() {
+    /*private void findHashtags() {
         //pull hashtags from content
         //boolean reading=false;String topicstring="";for(int i=0; i<content.length(); i++) {if (reading) {//log this character into memory topicstring=topicstring+content.charAt(i);}if (content.charAt(i)=='#') {topicstring="";reading=true;}if (content.charAt(i)==' ') {reading=false;hashtag.add(topicstring);}}
         if (content.contains("#")) {
@@ -63,8 +63,10 @@ public class Message {
         } else {
             hashtag.add("");
         }
-
-    }
+        for(int i=0; i<hashtag.size(); i++){
+            System.out.println(hashtag.get(i));
+        }
+    }*/
 
     // NOT BROKEN
     private void findRecipient(){
