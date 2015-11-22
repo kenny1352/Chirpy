@@ -51,32 +51,32 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Makes and displays an EditBioGUI object.
+     * @param e user clicks on bioButton.
      */
     private void bioButtonActionPerformed(ActionEvent e) {
         new EditBioGUI(user, conn);
     }
 
     /**
-     *
-     * @param e
+     * Updates user's Newsfeed and refreshes GUI to display updated Newsfeed.
+     * @param e user clicks on newsfeedButton.
      */
     private void newsfeedButtonActionPerformed(ActionEvent e) {
         updateNewsfeed();
     }
 
     /**
-     *
-     * @param e
+     * Makes and opens a NewChirpWindow object.
+     * @param e user clicks on newChirpButton.
      */
     private void newChirpButtonActionPerformed(ActionEvent e) {
         new NewChirpWindow(user, conn);
     }
 
     /**
-     *
-     * @param e
+     * Updates GUI to display all Chirps authored by the user from most to least recent Chirp.
+     * @param e user clicks on postedChirpsButton.
      */
     private void postedChirpsButtonActionPerformed(ActionEvent e) {
         headerText.setText(user.getUsername() + "'s Posted Chirps");
@@ -87,8 +87,8 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Updates GUI to display all Chirps that have tagged the user as a recipient using the '@' in the content.
+     * @param e user clicks on receivedChirpsButton.
      */
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
         headerText.setText(user.getUsername() + "'s Received Chirps");
@@ -99,8 +99,8 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * In a new ViewProfile object, displays any profile whose username matches the String found in TextField1.
+     * @param e user clicks on searchProfilesButton.
      */
     private void searchProfilesButtonActionPerformed(ActionEvent e) {
         try {
@@ -115,8 +115,8 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Updates GUI to display all Chirps that have been tagged using a # with the String found in TextField1.
+     * @param e user clicks searchTopicsButton.
      */
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
         String searchTopic = textField1.getText();
@@ -128,8 +128,8 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * GUI updates to display a list of the profiles that the user has subscribed to.
+     * @param e user clicks viewSubscriptionsButton.
      */
     private void viewSubscriptionsActionPerformed(ActionEvent e) {
         headerText.setText(user.getUsername()+"'s Subscriptions");
@@ -139,16 +139,16 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * GUI window closes.
+     * @param e user clicks logoutButton.
      */
     private void logoutButtonActionPerformed(ActionEvent e) {
         dispose();
     }
 
     /**
-     *
-     * @param e
+     * Displays popup window with error message.
+     * @param e the SQLException thrown.
      */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
@@ -156,31 +156,31 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Displays popup window with error message.
+     * @param e the ClassNotFoundException thrown.
      */
     private void handleClassNotFoundException(ClassNotFoundException e) {
         JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
     }
 
     /**
-     *
-     * @param e
+     * Displays popup window with error message.
+     * @param e the InstantiationException thrown.
      */
     private void handleInstantiationException(InstantiationException e) {
         JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
     }
 
     /**
-     *
-     * @param e
+     * Displays popup window with error message.
+     * @param e the IllegalAccessException thrown.
      */
     private void handleIllegalAccessException(IllegalAccessException e) {
         JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
     }
 
     /**
-     *
+     * Makes the GUI.
      */
     private void initComponents() {
         headerText = new JLabel();

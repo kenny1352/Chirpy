@@ -8,14 +8,16 @@ import javax.swing.border.*;
 
 /**
  * @author Catherine Merz, Kenny Campbell, Hannah Morgan
+ * @summary This class is GUI for displaying the information about a certain user such as username, bio, messages, and
+ * allows a user to subscribe to the person's profile
  */
 public class ViewProfile extends JFrame {
 
     /**
-     *
-     * @param user
-     * @param profileSearched
-     * @param connection
+     * Creates a new ViewProfile object.
+     * @param user the user that generated the search.
+     * @param profileSearched the user being searched for.
+     * @param connection the connection currently being used by the user.
      */
     public ViewProfile(User user, User profileSearched, Connection connection) {
         initComponents();
@@ -33,8 +35,20 @@ public class ViewProfile extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Updates the list of Chirps authored by the profileSearched user.
+     */
+    private void updateViewChirps() {
+        label1.setText(profileSearched.getUsername() + "'s Chirps");
+        user.downloadNews(conn);
+        profileSearched.setPostedChirps(user);
+        textArea1.setText(profileSearched.getPostedChirps());
+        textArea1.setSelectionStart(0);
+        textArea1.setSelectionEnd(0);
+    }
+
+    /**
+     * Updates GUI to display the Chirps authored by the profileSearched from most to least recent.
+     * @param e user clicks viewChirpButton.
      */
     private void viewChirpsActionPerformed(ActionEvent e) {
         label1.setText(profileSearched.getUsername() + "'s Chirps");
@@ -42,8 +56,8 @@ public class ViewProfile extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * GUI displays the searched profile's Bio.
+     * @param e user click's viewBioButton.
      */
     private void viewBioButtonActionPerformed(ActionEvent e) {
         label1.setText(profileSearched.getUsername() + "'s Bio");
@@ -53,8 +67,8 @@ public class ViewProfile extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * The username associated with the profileSearched is added to or removed from the user's SubscribedTo array.
+     * @param e user clicks the subscribeButton.
      */
     private void subscribeButtonActionPerformed(ActionEvent e) {
         if (subscribeButton.getText().equals("Unsubscribe")){
@@ -85,20 +99,8 @@ public class ViewProfile extends JFrame {
     }
 
     /**
-     *
-     */
-    private void updateViewChirps() {
-        label1.setText(profileSearched.getUsername() + "'s Chirps");
-        user.downloadNews(conn);
-        profileSearched.setPostedChirps(user);
-        textArea1.setText(profileSearched.getPostedChirps());
-        textArea1.setSelectionStart(0);
-        textArea1.setSelectionEnd(0);
-    }
-
-    /**
-     *
-     * @param e
+     * Displays popup window with error message.
+     * @param e the SQLException thrown.
      */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
@@ -106,7 +108,7 @@ public class ViewProfile extends JFrame {
     }
 
     /**
-     *
+     * Makes the GUI.
      */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
