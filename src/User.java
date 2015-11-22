@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Kenny on 11/5/2015.
+ * @author Kenny Campbell, Catherine Merz, Hannah Morgan
  */
 public class User {
 

@@ -4,21 +4,23 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
-/*
- * Created by JFormDesigner on Sun Nov 15 18:47:33 EST 2015
- */
-
 
 
 /**
- * @author Catherine Merz
+ * @author Catherine Merz, Kenny Campbell, Hannah Morgan
  */
 public class ViewProfile extends JFrame {
+
+    /**
+     *
+     * @param user
+     * @param profileSearched
+     * @param connection
+     */
     public ViewProfile(User user, User profileSearched, Connection connection) {
         initComponents();
         this.user=user;
         this.profileSearched = profileSearched;
-        profileSearched.setPostedChirps(user);
         if (user.getUsername().equals("Guest")) {
             subscribeButton.setEnabled(false);
         }
@@ -30,11 +32,19 @@ public class ViewProfile extends JFrame {
         updateViewChirps();
     }
 
+    /**
+     *
+     * @param e
+     */
     private void viewChirpsActionPerformed(ActionEvent e) {
         label1.setText(profileSearched.getUsername() + "'s Chirps");
         updateViewChirps();
     }
 
+    /**
+     *
+     * @param e
+     */
     private void viewBioButtonActionPerformed(ActionEvent e) {
         label1.setText(profileSearched.getUsername() + "'s Bio");
         textArea1.setText(profileSearched.getBio());
@@ -42,6 +52,10 @@ public class ViewProfile extends JFrame {
         textArea1.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void subscribeButtonActionPerformed(ActionEvent e) {
         if (subscribeButton.getText().equals("Unsubscribe")){
             user.unsubscribe(profileSearched.getUsername());
@@ -70,6 +84,9 @@ public class ViewProfile extends JFrame {
         }
     }
 
+    /**
+     *
+     */
     private void updateViewChirps() {
         label1.setText(profileSearched.getUsername() + "'s Chirps");
         user.downloadNews(conn);
@@ -79,11 +96,18 @@ public class ViewProfile extends JFrame {
         textArea1.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
                 "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
+    /**
+     *
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
@@ -117,14 +141,6 @@ public class ViewProfile extends JFrame {
         //======== panel1 ========
         {
             panel1.setBackground(new Color(102, 255, 204));
-
-            // JFormDesigner evaluation mark
-            //panel1.setBorder(new javax.swing.border.CompoundBorder(
-                //new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                    //"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                    //javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                    //java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
-
             panel1.setLayout(new BorderLayout());
 
             //======== buttonBar ========
@@ -171,11 +187,8 @@ public class ViewProfile extends JFrame {
         contentPane.add(panel1, BorderLayout.CENTER);
         pack();
         setLocationRelativeTo(getOwner());
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JLabel label1;
     private JPanel panel1;
     private JPanel buttonBar;
@@ -184,8 +197,6 @@ public class ViewProfile extends JFrame {
     private JButton subscribeButton;
     private JScrollPane scrollPane1;
     private JTextArea textArea1;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
-
     private User user;
     private User profileSearched;
     private Connection conn;

@@ -6,7 +6,7 @@ import javax.swing.border.*;
 
 
 /**
- * @author Catherine Merz
+ * @author Catherine Merz, Kenny Campbell, Hannah Morgan
  */
 public class HomePageGUI extends JFrame {
 

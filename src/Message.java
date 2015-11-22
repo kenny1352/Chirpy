@@ -2,11 +2,20 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Kenny on 11/5/2015.
+ * @author Kenny Campbell, Catherine Merz, Hannah Morgan
  */
 public class Message {
 
 
+    /**
+     *
+     * @param tempA
+     * @param tempC
+     * @param tempR
+     * @param tempH
+     * @param tempT
+     * @param tempP
+     */
     public Message (String tempA, String tempC, String tempR, String tempH, Date tempT, Boolean tempP) {
         author = tempA;
         content = tempC+" ";
@@ -41,6 +50,10 @@ public class Message {
         findRecipient();
     }
 
+    /**
+     *
+     * @return
+     */
     public String toString(){
         String chirpstring = author;
         if(publicSetting==true){
@@ -53,7 +66,9 @@ public class Message {
         return chirpstring;
     }
 
-
+    /**
+     *
+     */
     private void findHashtags() {
         //pull hashtags from content
         if (content.contains("#")) {
@@ -68,7 +83,9 @@ public class Message {
         }
     }
 
-
+    /**
+     *
+     */
     private void findRecipient(){
         if(content.contains("@")) {
             recipient = content.split("@")[1].split(" ")[0];
@@ -77,22 +94,42 @@ public class Message {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAuthor() {
         return author;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRecipient() {
         return recipient;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getContent() {
         return content;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getTimestamp() {
         return timestamp;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPublicSetting() {
         if (publicSetting) {
             return 1;
@@ -102,6 +139,10 @@ public class Message {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getHashtag() {
         String tags = "";
         for (int i = 0; i < hashtag.size(); i++) {
