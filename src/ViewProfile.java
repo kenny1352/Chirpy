@@ -18,6 +18,7 @@ public class ViewProfile extends JFrame {
         initComponents();
         this.user=user;
         this.profileSearched = profileSearched;
+        profileSearched.setPostedChirps(user);
         if (guestUser) {
             //buttonBar.setVisible(false);
             subscribeButton.setVisible(false);
@@ -49,6 +50,7 @@ public class ViewProfile extends JFrame {
                 Statement statement = conn.createStatement();
                 statement.executeUpdate("DELETE FROM " + user.getUsername() + "_subscribe WHERE users LIKE '" +
                         profileSearched.getUsername() + "'");
+                subscribeButton.setText("Subscribe");
             }
             catch (SQLException SQLex) {
                 handleSQLException(SQLex);
@@ -61,6 +63,7 @@ public class ViewProfile extends JFrame {
                 PreparedStatement statement = conn.prepareStatement(sql);
                 statement.setString(1, profileSearched.getUsername());
                 statement.execute();
+                subscribeButton.setText("Unsubscribe");
             }
             catch (SQLException SQLex) {
                 handleSQLException(SQLex);
@@ -70,7 +73,8 @@ public class ViewProfile extends JFrame {
 
     private void updateViewChirps() {
         label1.setText(profileSearched.getUsername() + "'s Chirps");
-        profileSearched.downloadPosted(conn);
+        user.downloadNews(conn);
+        profileSearched.setPostedChirps(user);
         textArea1.setText(profileSearched.getPostedChirps());
         textArea1.setSelectionStart(0);
         textArea1.setSelectionEnd(0);

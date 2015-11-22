@@ -23,7 +23,7 @@ public class HomePageGUI extends JFrame {
             conn = null;
             conn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", username, password);
             System.out.println("Database Connected");
-            user = new User(username);
+            user = new User(username, conn);
             return true;
         }
         catch (SQLException SQLex) {handleSQLException(SQLex);}

@@ -1,8 +1,5 @@
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,10 +16,37 @@ public class User {
         receivedChirps = new ArrayList<Message>();
     }
 
+    public User (String tempU, Connection conn) {
+        username = tempU;
+        subscribedTo = new ArrayList<String>();
+        postedChirps = new ArrayList<Message>();
+        newsfeed = new ArrayList<Message>();
+        receivedChirps = new ArrayList<Message>();
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM " + username + "_subscribe");
+
+            while (resultSet.next()) {
+                subscribedTo.add(resultSet.getString("users"));
+            }
+        } catch (SQLException SQLex) {
+            handleSQLException(SQLex);
+        }
+    }
+
     public void setBio(String bioString){ bio = bioString; }
 
     //at the beginning of each login, all the user arrays will be populated with messages stored in database
     //this ALL to be handled with SQL Queries!  Please ignore.
+
+    public void setPostedChirps (User temp) {
+        postedChirps.clear();
+        for (int i = 0; i < temp.newsfeed.size(); i++) {
+            if (temp.newsfeed.get(i).getAuthor().equals(username)) {
+                postedChirps.add(temp.newsfeed.get(i));
+            }
+        }
+    }
 
     public void downloadPosted (Connection conn) {
         //search database for all messages with this user as author
