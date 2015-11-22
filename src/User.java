@@ -154,7 +154,7 @@ public class User {
         for (int i = 0; i < subscribedTo.size(); i++) {
             subscripString = subscripString + subscribedTo.get(i)+"\n";
         }
-        System.out.println(subscribedTo.toString());
+        //System.out.println(subscribedTo.toString());
         return subscripString;
     }
 
