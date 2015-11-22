@@ -12,10 +12,10 @@ import javax.swing.border.*;
 public class ViewProfile extends JFrame {
 
     /**
-     *
-     * @param user
-     * @param profileSearched
-     * @param connection
+     * Creates a new ViewProfile object.
+     * @param user the user that generated the search.
+     * @param profileSearched the user being searched for.
+     * @param connection the connection currently being used by the user.
      */
     public ViewProfile(User user, User profileSearched, Connection connection) {
         initComponents();
@@ -30,6 +30,18 @@ public class ViewProfile extends JFrame {
         //draw user info about posted messages from database
         conn = connection;
         updateViewChirps();
+    }
+
+    /**
+     * Updates the list of Chirps authored by the profileSearched user.
+     */
+    private void updateViewChirps() {
+        label1.setText(profileSearched.getUsername() + "'s Chirps");
+        user.downloadNews(conn);
+        profileSearched.setPostedChirps(user);
+        textArea1.setText(profileSearched.getPostedChirps());
+        textArea1.setSelectionStart(0);
+        textArea1.setSelectionEnd(0);
     }
 
     /**
@@ -82,18 +94,6 @@ public class ViewProfile extends JFrame {
                 handleSQLException(SQLex);
             }
         }
-    }
-
-    /**
-     *
-     */
-    private void updateViewChirps() {
-        label1.setText(profileSearched.getUsername() + "'s Chirps");
-        user.downloadNews(conn);
-        profileSearched.setPostedChirps(user);
-        textArea1.setText(profileSearched.getPostedChirps());
-        textArea1.setSelectionStart(0);
-        textArea1.setSelectionEnd(0);
     }
 
     /**
