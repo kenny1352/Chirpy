@@ -11,9 +11,9 @@ import javax.swing.border.*;
 public class EditBioGUI extends JFrame {
 
     /**
-     *
-     * @param user
-     * @param connection
+     * Creates an instance of the EditBioGUI object, automatically displaying the user bio as loaded from the database.
+     * @param user the user currently logged into the program
+     * @param connection the connection made with the database
      */
     public EditBioGUI(User user, Connection connection) {
         this.user=user;
@@ -23,7 +23,7 @@ public class EditBioGUI extends JFrame {
     }
 
     /**
-     *
+     * Loads user bio information from the database and displays the info in the EditBioGUI text field.
      */
     private void displayBio() {
         try {
@@ -45,8 +45,8 @@ public class EditBioGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Uploads the new user bio to the database, and handles errors if any.
+     * @param e user ActionEvent in which user selects Save
      */
     private void saveActionPerformed(ActionEvent e) {
         user.setBio(textPane1.getText());
@@ -61,15 +61,15 @@ public class EditBioGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Ignores any bio changes made in the EditBioGUI and closes the window.
+     * @param e user ActionEvent in which user selects Cancel
      */
     private void cancelActionPerformed(ActionEvent e) {
         dispose();
     }
 
     /**
-     *
+     * Initializes all GUI components and produces the EditBioGUI window.
      */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
