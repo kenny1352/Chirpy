@@ -15,8 +15,9 @@ public class LoginGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Loads the homepage GUI with default settings if appropriate login information is passed,
+     * and handles the error if not.
+     * @param e user ActionEvent in which Login button was clicked
      */
     private void LoginActionPerformed(ActionEvent e) {
         if (Username.getText().equals("")) {
@@ -34,8 +35,9 @@ public class LoginGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Creates new user and loads the default homepage GUI after connecting with database,
+     * and handles the error if user already exists.
+     * @param e user ActionEvent in which Register button was clicked
      */
     private void RegisterActionPerformed(ActionEvent e) {
         if (Username.getText().equals("")) {
@@ -57,8 +59,8 @@ public class LoginGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Loads the guest homepage GUI, which displays the current newsfeed.
+     * @param e user ActionEvent in which Guest Login button was clicked
      */
     private void GuestLoginActionPerformed(ActionEvent e) {
         guestHomepage = new GuestHomeGUI();
@@ -67,10 +69,10 @@ public class LoginGUI extends JFrame {
     }
 
     /**
-     *
-     * @param username
-     * @param password
-     * @return
+     * Establishes connection with server and creates new user in database.
+     * @param username String name of the user based on user input
+     * @param password String password of the user based on user input
+     * @return boolean indicating a successful creation of user
      */
     public boolean createUser(String username, String password) {
         try {
@@ -101,8 +103,8 @@ public class LoginGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Displays dialog box describing SQL Exception if it occurs.
+     * @param e action event in the case of an SQL Execption
      */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
@@ -110,38 +112,38 @@ public class LoginGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Handles class not found exception and displays details in dialog box.
+     * @param e action event in the case of a ClassNotFoundException
      */
     private void handleClassNotFoundException(ClassNotFoundException e) {
         JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
     }
 
     /**
-     *
-     * @param e
+     * Handles instantiation exception and displays details in dialog box.
+     * @param e action event in the case of an InstantiationException
      */
     private void handleInstantiationException(InstantiationException e) {
         JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
     }
 
     /**
-     *
-     * @param e
+     * Handles illegal access exception and displays details in dialog box.
+     * @param e action event in the case of an IllegalAccessException
      */
     private void handleIllegalAccessException(IllegalAccessException e) {
         JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
     }
 
     /**
-     *
+     * Handles error in making a database connection and displays details in dialog box.
      */
     private void handleConnectionError() {
         JOptionPane.showMessageDialog(this, "CONNECTION ERROR");
     }
 
-    /**'
-     *
+    /**
+     * Initializes all data members that produce the Login GUI.
      */
     private void initComponents() {
         panel1 = new JPanel();
