@@ -8,6 +8,8 @@ import javax.swing.border.*;
 
 /**
  * @author Catherine Merz, Kenny Campbell, Hannah Morgan
+ * @summary This class is GUI for displaying the information about a certain user such as username, bio, messages, and
+ * allows a user to subscribe to the person's profile
  */
 public class ViewProfile extends JFrame {
 
