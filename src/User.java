@@ -9,8 +9,8 @@ import java.util.Date;
 public class User {
 
     /**
-     *
-     * @param tempU
+     * Constructor for when subscribe list does not matter
+     * @param tempU The username
      */
     public User (String tempU) {
         username = tempU;
@@ -21,9 +21,9 @@ public class User {
     }
 
     /**
-     *
-     * @param tempU
-     * @param conn
+     * Constructor for when having a subscribe list does matter
+     * @param tempU The username
+     * @param conn A connection to connect to database and get subscriptions
      */
     public User (String tempU, Connection conn) {
         username = tempU;
@@ -44,8 +44,8 @@ public class User {
     }
 
     /**
-     *
-     * @param bioString
+     * Method to change the bio of the user
+     * @param bioString New bio
      */
     public void setBio(String bioString){ bio = bioString; }
 
@@ -53,8 +53,8 @@ public class User {
     //this ALL to be handled with SQL Queries!  Please ignore.
 
     /**
-     *
-     * @param temp
+     * Method to get messages user posted that other user can see
+     * @param temp other user
      */
     public void setPostedChirps (User temp) {
         postedChirps.clear();
@@ -66,8 +66,8 @@ public class User {
     }
 
     /**
-     *
-     * @param conn
+     * SQL Query to download all Posted messages
+     * @param conn Connection to connect to database
      */
     public void downloadPosted (Connection conn) {
         //search database for all messages with this user as author
@@ -96,8 +96,8 @@ public class User {
     }
 
     /**
-     *
-     * @param conn
+     * SQL query for download user's newsfeed
+     * @param conn Connection to connect to database
      */
     public void downloadNews (Connection conn) {
         //search database for all messages to which this user is subscribed
@@ -130,8 +130,8 @@ public class User {
     }
 
     /**
-     *
-     * @param conn
+     * SQL query for getting messages user was tagged in
+     * @param conn Connection to connect to database
      */
     public void downloadreceivedChirps(Connection conn) {
         //search database for all messages for which this user is a recipient
@@ -161,60 +161,59 @@ public class User {
     }
 
     /**
-     *
-     * @return
+     * Returns the username
+     * @return username
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     *
-     * @return
+     * Returns the bio of the user
+     * @return bio
      */
     public String getBio() { return bio; }
 
     /**
-     *
-     * @return
+     * Returns the newsfeed as a String
+     * @return String version of newsfeed
      */
     public String getNewsfeed() {
         return displayChirps(newsfeed);
     }
 
     /**
-     *
-     * @return
+     * Returns the posted chirps as a String
+     * @return String version of posted chirps
      */
     public String getPostedChirps() {
         return displayChirps(postedChirps);
     }
 
     /**
-     *
-     * @return
+     * Returns the received chirps as a String
+     * @return String version of received chirps
      */
-    public String getRecievedChirps() {
+    public String getReceivedChirps() {
         return displayChirps(receivedChirps);
     }
 
     /**
-     *
-     * @return
+     * Returns the subscriptions as a string
+     * @return String version of subscriptions
      */
     public String getSubscriptions() {
         String subscripString = "";
         for (int i = 0; i < subscribedTo.size(); i++) {
             subscripString = subscripString + subscribedTo.get(i)+"\n";
         }
-        //System.out.println(subscribedTo.toString());
         return subscripString;
     }
 
     /**
-     *
-     * @param list
-     * @return
+     * Converts list of messages into String
+     * @param list list to be converted to String
+     * @return String version of list
      */
     private String displayChirps(ArrayList<Message> list) {
         String printString = "";
@@ -227,28 +226,28 @@ public class User {
     }
 
     /**
-     *
-     * @param newUsername
+     * Adds a new subscription
+     * @param newUsername new subscription
      */
     public void newSubscrip(String newUsername) { subscribedTo.add(newUsername); }
 
     /**
-     *
-     * @param xUsername
+     * Deletes subscription
+     * @param xUsername subscription to be deleted
      */
     public void unsubscribe(String xUsername) { subscribedTo.remove(xUsername); }
 
     /**
-     *
-     * @param aUsername
-     * @return
+     * Sees if user is subscribed to certain user
+     * @param aUsername other user
+     * @return True/False depending if user is subscribed to other user
      */
     public boolean isSubscribedTo(String aUsername) { return subscribedTo.contains(aUsername); }
 
     /**
-     *
-     * @param topic
-     * @return
+     * Searches newsfeed for certain hashtags
+     * @param topic hashtag user is looking for
+     * @return String version of all messages with that topic
      */
     public String searchNews(String topic){
         String foundTopicsString = "";
@@ -263,8 +262,8 @@ public class User {
     }
 
     /**
-     *
-     * @param e
+     * Method for displaying SQL error message
+     * @param e information about SQL error
      */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(null, "SQLException: " + e.getMessage() + "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
