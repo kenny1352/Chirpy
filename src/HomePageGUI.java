@@ -139,7 +139,6 @@ public class HomePageGUI extends JFrame {
         setMinimumSize(new Dimension(670, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBackground(new Color(102, 255, 204));
-        setVisible(true);
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 

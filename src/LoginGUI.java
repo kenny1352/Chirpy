@@ -20,41 +20,29 @@ public class LoginGUI extends JFrame {
     }
 
     private void LoginActionPerformed(ActionEvent e) {
-        try {
-            homepage = new HomePageGUI();
-            if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
-                handleConnectionError();
-                homepage.dispose();
-                return;
-            }
-            homepage.updateNewsfeed();
-            homepage.setVisible(true);
+        homepage = new HomePageGUI();
+        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+            handleConnectionError();
+            homepage.dispose();
+            return;
         }
-        catch (SQLException SQLex) {handleSQLException(SQLex);}
-        catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
-        catch (InstantiationException ex2) {handleInstantiationException(ex2);}
-        catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
+        homepage.updateNewsfeed();
+        homepage.setVisible(true);
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
-        try {
-            homepage = new HomePageGUI();
-            if (!createUser(Username.getText(), new String(Password.getPassword()))) {
-                System.out.println("USER CREATION ERROR");
-                homepage.dispose();
-                return;
-            }
-            if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
-                handleConnectionError();
-                homepage.dispose();
-                return;
-            }
-            homepage.setVisible(true);
+        if (!createUser(Username.getText(), new String(Password.getPassword()))) {
+            JOptionPane.showMessageDialog(this,"USER CREATION ERROR");
+            //homepage.dispose();
+            return;
         }
-        catch (SQLException SQLex) {handleSQLException(SQLex);}
-        catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
-        catch (InstantiationException ex2) {handleInstantiationException(ex2);}
-        catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
+        homepage = new HomePageGUI();
+        if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
+            handleConnectionError();
+            homepage.dispose();
+            return;
+        }
+        homepage.setVisible(true);
     }
 
     private void GuestLoginActionPerformed(ActionEvent e) {
@@ -109,7 +97,7 @@ public class LoginGUI extends JFrame {
     }
 
     private void handleConnectionError() {
-        JOptionPane.showMessageDialog(this,"CONNECTION ERROR");
+        JOptionPane.showMessageDialog(this, "CONNECTION ERROR");
     }
 
     private void initComponents() {
