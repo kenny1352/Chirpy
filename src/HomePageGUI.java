@@ -93,7 +93,7 @@ public class HomePageGUI extends JFrame {
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
         headerText.setText(user.getUsername() + "'s Received Chirps");
         user.downloadreceivedChirps(conn);
-        displayField.setText(user.getRecievedChirps());
+        displayField.setText(user.getReceivedChirps());
         displayField.setSelectionStart(0);
         displayField.setSelectionEnd(0);
     }
