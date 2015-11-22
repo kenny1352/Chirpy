@@ -10,13 +10,13 @@ public class Message {
 
 
     /**
-     *
-     * @param tempA
-     * @param tempC
-     * @param tempR
-     * @param tempH
-     * @param tempT
-     * @param tempP
+     * Creates an instance of the Message class.
+     * @param tempA String for the author's username
+     * @param tempC String for the Chirp content
+     * @param tempR String for the recipient's username, if any
+     * @param tempH String of hashtags
+     * @param tempT Date referring to the time of posting
+     * @param tempP Boolean indicating the publicSetting: true for public, false for subscribers only
      */
     public Message (String tempA, String tempC, String tempR, String tempH, Date tempT, Boolean tempP) {
         author = tempA;
@@ -53,8 +53,8 @@ public class Message {
     }
 
     /**
-     *
-     * @return
+     * Takes information from a Message and produces a String of important details.
+     * @return String containing Message details
      */
     public String toString(){
         String chirpstring = author;
@@ -69,10 +69,9 @@ public class Message {
     }
 
     /**
-     *
+     * Searches Message content for hashtags and adds to an array.
      */
     private void findHashtags() {
-        //pull hashtags from content
         if (content.contains("#")) {
             String[] contentArray = content.split(" ");
             for (int i = 0; i < contentArray.length; i++) {
@@ -86,7 +85,7 @@ public class Message {
     }
 
     /**
-     *
+     * Searches Message content for recipient username indicated by '@', and stores in data member recipient.
      */
     private void findRecipient(){
         if(content.contains("@")) {
@@ -97,40 +96,40 @@ public class Message {
     }
 
     /**
-     *
-     * @return
+     * Returns the author of the Message.
+     * @return String for the username of author
      */
     public String getAuthor() {
         return author;
     }
 
     /**
-     *
-     * @return
+     * Returns the recipient of the Message.
+     * @return String for the recipient username
      */
     public String getRecipient() {
         return recipient;
     }
 
     /**
-     *
-     * @return
+     * Returns the full content of the Message.
+     * @return String of the Message content
      */
     public String getContent() {
         return content;
     }
 
     /**
-     *
-     * @return
+     * Returns the timestamp of the Message.
+     * @return Date of the Message posting time
      */
     public Date getTimestamp() {
         return timestamp;
     }
 
     /**
-     *
-     * @return
+     * Returns the public visibility setting of the Message.
+     * @return int indicating public if 1 and subscribers only if 0
      */
     public int getPublicSetting() {
         if (publicSetting) {
@@ -142,8 +141,8 @@ public class Message {
     }
 
     /**
-     *
-     * @return
+     * Returns a string of all hashtags contained in the hashtag ArrayList.
+     * @return String listing hashtags separated by a space
      */
     public String getHashtag() {
         String tags = "";

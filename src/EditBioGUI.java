@@ -12,7 +12,7 @@ import javax.swing.border.*;
 public class EditBioGUI extends JFrame {
 
     /**
-     * Creates an instance of the EditBioGUI object, automatically displaying the user bio as loaded from the database.
+     * Creates an instance of the EditBioGUI class, automatically displaying the user bio as loaded from the database.
      * @param user the user currently logged into the program
      * @param connection the connection made with the database
      */
