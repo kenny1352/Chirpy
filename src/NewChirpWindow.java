@@ -11,9 +11,9 @@ import javax.swing.plaf.*;
 public class NewChirpWindow extends JFrame {
 
     /**
-     *
-     * @param author
-     * @param connection
+     * Constructor for creating a new chirp and establishing a connection to database
+     * @param author The author of the new chirp
+     * @param connection Connection to connect to database
      */
     public NewChirpWindow(User author, Connection connection) {
         initComponents();
@@ -25,16 +25,16 @@ public class NewChirpWindow extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Cancels the new chirp and closes window
+     * @param e Action the user performed
      */
     private void cancelButtonActionPerformed(ActionEvent e) {
         dispose();
     }
 
     /**
-     *
-     * @param e
+     * Finish creating the new chirp and sends it to database
+     * @param e Action the user performed
      */
     private void okButtonActionPerformed(ActionEvent e) {
         if(textPane1.getText().length()<=140) {
@@ -64,7 +64,7 @@ public class NewChirpWindow extends JFrame {
     }
 
     /**
-     *
+     * Initializes the new chirp window
      */
     private void initComponents() {
         dialogPane = new JPanel();
