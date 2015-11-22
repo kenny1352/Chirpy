@@ -3,16 +3,15 @@ import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.*;
-/*
- * Created by JFormDesigner on Sun Nov 15 17:29:33 EST 2015
- */
-
-
 
 /**
- * @author Catherine Merz
+ * @author Kenny Campbell, Catherine Merz, Hannah
  */
 public class GuestHomeGUI extends JFrame {
+
+    /**
+     *
+     */
     public GuestHomeGUI() {
         initComponents();
         try {
@@ -28,10 +27,17 @@ public class GuestHomeGUI extends JFrame {
         catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
     }
 
+    /**
+     *
+     * @param e
+     */
     private void newsfeedButtonActionPerformed(ActionEvent e) {
         updateNewsfeed();
     }
 
+    /**
+     *
+     */
     public void updateNewsfeed() {
         title.setText("Guest Newsfeed");
         user.downloadNews(conn);
@@ -40,6 +46,10 @@ public class GuestHomeGUI extends JFrame {
         textArea1.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void profileSearchButtonActionPerformed(ActionEvent e) {
         try {
             Statement statement = conn.createStatement();
@@ -52,8 +62,11 @@ public class GuestHomeGUI extends JFrame {
         catch (SQLException SQLex) {handleSQLException(SQLex);}
     }
 
+    /**
+     *
+     * @param e
+     */
     private void topicSearchButtonActionPerformed(ActionEvent e) {
-        //new TopicSearchWindow(this);
         String searchTopic = textField1.getText();
         title.setText("Newsfeed Chirps containing #"+searchTopic);
         user.downloadNews(conn);
@@ -62,33 +75,52 @@ public class GuestHomeGUI extends JFrame {
         textArea1.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void logoutButtonActionPerformed(ActionEvent e) {
         dispose();
     }
 
-
-
+    /**
+     *
+     * @param e
+     */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
                 "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleClassNotFoundException(ClassNotFoundException e) {
         JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleInstantiationException(InstantiationException e) {
         JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleIllegalAccessException(IllegalAccessException e) {
         JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
     }
 
 
+    /**
+     *
+     */
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Catherine Merz
         title = new JLabel();
         panel4 = new JPanel();
         panel2 = new JPanel();
@@ -124,13 +156,6 @@ public class GuestHomeGUI extends JFrame {
         //======== panel4 ========
         {
             panel4.setBackground(new Color(102, 255, 204));
-
-            // JFormDesigner evaluation mark
-            panel4.setBorder(new javax.swing.border.CompoundBorder(
-                new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                    "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                    javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                    java.awt.Color.red), panel4.getBorder())); panel4.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
             panel4.setLayout(new BorderLayout());
 
@@ -202,11 +227,8 @@ public class GuestHomeGUI extends JFrame {
         }
         contentPane.add(panel4, BorderLayout.CENTER);
         setLocationRelativeTo(getOwner());
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JLabel title;
     private JPanel panel4;
     private JPanel panel2;
@@ -219,7 +241,6 @@ public class GuestHomeGUI extends JFrame {
     private JButton topicSearchButton;
     private JScrollPane scrollPane1;
     private JTextArea textArea1;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
     private Connection conn;
     private User user;
 }

@@ -3,20 +3,26 @@ import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.*;
-/*
- * Created by JFormDesigner on Thu Nov 12 19:37:36 EST 2015
- */
-
 
 
 /**
  * @author Catherine Merz
  */
 public class HomePageGUI extends JFrame {
+
+    /**
+     *
+     */
     public HomePageGUI() {
         initComponents();
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     public boolean createConnection(String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -33,14 +39,25 @@ public class HomePageGUI extends JFrame {
         return false;
     }
 
+    /**
+     *
+     * @param e
+     */
     private void bioButtonActionPerformed(ActionEvent e) {
         EditBioGUI editBioGUI = new EditBioGUI(user, conn);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void newsfeedButtonActionPerformed(ActionEvent e) {
         updateNewsfeed();
     }
 
+    /**
+     *
+     */
     public void updateNewsfeed() {
         headerText.setText(user.getUsername() + "'s Newsfeed");
         user.downloadNews(conn);
@@ -49,10 +66,18 @@ public class HomePageGUI extends JFrame {
         displayField.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void newChirpButtonActionPerformed(ActionEvent e) {
         new NewChirpWindow(user, conn);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void postedChirpsButtonActionPerformed(ActionEvent e) {
         headerText.setText(user.getUsername() + "'s Posted Chirps");
         user.downloadPosted(conn);
@@ -61,6 +86,10 @@ public class HomePageGUI extends JFrame {
         displayField.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void receivedChirpsButtonActionPerformed(ActionEvent e) {
         headerText.setText(user.getUsername() + "'s Received Chirps");
         user.downloadreceivedChirps(conn);
@@ -69,6 +98,10 @@ public class HomePageGUI extends JFrame {
         displayField.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void searchProfilesButtonActionPerformed(ActionEvent e) {
         try {
             Statement statement = conn.createStatement();
@@ -81,6 +114,10 @@ public class HomePageGUI extends JFrame {
         catch (SQLException SQLex) {handleSQLException(SQLex);}
     }
 
+    /**
+     *
+     * @param e
+     */
     private void searchTopicsButtonActionPerformed(ActionEvent e) {
         String searchTopic = textField1.getText();
         headerText.setText("Newsfeed Chirps containing #"+searchTopic);
@@ -90,6 +127,10 @@ public class HomePageGUI extends JFrame {
         displayField.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void viewSubscriptionsActionPerformed(ActionEvent e) {
         // TODO add your code here
         headerText.setText(user.getUsername()+"'s Subscriptions");
@@ -98,32 +139,51 @@ public class HomePageGUI extends JFrame {
         displayField.setSelectionEnd(0);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void logoutButtonActionPerformed(ActionEvent e) {
         dispose();
     }
 
-
+    /**
+     *
+     * @param e
+     */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
                 "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleClassNotFoundException(ClassNotFoundException e) {
         JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleInstantiationException(InstantiationException e) {
         JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleIllegalAccessException(IllegalAccessException e) {
         JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
     }
 
-
+    /**
+     *
+     */
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Catherine Merz
         headerText = new JLabel();
         splitPane1 = new JPanel();
         panel1 = new JPanel();
@@ -162,13 +222,6 @@ public class HomePageGUI extends JFrame {
         //======== splitPane1 ========
         {
             splitPane1.setBackground(new Color(102, 255, 204));
-
-            // JFormDesigner evaluation mark
-            splitPane1.setBorder(new javax.swing.border.CompoundBorder(
-                new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                    "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                    javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                    java.awt.Color.red), splitPane1.getBorder())); splitPane1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
             splitPane1.setLayout(new BorderLayout());
 
@@ -295,11 +348,8 @@ public class HomePageGUI extends JFrame {
         contentPane.add(splitPane1, BorderLayout.CENTER);
         pack();
         setLocationRelativeTo(getOwner());
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JLabel headerText;
     private JPanel splitPane1;
     private JPanel panel1;
@@ -317,8 +367,6 @@ public class HomePageGUI extends JFrame {
     private JButton searchTopicsButton;
     private JScrollPane scrollPane1;
     private JTextArea displayField;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
-
     private User user;
     private Connection conn;
 }

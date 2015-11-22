@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class User {
 
+    /**
+     *
+     * @param tempU
+     */
     public User (String tempU) {
         username = tempU;
         subscribedTo = new ArrayList<String>();
@@ -16,6 +20,11 @@ public class User {
         receivedChirps = new ArrayList<Message>();
     }
 
+    /**
+     *
+     * @param tempU
+     * @param conn
+     */
     public User (String tempU, Connection conn) {
         username = tempU;
         subscribedTo = new ArrayList<String>();
@@ -34,11 +43,19 @@ public class User {
         }
     }
 
+    /**
+     *
+     * @param bioString
+     */
     public void setBio(String bioString){ bio = bioString; }
 
     //at the beginning of each login, all the user arrays will be populated with messages stored in database
     //this ALL to be handled with SQL Queries!  Please ignore.
 
+    /**
+     *
+     * @param temp
+     */
     public void setPostedChirps (User temp) {
         postedChirps.clear();
         for (int i = 0; i < temp.newsfeed.size(); i++) {
@@ -48,6 +65,10 @@ public class User {
         }
     }
 
+    /**
+     *
+     * @param conn
+     */
     public void downloadPosted (Connection conn) {
         //search database for all messages with this user as author
         postedChirps.clear();
@@ -74,6 +95,10 @@ public class User {
         //add this String to postedChirps
     }
 
+    /**
+     *
+     * @param conn
+     */
     public void downloadNews (Connection conn) {
         //search database for all messages to which this user is subscribed
         //convert the message to String
@@ -104,6 +129,10 @@ public class User {
         }
     }
 
+    /**
+     *
+     * @param conn
+     */
     public void downloadreceivedChirps(Connection conn) {
         //search database for all messages for which this user is a recipient
         //convert the message to String
@@ -131,24 +160,48 @@ public class User {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getBio() { return bio; }
 
+    /**
+     *
+     * @return
+     */
     public String getNewsfeed() {
         return displayChirps(newsfeed);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPostedChirps() {
         return displayChirps(postedChirps);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRecievedChirps() {
         return displayChirps(receivedChirps);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSubscriptions() {
         String subscripString = "";
         for (int i = 0; i < subscribedTo.size(); i++) {
@@ -158,6 +211,11 @@ public class User {
         return subscripString;
     }
 
+    /**
+     *
+     * @param list
+     * @return
+     */
     private String displayChirps(ArrayList<Message> list) {
         String printString = "";
         if (list.size()>0) {
@@ -168,10 +226,30 @@ public class User {
         return printString;
     }
 
+    /**
+     *
+     * @param newUsername
+     */
     public void newSubscrip(String newUsername) { subscribedTo.add(newUsername); }
+
+    /**
+     *
+     * @param xUsername
+     */
     public void unsubscribe(String xUsername) { subscribedTo.remove(xUsername); }
+
+    /**
+     *
+     * @param aUsername
+     * @return
+     */
     public boolean isSubscribedTo(String aUsername) { return subscribedTo.contains(aUsername); }
 
+    /**
+     *
+     * @param topic
+     * @return
+     */
     public String searchNews(String topic){
         String foundTopicsString = "";
         String hashtagString = "#"+topic+" ";
@@ -184,6 +262,10 @@ public class User {
         return foundTopicsString;
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(null, "SQLException: " + e.getMessage() + "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }

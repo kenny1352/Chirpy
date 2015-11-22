@@ -4,14 +4,9 @@ import java.sql.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
-/*
- * Created by JFormDesigner on Wed Nov 04 19:43:27 EST 2015
- */
-
-
 
 /**
- * @author James Campbell
+ * @author Kenny Campbell, Catherine Merz, Hannah
  */
 public class LoginGUI extends JFrame {
     public LoginGUI(){
@@ -19,6 +14,10 @@ public class LoginGUI extends JFrame {
         setVisible(true);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void LoginActionPerformed(ActionEvent e) {
         if (Username.getText().equals("")) {
             JOptionPane.showMessageDialog(this,"Must enter a username to login.");
@@ -34,6 +33,10 @@ public class LoginGUI extends JFrame {
         homepage.setVisible(true);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void RegisterActionPerformed(ActionEvent e) {
         if (Username.getText().equals("")) {
             JOptionPane.showMessageDialog(this,"Must enter a username to register.");
@@ -53,12 +56,22 @@ public class LoginGUI extends JFrame {
         homepage.setVisible(true);
     }
 
+    /**
+     *
+     * @param e
+     */
     private void GuestLoginActionPerformed(ActionEvent e) {
         guestHomepage = new GuestHomeGUI();
         guestHomepage.updateNewsfeed();
         guestHomepage.setVisible(true);
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     public boolean createUser(String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -87,30 +100,50 @@ public class LoginGUI extends JFrame {
         return false;
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
                 "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleClassNotFoundException(ClassNotFoundException e) {
         JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleInstantiationException(InstantiationException e) {
         JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
     }
 
+    /**
+     *
+     * @param e
+     */
     private void handleIllegalAccessException(IllegalAccessException e) {
         JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
     }
 
+    /**
+     *
+     */
     private void handleConnectionError() {
         JOptionPane.showMessageDialog(this, "CONNECTION ERROR");
     }
 
+    /**'
+     *
+     */
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - James Campbell
         panel1 = new JPanel();
         Username = new JTextField();
         Password = new JPasswordField();
@@ -133,14 +166,6 @@ public class LoginGUI extends JFrame {
             //======== panel1 ========
             {
                 panel1.setBackground(new Color(204, 255, 255));
-
-                // JFormDesigner evaluation mark
-                panel1.setBorder(new javax.swing.border.CompoundBorder(
-                    new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                        "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                        javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                        java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
-
 
                 //---- Username ----
                 Username.setBackground(Color.white);
@@ -240,11 +265,8 @@ public class LoginGUI extends JFrame {
             pack();
             setLocationRelativeTo(getOwner());
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - James Campbell
     private GuestHomeGUI guestHomepage;
     private HomePageGUI homepage;
     private JPanel panel1;
@@ -256,5 +278,4 @@ public class LoginGUI extends JFrame {
     private JButton GuestLogin;
     private JLabel UsernameTitle;
     private JLabel PasswordTitle;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
