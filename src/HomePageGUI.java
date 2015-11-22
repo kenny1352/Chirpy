@@ -6,22 +6,22 @@ import javax.swing.border.*;
 
 
 /**
- * @author Catherine Merz
+ * @author Catherine Merz, Kenny Campbell, Hannah Morgan
  */
 public class HomePageGUI extends JFrame {
 
     /**
-     *
+     * Creates a new HomePageGUI object.
      */
     public HomePageGUI() {
         initComponents();
     }
 
     /**
-     *
-     * @param username
-     * @param password
-     * @return
+     * Establishes a connection with the server.
+     * @param username the username associated with the profile to be opened.
+     * @param password the password associated with the profile to be opened.
+     * @return a Boolean describing whether a connection was successfully established.
      */
     public boolean createConnection(String username, String password) {
         try {
@@ -40,11 +40,22 @@ public class HomePageGUI extends JFrame {
     }
 
     /**
+     * Downloads the user's Newsfeed Chirps and updates the GUI to display them.
+     */
+    public void updateNewsfeed() {
+        headerText.setText(user.getUsername() + "'s Newsfeed");
+        user.downloadNews(conn);
+        displayField.setText(user.getNewsfeed());
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
+    }
+
+    /**
      *
      * @param e
      */
     private void bioButtonActionPerformed(ActionEvent e) {
-        EditBioGUI editBioGUI = new EditBioGUI(user, conn);
+        new EditBioGUI(user, conn);
     }
 
     /**
@@ -53,17 +64,6 @@ public class HomePageGUI extends JFrame {
      */
     private void newsfeedButtonActionPerformed(ActionEvent e) {
         updateNewsfeed();
-    }
-
-    /**
-     *
-     */
-    public void updateNewsfeed() {
-        headerText.setText(user.getUsername() + "'s Newsfeed");
-        user.downloadNews(conn);
-        displayField.setText(user.getNewsfeed());
-        displayField.setSelectionStart(0);
-        displayField.setSelectionEnd(0);
     }
 
     /**
@@ -132,7 +132,6 @@ public class HomePageGUI extends JFrame {
      * @param e
      */
     private void viewSubscriptionsActionPerformed(ActionEvent e) {
-        // TODO add your code here
         headerText.setText(user.getUsername()+"'s Subscriptions");
         displayField.setText(user.getSubscriptions());
         displayField.setSelectionStart(0);

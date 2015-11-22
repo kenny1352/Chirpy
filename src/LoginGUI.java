@@ -6,7 +6,7 @@ import javax.swing.GroupLayout;
 import javax.swing.border.*;
 
 /**
- * @author Kenny Campbell, Catherine Merz, Hannah
+ * @author Kenny Campbell, Catherine Merz, Hannah Morgan
  */
 public class LoginGUI extends JFrame {
     public LoginGUI(){
