@@ -30,8 +30,16 @@ public class ViewProfile extends JFrame {
         updateViewChirps();
     }
 
+    private void viewChirpsActionPerformed(ActionEvent e) {
+        label1.setText(profileSearched.getUsername() + "'s Chirps");
+        updateViewChirps();
+    }
+
     private void viewBioButtonActionPerformed(ActionEvent e) {
+        label1.setText(profileSearched.getUsername() + "'s Bio");
         textArea1.setText(profileSearched.getBio());
+        textArea1.setSelectionStart(0);
+        textArea1.setSelectionEnd(0);
     }
 
     private void subscribeButtonActionPerformed(ActionEvent e) {
@@ -39,7 +47,8 @@ public class ViewProfile extends JFrame {
             user.unsubscribe(profileSearched.getUsername());
             try {
                 Statement statement = conn.createStatement();
-                statement.executeUpdate("DELETE FROM " + user.getUsername() + "_subscribe WHERE users LIKE '" + profileSearched.getUsername() + "'");
+                statement.executeUpdate("DELETE FROM " + user.getUsername() + "_subscribe WHERE users LIKE '" +
+                        profileSearched.getUsername() + "'");
             }
             catch (SQLException SQLex) {
                 handleSQLException(SQLex);
@@ -59,19 +68,17 @@ public class ViewProfile extends JFrame {
         }
     }
 
-    private void handleSQLException(SQLException e) {
-        JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
-                "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
-    }
-
-    private void viewChirpsActionPerformed(ActionEvent e) {
-        updateViewChirps();
-    }
-
     private void updateViewChirps() {
         label1.setText(profileSearched.getUsername() + "'s Chirps");
         profileSearched.downloadPosted(conn);
         textArea1.setText(profileSearched.getPostedChirps());
+        textArea1.setSelectionStart(0);
+        textArea1.setSelectionEnd(0);
+    }
+
+    private void handleSQLException(SQLException e) {
+        JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
+                "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
     private void initComponents() {
@@ -101,6 +108,7 @@ public class ViewProfile extends JFrame {
         label1.setOpaque(true);
         label1.setPreferredSize(new Dimension(106, 50));
         label1.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        label1.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.add(label1, BorderLayout.NORTH);
 
         //======== panel1 ========
@@ -145,6 +153,8 @@ public class ViewProfile extends JFrame {
 
             //======== scrollPane1 ========
             {
+                scrollPane1.setBackground(new Color(102, 255, 204));
+                scrollPane1.setBorder(new EmptyBorder(5, 5, 5, 5));
 
                 //---- textArea1 ----
                 textArea1.setFont(new Font("Monospaced", Font.PLAIN, 14));

@@ -11,14 +11,18 @@ new FormModel {
 			"defaultCloseOperation": 2
 			"maximizedBounds": new java.awt.Rectangle( 0, 0, 200000, 200000 )
 			"minimumSize": new java.awt.Dimension( 200, 80 )
+			"background": new java.awt.Color( 102, 255, 204, 255 )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
+				"border": &EmptyBorder0 new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
+				"background": new java.awt.Color( 102, 255, 204, 255 )
 				add( new FormComponent( "javax.swing.JTextPane" ) {
 					name: "textPane1"
 					"text": "Write new bio here..."
 					"font": new java.awt.Font( "Serif", 0, 16 )
 					"preferredSize": new java.awt.Dimension( 400, 100 )
 					"minimumSize": new java.awt.Dimension( 200, 80 )
+					"border": new javax.swing.border.EtchedBorder( 1, null, null )
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
@@ -28,7 +32,7 @@ new FormModel {
 			} ) {
 				name: "panel1"
 				"background": new java.awt.Color( 102, 255, 204, 255 )
-				"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
+				"border": #EmptyBorder0
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button1"
 					"text": "Save"

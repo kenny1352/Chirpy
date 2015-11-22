@@ -71,17 +71,21 @@ public class EditBioGUI extends JFrame {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setMaximizedBounds(new Rectangle(0, 0, 200000, 200000));
         setMinimumSize(new Dimension(200, 80));
+        setBackground(new Color(102, 255, 204));
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setBorder(new EmptyBorder(5, 5, 5, 5));
+            scrollPane1.setBackground(new Color(102, 255, 204));
 
             //---- textPane1 ----
             textPane1.setText("Write new bio here...");
             textPane1.setFont(new Font("Serif", Font.PLAIN, 16));
             textPane1.setPreferredSize(new Dimension(400, 100));
             textPane1.setMinimumSize(new Dimension(200, 80));
+            textPane1.setBorder(new EtchedBorder());
             scrollPane1.setViewportView(textPane1);
         }
         contentPane.add(scrollPane1, BorderLayout.CENTER);

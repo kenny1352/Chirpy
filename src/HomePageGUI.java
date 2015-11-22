@@ -34,7 +34,6 @@ public class HomePageGUI extends JFrame {
     }
 
     private void bioButtonActionPerformed(ActionEvent e) {
-        headerText.setText(user.getUsername() + "'s Bio");
         EditBioGUI editBioGUI = new EditBioGUI(user, conn);
     }
 
@@ -266,6 +265,8 @@ public class HomePageGUI extends JFrame {
 
             //======== scrollPane1 ========
             {
+                scrollPane1.setBackground(new Color(102, 255, 204));
+                scrollPane1.setBorder(new EmptyBorder(5, 5, 5, 5));
 
                 //---- displayField ----
                 displayField.setEditable(false);

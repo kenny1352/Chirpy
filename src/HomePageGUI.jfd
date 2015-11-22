@@ -131,6 +131,8 @@ new FormModel {
 				} )
 				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 					name: "scrollPane1"
+					"background": new java.awt.Color( 102, 255, 204, 255 )
+					"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
 					add( new FormComponent( "javax.swing.JTextArea" ) {
 						name: "displayField"
 						"editable": false
