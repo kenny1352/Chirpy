@@ -140,7 +140,7 @@ public class LoginGUI extends JFrame {
         JOptionPane.showMessageDialog(this, "CONNECTION ERROR");
     }
 
-    /**'
+    /**
      *
      */
     private void initComponents() {
