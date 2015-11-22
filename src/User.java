@@ -5,6 +5,8 @@ import java.util.Date;
 
 /**
  * @author Kenny Campbell, Catherine Merz, Hannah Morgan
+ * @summary This class stores the data associated with a user such as username, newsfeed, posted chirps, received chirps,
+ * bio, and subscriptions as well as SQL queries to get updated information from the Chirpy database
  */
 public class User {
 

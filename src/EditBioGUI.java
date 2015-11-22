@@ -7,6 +7,7 @@ import javax.swing.border.*;
 
 /**
  * @author Hannah Morgan, Kenny Campbell, Catherine Merz
+ * @summary This class is a GUI for editing the bio of the user
  */
 public class EditBioGUI extends JFrame {
 

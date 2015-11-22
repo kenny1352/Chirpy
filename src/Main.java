@@ -2,6 +2,7 @@ import java.lang.*;
 
 /**
  * @author Kenny Campbell, Catherine Merz, Hannah Morgan
+ * @summary This is the main class that starts the Chirpy application
  */
 public class Main {
 

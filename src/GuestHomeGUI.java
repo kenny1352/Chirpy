@@ -6,6 +6,7 @@ import javax.swing.border.*;
 
 /**
  * @author Kenny Campbell, Catherine Merz, Hannah Morgan
+ * @summary This is the guest user's main GUI for looking at the public newsfeed, and searching for profiles and topics.
  */
 public class GuestHomeGUI extends JFrame {
 

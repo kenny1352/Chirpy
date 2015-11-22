@@ -7,6 +7,7 @@ import javax.swing.plaf.*;
 
 /**
  * @author Catherine Merz, Kenny Campbell, Hannah Morgan
+ * @summary This class is a GUI for the creation of short messages that are sent to the Chirpy database
  */
 public class NewChirpWindow extends JFrame {
 

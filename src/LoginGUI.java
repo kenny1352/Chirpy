@@ -7,6 +7,8 @@ import javax.swing.border.*;
 
 /**
  * @author Kenny Campbell, Catherine Merz, Hannah Morgan
+ * @summary This class is a GUI for creating a connection to the SQL database and creating a homepage object depending
+ * on type of user
  */
 public class LoginGUI extends JFrame {
     public LoginGUI(){

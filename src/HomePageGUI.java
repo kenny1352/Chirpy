@@ -7,6 +7,8 @@ import javax.swing.border.*;
 
 /**
  * @author Catherine Merz, Kenny Campbell, Hannah Morgan
+ * @summary This class is the main GUI for login users so they can see their newsfeed, posted chirps, received chirps,
+ * search profiles, search topics, etc.. It is also calls NewChirpWindow GUI, EditBioGUI, etc. when necessary
  */
 public class HomePageGUI extends JFrame {
 

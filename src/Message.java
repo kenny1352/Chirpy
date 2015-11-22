@@ -3,6 +3,8 @@ import java.util.Date;
 
 /**
  * @author Kenny Campbell, Catherine Merz, Hannah Morgan
+ * @summary This class stores the data associated with a message such as the author, content, recipient, timestamp, public settings,
+ * and hashtags
  */
 public class Message {
 
