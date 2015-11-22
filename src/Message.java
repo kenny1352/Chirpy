@@ -43,8 +43,12 @@ public class Message {
 
     public String toString(){
         String chirpstring = author;
-        //if (!recipient.equals(" ")) {chirpstring = chirpstring + " @" + recipient.getUsername();}
-        chirpstring = chirpstring + " posted on " + timestamp + ":\n" + content + "\n\n";
+        if(publicSetting==true){
+            chirpstring = chirpstring + " posted on " + timestamp + ":\n" + content + "\n\n";
+        }
+        else{
+            chirpstring = chirpstring + " privately posted on " + timestamp + ":\n" + content + "\n\n";
+        }
 
         return chirpstring;
     }
