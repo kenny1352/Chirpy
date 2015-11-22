@@ -3,8 +3,7 @@ import java.awt.event.*;
 import java.sql.*;
 import java.sql.Connection;
 import javax.swing.*;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
+import javax.swing.border.*;
 /*
  * Created by JFormDesigner on Sun Nov 15 18:10:58 EST 2015
  */
@@ -17,9 +16,28 @@ import com.jgoodies.forms.layout.*;
 public class EditBioGUI extends JFrame {
     public EditBioGUI(User user, Connection connection) {
         this.user=user;
-        thisuserbio=user.getBio();
         conn = connection;
         initComponents();
+        displayBio();
+    }
+
+    private void displayBio() {
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE username LIKE '" + user.getUsername() + "'");
+            resultSet.next();
+            user.setBio(resultSet.getString("bio"));
+            thisuserbio = user.getBio();
+            if (thisuserbio.equals("")) {
+                textPane1.setText("Write new Bio here...");
+            } else {
+                textPane1.setText(thisuserbio);
+            }
+        }
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
+                    "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
+        }
     }
 
     private void saveActionPerformed(ActionEvent e) {
@@ -60,7 +78,7 @@ public class EditBioGUI extends JFrame {
         {
 
             //---- textPane1 ----
-            textPane1.setText(thisuserbio);
+            textPane1.setText("Write new bio here...");
             textPane1.setFont(new Font("Serif", Font.PLAIN, 16));
             textPane1.setPreferredSize(new Dimension(400, 100));
             textPane1.setMinimumSize(new Dimension(200, 80));
@@ -70,6 +88,8 @@ public class EditBioGUI extends JFrame {
 
         //======== panel1 ========
         {
+            panel1.setBackground(new Color(102, 255, 204));
+            panel1.setBorder(new EmptyBorder(5, 5, 5, 5));
 
             // JFormDesigner evaluation mark
             panel1.setBorder(new javax.swing.border.CompoundBorder(
@@ -78,7 +98,7 @@ public class EditBioGUI extends JFrame {
                     javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
-            panel1.setLayout(new GridLayout());
+            panel1.setLayout(new GridLayout(1, 0, 10, 0));
 
             //---- button1 ----
             button1.setText("Save");

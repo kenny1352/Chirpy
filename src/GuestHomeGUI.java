@@ -1,8 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.*;
 /*
@@ -43,7 +41,15 @@ public class GuestHomeGUI extends JFrame {
     }
 
     private void profileSearchButtonActionPerformed(ActionEvent e) {
-        //new ProfileSearchWindow(this);
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE username LIKE '" + textField1.getText() + "'");
+            resultSet.next();
+            User searchUser = new User(resultSet.getString("username"));
+            searchUser.setBio(resultSet.getString("bio"));
+            new ViewProfile(user, searchUser, false, conn);
+        }
+        catch (SQLException SQLex) {handleSQLException(SQLex);}
     }
 
     private void topicSearchButtonActionPerformed(ActionEvent e) {

@@ -23,8 +23,12 @@ new FormModel {
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
 			} )
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) ) {
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+				"hgap": 10
+			} ) {
 				name: "panel1"
+				"background": new java.awt.Color( 102, 255, 204, 255 )
+				"border": new javax.swing.border.EmptyBorder( 5, 5, 5, 5 )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button1"
 					"text": "Save"
