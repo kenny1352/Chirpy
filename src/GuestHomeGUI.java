@@ -10,7 +10,7 @@ import javax.swing.border.*;
 public class GuestHomeGUI extends JFrame {
 
     /**
-     *
+     * Creates a GuestHomeGUI object
      */
     public GuestHomeGUI() {
         initComponents();
@@ -28,15 +28,15 @@ public class GuestHomeGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Displays the public newsfeed
+     * @param e Action user performed
      */
     private void newsfeedButtonActionPerformed(ActionEvent e) {
         updateNewsfeed();
     }
 
     /**
-     *
+     * Updates the Guests newsfeed
      */
     public void updateNewsfeed() {
         title.setText("Guest Newsfeed");
@@ -47,8 +47,8 @@ public class GuestHomeGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Searches for certain profile
+     * @param e Action user performed
      */
     private void profileSearchButtonActionPerformed(ActionEvent e) {
         try {
@@ -63,8 +63,8 @@ public class GuestHomeGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Searches for certain topic
+     * @param e Action user performed
      */
     private void topicSearchButtonActionPerformed(ActionEvent e) {
         String searchTopic = textField1.getText();
@@ -76,16 +76,16 @@ public class GuestHomeGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Logs the guest user out of chirpy
+     * @param e Action user performed
      */
     private void logoutButtonActionPerformed(ActionEvent e) {
         dispose();
     }
 
     /**
-     *
-     * @param e
+     * Method for handling SQL error messages
+     * @param e Action user performed
      */
     private void handleSQLException(SQLException e) {
         JOptionPane.showMessageDialog(this, "SQLException: " + e.getMessage() +
@@ -93,24 +93,24 @@ public class GuestHomeGUI extends JFrame {
     }
 
     /**
-     *
-     * @param e
+     * Handles the Class Not Found Exception
+     * @param e Action the user performed
      */
     private void handleClassNotFoundException(ClassNotFoundException e) {
         JOptionPane.showMessageDialog(this, "ClassNotFoundException: " + e.getMessage());
     }
 
     /**
-     *
-     * @param e
+     * Handles the Instantiation Exception
+     * @param e Action the user performed
      */
     private void handleInstantiationException(InstantiationException e) {
         JOptionPane.showMessageDialog(this, "InstantiationException: " + e.getMessage());
     }
 
     /**
-     *
-     * @param e
+     * Handles the Illegal Access Exception
+     * @param e Action the user performed
      */
     private void handleIllegalAccessException(IllegalAccessException e) {
         JOptionPane.showMessageDialog(this, "IllegalAccessException: " + e.getMessage());
@@ -118,7 +118,7 @@ public class GuestHomeGUI extends JFrame {
 
 
     /**
-     *
+     * Initializes the GuestHomeGUI
      */
     private void initComponents() {
         title = new JLabel();
