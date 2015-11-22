@@ -20,6 +20,10 @@ public class LoginGUI extends JFrame {
     }
 
     private void LoginActionPerformed(ActionEvent e) {
+        if (Username.getText().equals("")) {
+            JOptionPane.showMessageDialog(this,"Must enter a username to login.");
+            return;
+        }
         homepage = new HomePageGUI();
         if (!homepage.createConnection(Username.getText(), new String(Password.getPassword()))) {
             handleConnectionError();
@@ -31,6 +35,10 @@ public class LoginGUI extends JFrame {
     }
 
     private void RegisterActionPerformed(ActionEvent e) {
+        if (Username.getText().equals("")) {
+            JOptionPane.showMessageDialog(this,"Must enter a username to register.");
+            return;
+        }
         if (!createUser(Username.getText(), new String(Password.getPassword()))) {
             JOptionPane.showMessageDialog(this,"USER CREATION ERROR");
             //homepage.dispose();

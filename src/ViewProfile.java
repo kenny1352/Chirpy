@@ -18,7 +18,6 @@ public class ViewProfile extends JFrame {
         initComponents();
         this.user=user;
         this.profileSearched = profileSearched;
-        label1.setText(profileSearched.getUsername() + "'s Chirps");
         if (guestUser) {
             //buttonBar.setVisible(false);
             subscribeButton.setVisible(false);
@@ -28,8 +27,7 @@ public class ViewProfile extends JFrame {
         }
         //draw user info about posted messages from database
         conn = connection;
-        profileSearched.downloadPosted(conn);
-        textArea1.setText(profileSearched.getPostedChirps());
+        updateViewChirps();
     }
 
     private void viewBioButtonActionPerformed(ActionEvent e) {
@@ -66,12 +64,23 @@ public class ViewProfile extends JFrame {
                 "\nSQLState: " + e.getSQLState() + "\nVendorError: " + e.getErrorCode());
     }
 
+    private void viewChirpsActionPerformed(ActionEvent e) {
+        updateViewChirps();
+    }
+
+    private void updateViewChirps() {
+        label1.setText(profileSearched.getUsername() + "'s Chirps");
+        profileSearched.downloadPosted(conn);
+        textArea1.setText(profileSearched.getPostedChirps());
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
         label1 = new JLabel();
         panel1 = new JPanel();
         buttonBar = new JPanel();
+        button1 = new JButton();
         viewBioButton = new JButton();
         subscribeButton = new JButton();
         scrollPane1 = new JScrollPane();
@@ -112,7 +121,13 @@ public class ViewProfile extends JFrame {
                 buttonBar.setBackground(new Color(102, 255, 204));
                 buttonBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
                 buttonBar.setBorder(new EmptyBorder(5, 5, 5, 5));
-                buttonBar.setLayout(new GridLayout(1, 2, 10, 10));
+                buttonBar.setLayout(new GridLayout(1, 3, 10, 10));
+
+                //---- button1 ----
+                button1.setText("View Chirps");
+                button1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                button1.addActionListener(e -> viewChirpsActionPerformed(e));
+                buttonBar.add(button1);
 
                 //---- viewBioButton ----
                 viewBioButton.setText("View Bio");
@@ -151,6 +166,7 @@ public class ViewProfile extends JFrame {
     private JLabel label1;
     private JPanel panel1;
     private JPanel buttonBar;
+    private JButton button1;
     private JButton viewBioButton;
     private JButton subscribeButton;
     private JScrollPane scrollPane1;
