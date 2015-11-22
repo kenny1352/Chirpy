@@ -76,7 +76,7 @@ public class HomePageGUI extends JFrame {
             resultSet.next();
             User searchUser = new User(resultSet.getString("username"));
             searchUser.setBio(resultSet.getString("bio"));
-            new ViewProfile(user, searchUser, false, conn);
+            new ViewProfile(user, searchUser, conn);
         }
         catch (SQLException SQLex) {handleSQLException(SQLex);}
     }

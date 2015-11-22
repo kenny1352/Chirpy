@@ -14,13 +14,13 @@ import javax.swing.border.*;
  * @author Catherine Merz
  */
 public class ViewProfile extends JFrame {
-    public ViewProfile(User user, User profileSearched, Boolean guestUser, Connection connection) {
+    public ViewProfile(User user, User profileSearched, Connection connection) {
         initComponents();
         this.user=user;
         this.profileSearched = profileSearched;
         profileSearched.setPostedChirps(user);
-        if (guestUser) {
-            subscribeButton.setVisible(false);
+        if (user.getUsername().equals("Guest")) {
+            subscribeButton.setEnabled(false);
         }
         else if (user.isSubscribedTo(profileSearched.getUsername())){
             subscribeButton.setText("Unsubscribe");
