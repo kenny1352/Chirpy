@@ -4,16 +4,17 @@ import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.plaf.*;
-/*
- * Created by JFormDesigner on Sat Nov 14 15:13:42 EST 2015
- */
-
-
 
 /**
- * @author Catherine Merz
+ * @author Catherine Merz, Kenny Campbell, Hannah Morgan
  */
 public class NewChirpWindow extends JFrame {
+
+    /**
+     *
+     * @param author
+     * @param connection
+     */
     public NewChirpWindow(User author, Connection connection) {
         initComponents();
         ButtonGroup buttonGroup = new ButtonGroup();
@@ -23,10 +24,18 @@ public class NewChirpWindow extends JFrame {
         conn = connection;
     }
 
+    /**
+     *
+     * @param e
+     */
     private void cancelButtonActionPerformed(ActionEvent e) {
         dispose();
     }
 
+    /**
+     *
+     * @param e
+     */
     private void okButtonActionPerformed(ActionEvent e) {
         if(textPane1.getText().length()<=140) {
             Message chirp = new Message(authorUser.getUsername(), textPane1.getText(), radioButtonMenuItem1.isSelected());
@@ -54,6 +63,9 @@ public class NewChirpWindow extends JFrame {
         }
     }
 
+    /**
+     *
+     */
     private void initComponents() {
         dialogPane = new JPanel();
         contentPanel = new JPanel();

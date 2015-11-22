@@ -4,16 +4,17 @@ import java.sql.*;
 import java.sql.Connection;
 import javax.swing.*;
 import javax.swing.border.*;
-/*
- * Created by JFormDesigner on Sun Nov 15 18:10:58 EST 2015
- */
-
-
 
 /**
- * @author H Morgan
+ * @author Hannah Morgan, Kenny Campbell, Catherine Merz
  */
 public class EditBioGUI extends JFrame {
+
+    /**
+     *
+     * @param user
+     * @param connection
+     */
     public EditBioGUI(User user, Connection connection) {
         this.user=user;
         conn = connection;
@@ -21,6 +22,9 @@ public class EditBioGUI extends JFrame {
         displayBio();
     }
 
+    /**
+     *
+     */
     private void displayBio() {
         try {
             Statement statement = conn.createStatement();
@@ -40,6 +44,10 @@ public class EditBioGUI extends JFrame {
         }
     }
 
+    /**
+     *
+     * @param e
+     */
     private void saveActionPerformed(ActionEvent e) {
         user.setBio(textPane1.getText());
         try {
@@ -52,10 +60,17 @@ public class EditBioGUI extends JFrame {
         dispose();
     }
 
+    /**
+     *
+     * @param e
+     */
     private void cancelActionPerformed(ActionEvent e) {
         dispose();
     }
 
+    /**
+     *
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Catherine Merz
@@ -94,14 +109,6 @@ public class EditBioGUI extends JFrame {
         {
             panel1.setBackground(new Color(102, 255, 204));
             panel1.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-            // JFormDesigner evaluation mark
-            //panel1.setBorder(new javax.swing.border.CompoundBorder(
-                //new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                    //"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                    //javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                    //java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
-
             panel1.setLayout(new GridLayout(1, 0, 10, 0));
 
             //---- button1 ----
@@ -117,18 +124,13 @@ public class EditBioGUI extends JFrame {
         contentPane.add(panel1, BorderLayout.SOUTH);
         pack();
         setLocationRelativeTo(getOwner());
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Catherine Merz
     private JScrollPane scrollPane1;
     private JTextPane textPane1;
     private JPanel panel1;
     private JButton button1;
     private JButton button2;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
-
     private User user;
     private String thisuserbio;
     private Connection conn;
