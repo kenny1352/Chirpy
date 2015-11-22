@@ -6,8 +6,8 @@ import java.lang.*;
 public class Main {
 
     /**
-     *
-     * @param args
+     * Main program the starts the login GUI
+     * @param args String that is not used
      */
    public static void main(String[] args) {
        LoginGUI loginGUI = new LoginGUI();
