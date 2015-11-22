@@ -20,7 +20,6 @@ public class ViewProfile extends JFrame {
         this.profileSearched = profileSearched;
         profileSearched.setPostedChirps(user);
         if (guestUser) {
-            //buttonBar.setVisible(false);
             subscribeButton.setVisible(false);
         }
         else if (user.isSubscribedTo(profileSearched.getUsername())){

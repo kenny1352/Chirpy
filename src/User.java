@@ -149,6 +149,15 @@ public class User {
         return displayChirps(receivedChirps);
     }
 
+    public String getSubscriptions() {
+        String subscripString = "";
+        for (int i = 0; i < subscribedTo.size(); i++) {
+            subscripString = subscripString + subscribedTo.get(i)+"\n";
+        }
+        System.out.println(subscribedTo.toString());
+        return subscripString;
+    }
+
     private String displayChirps(ArrayList<Message> list) {
         String printString = "";
         if (list.size()>0) {

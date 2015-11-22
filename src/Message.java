@@ -49,10 +49,9 @@ public class Message {
         return chirpstring;
     }
 
-    //BROKEN
+
     private void findHashtags() {
         //pull hashtags from content
-        //boolean reading=false;String topicstring="";for(int i=0; i<content.length(); i++) {if (reading) {//log this character into memory topicstring=topicstring+content.charAt(i);}if (content.charAt(i)=='#') {topicstring="";reading=true;}if (content.charAt(i)==' ') {reading=false;hashtag.add(topicstring);}}
         if (content.contains("#")) {
             String[] contentArray = content.split(" ");
             for (int i = 0; i < contentArray.length; i++) {
@@ -63,26 +62,15 @@ public class Message {
         } else {
             hashtag.add("");
         }
-        //for(int i=0; i<hashtag.size(); i++){
-        //    System.out.println(hashtag.get(i));
-        //}
     }
 
-    // NOT BROKEN
+
     private void findRecipient(){
         if(content.contains("@")) {
             recipient = content.split("@")[1].split(" ")[0];
         } else{
             recipient = "";
         }
-    }
-
-    /*public boolean containsTopic(String topic){
-        return hashtag.contains(topic);
-    }*/
-
-    public boolean checkPublicSetting(){
-        return publicSetting;
     }
 
     public String getAuthor() {
@@ -126,5 +114,4 @@ public class Message {
     private String content;
     private Boolean publicSetting;
     private ArrayList<String> hashtag;
-    //private String IDcode;
 }

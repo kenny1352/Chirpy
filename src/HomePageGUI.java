@@ -90,6 +90,14 @@ public class HomePageGUI extends JFrame {
         displayField.setSelectionEnd(0);
     }
 
+    private void viewSubscriptionsActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        headerText.setText(user.getUsername()+"'s Subscriptions");
+        displayField.setText(user.getSubscriptions());
+        displayField.setSelectionStart(0);
+        displayField.setSelectionEnd(0);
+    }
+
     private void logoutButtonActionPerformed(ActionEvent e) {
         dispose();
     }
@@ -125,6 +133,7 @@ public class HomePageGUI extends JFrame {
         newChirpButton = new JButton();
         postedChirpsButton = new JButton();
         receivedChirpsButton = new JButton();
+        viewSubscriptionsButton = new JButton();
         logoutButton = new JButton();
         panel2 = new JPanel();
         textField1 = new JTextField();
@@ -220,6 +229,12 @@ public class HomePageGUI extends JFrame {
                     receivedChirpsButton.addActionListener(e -> receivedChirpsButtonActionPerformed(e));
                     menuPanel.add(receivedChirpsButton);
 
+                    //---- viewSubscriptionsButton ----
+                    viewSubscriptionsButton.setText("View Subscriptions");
+                    viewSubscriptionsButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                    viewSubscriptionsButton.addActionListener(e -> viewSubscriptionsActionPerformed(e));
+                    menuPanel.add(viewSubscriptionsButton);
+
                     //---- logoutButton ----
                     logoutButton.setText("Logout");
                     logoutButton.setPreferredSize(new Dimension(75, 40));
@@ -294,6 +309,7 @@ public class HomePageGUI extends JFrame {
     private JButton newChirpButton;
     private JButton postedChirpsButton;
     private JButton receivedChirpsButton;
+    private JButton viewSubscriptionsButton;
     private JButton logoutButton;
     private JPanel panel2;
     private JTextField textField1;
