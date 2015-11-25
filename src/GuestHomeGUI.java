@@ -15,17 +15,22 @@ public class GuestHomeGUI extends JFrame {
      */
     public GuestHomeGUI() {
         initComponents();
+    }
+
+    public Boolean createConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = null;
             conn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", "Guest", "Guest");
-            System.out.println("Database Connected");
+            //System.out.println("Database Connected");
             user = new User("Guest");
+            return true;
         }
         catch (SQLException SQLex) {handleSQLException(SQLex);}
         catch (ClassNotFoundException ex1) {handleClassNotFoundException(ex1);}
         catch (InstantiationException ex2) {handleInstantiationException(ex2);}
         catch (IllegalAccessException ex3) {handleIllegalAccessException(ex3);}
+        return false;
     }
 
     /**
@@ -137,7 +142,7 @@ public class GuestHomeGUI extends JFrame {
 
         //======== this ========
         setTitle("Chirpy");
-        setVisible(true);
+        setVisible(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         setMinimumSize(new Dimension(650, 600));

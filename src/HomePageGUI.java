@@ -30,7 +30,7 @@ public class HomePageGUI extends JFrame {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = null;
             conn = DriverManager.getConnection("jdbc:mysql://73.31.78.202:3306/chirpy", username, password);
-            System.out.println("Database Connected");
+            //System.out.println("Database Connected");
             user = new User(username, conn);
             return true;
         }
